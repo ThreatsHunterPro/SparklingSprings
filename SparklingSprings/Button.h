@@ -45,10 +45,17 @@ public:
 
 class Button : public Widget
 {
+	Widget* foreground;
 	function<void()> callback;
 	AllButtonData allData;
 	bool isSelected;
 	bool isHeld;
+
+public:
+	void SetForeground(Widget* _foreground)
+	{
+		foreground = _foreground;
+	}
 
 public:
 	Button(const ObjectData& _data, const AllButtonData& _buttonData = AllButtonData());
@@ -59,7 +66,4 @@ private:
 	void OnReleased();
 	void OnHovered();
 	void OnUnhovered();
-
-public:
-
 };

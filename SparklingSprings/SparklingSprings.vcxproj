@@ -140,11 +140,17 @@
     <ClCompile Include="Button.cpp" />
     <ClCompile Include="Canvas.cpp" />
     <ClCompile Include="Component.cpp" />
+    <ClCompile Include="Consumable.cpp" />
+    <ClCompile Include="Craft.cpp" />
+    <ClCompile Include="CraftBook.cpp" />
+    <ClCompile Include="Equipment.cpp" />
     <ClCompile Include="FontData.cpp" />
     <ClCompile Include="FontManager.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="HUD.cpp" />
     <ClCompile Include="InputManager.cpp" />
+    <ClCompile Include="Inventory.cpp" />
+    <ClCompile Include="Item.cpp" />
     <ClCompile Include="Macro.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="MovementComponent.cpp" />
@@ -152,6 +158,8 @@
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="PlayerMovementComponent.cpp" />
     <ClCompile Include="ProgressBar.cpp" />
+    <ClCompile Include="Skill.cpp" />
+    <ClCompile Include="SkillTree.cpp" />
     <ClCompile Include="TextureData.cpp" />
     <ClCompile Include="TextureManager.cpp" />
     <ClCompile Include="Tile.cpp" />
@@ -167,6 +175,10 @@
     <ClInclude Include="Button.h" />
     <ClInclude Include="Canvas.h" />
     <ClInclude Include="Component.h" />
+    <ClInclude Include="Consumable.h" />
+    <ClInclude Include="Craft.h" />
+    <ClInclude Include="CraftBook.h" />
+    <ClInclude Include="Equipment.h" />
     <ClInclude Include="FileLoader.h" />
     <ClInclude Include="FontData.h" />
     <ClInclude Include="FontManager.h" />
@@ -175,6 +187,8 @@
     <ClInclude Include="IManagable.h" />
     <ClInclude Include="IManager.h" />
     <ClInclude Include="InputManager.h" />
+    <ClInclude Include="Inventory.h" />
+    <ClInclude Include="Item.h" />
     <ClInclude Include="Macro.h" />
     <ClInclude Include="MovementComponent.h" />
     <ClInclude Include="Object.h" />
@@ -183,6 +197,8 @@
     <ClInclude Include="PlayerStats.h" />
     <ClInclude Include="ProgressBar.h" />
     <ClInclude Include="Singleton.h" />
+    <ClInclude Include="Skill.h" />
+    <ClInclude Include="SkillTree.h" />
     <ClInclude Include="TextureData.h" />
     <ClInclude Include="TextureManager.h" />
     <ClInclude Include="Tile.h" />

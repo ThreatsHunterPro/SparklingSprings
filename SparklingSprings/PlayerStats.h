@@ -45,11 +45,12 @@ struct Stat
 
 	void Upgrade()
 	{
+		updateTimer->Stop();
+
 		bar->ChangeMaxValue(maxValueUpgradeFactor);
 		valueFactor += valueFactor * valueFactorUpgradeFactor;
-
-		updateTimer->Stop();
 		rate += rate * rateUpgradeFactor;
+
 		updateTimer = StartUpdateTimer();
 	}
 };

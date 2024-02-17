@@ -2,6 +2,9 @@
 #include <string>
 #include "Actor.h"
 #include "PlayerStats.h"
+#include "Inventory.h"
+#include "CraftBook.h"
+#include "SkillTree.h"
 #include "PlayerMovementComponent.h"
 
 using namespace std;
@@ -9,6 +12,9 @@ using namespace std;
 class Player : public Actor
 {
 	PlayerStats* stats;
+	Inventory* inventory;
+	CraftBook* craftBook;
+	SkillTree* skillTree;
 	PlayerMovementComponent* movement;
 
 public:
@@ -17,6 +23,8 @@ public:
 private:
 	void SetupPlayerInput();
 	void InitHUD();
+	void InitStats();
+	void InitSkillTree();
 
 public:
 	void Init();
