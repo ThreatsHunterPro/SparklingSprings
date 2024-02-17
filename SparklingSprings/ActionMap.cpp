@@ -1,5 +1,6 @@
 #include "ActionMap.h"
 #include "InputManager.h"
+#include <iostream>
 
 ActionMap::ActionMap(const string& _name, const vector<ActionData>& _actionsData) : IManagable(_name)
 {

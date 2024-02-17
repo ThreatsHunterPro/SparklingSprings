@@ -38,6 +38,11 @@ public:
 		if (!shape) return Vector2f();
 		return shape->getPosition();
 	}
+	Vector2f GetShapeSize() const
+	{
+		if (!shape) return Vector2f();
+		return shape->getGlobalBounds().getSize();
+	}
 
 public:
 	Object(const ObjectData& _data);

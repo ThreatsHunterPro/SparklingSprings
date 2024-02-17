@@ -1,6 +1,9 @@
 #pragma once
 #include "Object.h"
 #include "Canvas.h"
+#include <iostream>
+
+using namespace std;
 
 class Widget : public Object
 {

@@ -9,7 +9,7 @@
 using namespace sf;
 using namespace std;
 
-class TimerManager : public Singleton<TimerManager>, public IManager<string, Timer>
+class TimerManager : public Singleton<TimerManager>, public IManager<int, Timer>
 {
 	// Clock pour avoir accès à toutes les données de temps
 	Clock clock;

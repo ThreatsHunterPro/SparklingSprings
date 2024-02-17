@@ -2,7 +2,7 @@
 #include "Component.h"
 #include <SFML/Graphics.hpp>
 #include <functional>
-
+#include <iostream>
 
 using namespace std;
 using namespace sf;
@@ -20,10 +20,10 @@ public:
 	{
 		canMove = _status;
 	}
-	void SetDestinationA(const Vector2f& _destination) {}
 	void SetDestination(const Vector2f& _destination, const bool _canMove = true)
 	{
 		destination = _destination;
+		cout << destination.x << " " << destination.y << endl;
 		canMove = _canMove;
 	}
 	void SetCallback(const function<void()>& _callback)

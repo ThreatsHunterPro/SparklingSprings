@@ -2,91 +2,118 @@
 #include "Action.h"
 #include "InputManager.h"
 #include "Canvas.h"
-#include "Button.h"
 #include "ProgressBar.h"
 #include "Timer.h"
 
 #pragma region Defines
 
-#define PATH_UNIT_ICON "UIs/UnitIcon.png"
-#define PATH_SPELL_ICON "UIs/Spells/Icon.png"
-#define PATH_SPELL_HAMMER_STRIKE "UIs/Spells/HammerStrike.png"
-#define PATH_BUTTONS "UIs/Buttons.png"
-
 #pragma region ProgressBar
 
-// Coins
-#define PATH_COINS_BAR_EMPTY "UIs/Bars/Coins/Empty.png"
-#define PATH_COINS_BAR_FULL "UIs/Bars/Coins/Full.png"
+#define PATH_HEALTH_BAR_EMPTY "UIs/Bars/Health/Empty.png"
+#define PATH_HEALTH_BAR_FULL "UIs/Bars/Health/Full.png"
 
-// Units
-#define PATH_UNITS_BAR_EMPTY "UIs/Bars/Units/Empty.png"
-#define PATH_UNITS_BAR_FULL "UIs/Bars/Units/Full.png"
+#define PATH_MANA_BAR_EMPTY "UIs/Bars/Mana/Empty.png"
+#define PATH_MANA_BAR_FULL "UIs/Bars/Mana/Full.png"
 
-// Castle
-#define PATH_CASTLE_BAR_EMPTY "UIs/Bars/Castle/Empty.png"
-#define PATH_CASTLE_BAR_FULL "UIs/Bars/Castle/Full.png"
+#define PATH_THIRST_BAR_EMPTY "UIs/Bars/Thirst/Empty.png"
+#define PATH_THIRST_BAR_FULL "UIs/Bars/Thirst/Full.png"
+
+#define PATH_HUNGER_BAR_EMPTY "UIs/Bars/Hunger/Empty.png"
+#define PATH_HUNGER_BAR_FULL "UIs/Bars/Hunger/Full.png"
 
 #pragma endregion
+
+#define PATH_ITEM "Wood.png"
 
 #pragma endregion
 
 Player::Player(const string& _name, const ObjectData& _data) : Actor(_name,_data)
 {
-	/*SetupPlayerInput();
-	InitHUD();*/
+	stats = nullptr;
+	inventory = new Inventory();
+	movement = new PlayerMovementComponent(this);
+	components.push_back(movement);
 }
 
 
 void Player::SetupPlayerInput()
 {
-	/*new Action(ActionData("MovePlayer", [&]() {
-		const Vector2f& _mousePosition = InputManager::GetInstance().GetMousePosition(); 
-		movement->SetDestination(_mousePosition);
-	}, { ActionType::MouseButtonPressed, Mouse::Left }), "PlayerInput");*/
+	new ActionMap("PlayerStats", {
+		ActionData("TakeDamages", [&]()
+		{
+			stats->TakeDamages(-30.0f);
+			stats->StopHealthRegen();
+		}, { ActionType::MouseButtonPressed, Mouse::Left }),
+		ActionData("UseMana", [&]() { stats->UseMana(-50.0f); }, { ActionType::MouseButtonPressed, Mouse::Right }),
+		ActionData("Drink", [&]() { stats->Drink(40.0f); }, { ActionType::KeyPressed, Keyboard::A }),
+		ActionData("Eat", [&]() { stats->Eat(30.0f); }, { ActionType::KeyPressed, Keyboard::E }),
+	});
+	new ActionMap("Deplacement", {
+		ActionData("P_Forward", [&]() { movement->SetDirectionY(-1.0f); }, InputData({ ActionType::KeyPressed, Keyboard::Z })),
+		ActionData("R_Forward", [&]() { movement->SetDirectionY(0.0f); }, InputData({ ActionType::KeyReleased, Keyboard::Z })),
+
+		ActionData("P_Backward", [&]() { movement->SetDirectionY(1.0f); }, InputData({ ActionType::KeyPressed, Keyboard::S })),
+		ActionData("R_Backward", [&]() { movement->SetDirectionY(0.0f); }, InputData({ ActionType::KeyReleased, Keyboard::S })),
+
+		ActionData("P_Left", [&]() { movement->SetDirectionX(-1.0f); }, InputData({ ActionType::KeyPressed, Keyboard::Q })),
+		ActionData("R_Left", [&]() { movement->SetDirectionX(0.0f); }, InputData({ ActionType::KeyReleased, Keyboard::Q })),
+
+		ActionData("P_Right", [&]() { movement->SetDirectionX(1.0f); }, InputData({ ActionType::KeyPressed, Keyboard::D })),
+		ActionData("R_Right", [&]() { movement->SetDirectionX(0.0f); }, InputData({ ActionType::KeyReleased, Keyboard::D })),
+	});
+	new ActionMap("Storages", {
+		ActionData("Inventory", [&]() { inventory->Toggle(); }, InputData({ ActionType::KeyPressed, Keyboard::B })),
+	});
+
+	new ActionMap("TEMP", {
+		ActionData("AddItem", [&]() { 
+			//inventory->AddItem(PATH_ITEM, ITEM_RESOURCE); 
+		}, InputData({ ActionType::KeyPressed, Keyboard::Space })),
+	});
 }
 
 void Player::InitHUD()
 {
-	Canvas* _canvas = new Canvas("PlayerHUD", FloatRect(0, 0, 1, 1));
+	InitStats();
+	InitSkillTree();
+}
 
-	float _sizeX = 100.0f;
-	float _sizeY = 100.0f;
-	float _posX = 10.0f;
-	float _posY = 10.0f;
+void Player::InitStats()
+{
+	Canvas* _canvas = new Canvas("PlayerStats", FloatRect(0, 0, 1, 1));
 
-	/*Button* _pauseButton = new Button(ObjectData(Vector2f(_posX, _posY), Vector2f(_sizeX, _sizeY), PATH_BUTTONS, IntRect(0, 148, 140, 148)));
-	_canvas->AddWidget(_pauseButton);
+	float _sizeX = 200.0f; float _sizeY = 150.0f;
+	float _posX = 10.0f; float _posY = 10.0f;
 
-	_posX = 250.0f;
-	_posY = 50.0f;
-	_sizeX = 500.0f;
-	_sizeY = 150.0f;
-	static ProgressBar* _coinsBar = new ProgressBar(ObjectData(Vector2f(_posX, _posY), Vector2f(_sizeX, _sizeY), PATH_COINS_BAR_EMPTY),
-													_canvas, PATH_COINS_BAR_FULL, ProgressType::PT_LEFT);
-	_coinsBar->SetValue(0.0f);
-	_canvas->AddWidget(_coinsBar);
-	new Timer("FillCoinsBar", [&]() { _coinsBar->ChangeValue(1); }, seconds(1.0f), true, true);*/
+	ProgressBar* _healthBar = new ProgressBar(ObjectData(Vector2f(_posX, _posY), Vector2f(_sizeX, _sizeY), PATH_HEALTH_BAR_EMPTY),
+		_canvas, PATH_HEALTH_BAR_FULL, ProgressType::PT_LEFT, 1000.0f);
+	_canvas->AddWidget(_healthBar);
 
-	ProgressBar* _castleBar = new ProgressBar(ObjectData(Vector2f(_posX, _posY), Vector2f(_sizeX, _sizeY), PATH_CASTLE_BAR_EMPTY),
-											  _canvas, PATH_CASTLE_BAR_FULL, ProgressType::PT_LEFT);
-	//new Timer("FillCastleBar", [&]() { _castleBar->ChangeValue(1); }, seconds(1.0f), true, true);
-	_castleBar->SetVisible(false);
-	_canvas->AddWidget(_castleBar);
+	ProgressBar* _manaBar = new ProgressBar(ObjectData(Vector2f(_posX, _posY + 50.0f), Vector2f(_sizeX, _sizeY), PATH_MANA_BAR_EMPTY),
+		_canvas, PATH_MANA_BAR_FULL, ProgressType::PT_LEFT, 1000.0f);
+	_canvas->AddWidget(_manaBar);
 
-	/*ProgressBar* _loadingBar = new ProgressBar();
-	_widgets.push_back(_loadingBar);
+	ProgressBar* _thirstBar = new ProgressBar(ObjectData(Vector2f(_posX, _posY + 100.0f), Vector2f(_sizeX, _sizeY), PATH_THIRST_BAR_EMPTY),
+		_canvas, PATH_THIRST_BAR_FULL, ProgressType::PT_LEFT, 1000.0f);
+	_canvas->AddWidget(_thirstBar);
 
-	for (Unit* _unit : stats.units)
-	{
-		Button* _unitButton = new Button();
-		new Widget(_unitButton);
-	}
+	ProgressBar* _hungerBar = new ProgressBar(ObjectData(Vector2f(_posX, _posY + 150.0f), Vector2f(_sizeX, _sizeY), PATH_HUNGER_BAR_EMPTY),
+		_canvas, PATH_HUNGER_BAR_FULL, ProgressType::PT_LEFT, 1000.0f);
+	_canvas->AddWidget(_hungerBar);
 
-	for (Spell* _spell : stats.spells)
-	{
-		Button* _spellButton = new Button();
-		new Widget(_spellButton);
-	}*/
+	stats = new PlayerStats(_healthBar, _manaBar, _thirstBar, _hungerBar);
+}
 
+
+void Player::InitSkillTree()
+{
+	Canvas* _canvas = new Canvas("SkillTree", FloatRect(0, 0, 1, 1));
+
+}
+
+
+void Player::Init()
+{
+	SetupPlayerInput();
+	InitHUD();
 }

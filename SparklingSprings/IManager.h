@@ -106,6 +106,7 @@ public:
 
 	bool Exist(const Key& _key) const
 	{
+		//if (allValues.empty()) return false;
 		return allValues.find(_key) != allValues.end();
 	}
 	bool Exist(Value* _value) const

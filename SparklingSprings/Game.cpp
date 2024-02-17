@@ -4,16 +4,13 @@
 #include "ActorManager.h"
 #include "HUD.h"
 #include "Widget.h"
-#include "Macro.h"
+#include "Player.h"
+
+#define PATH_PLAYER "Player.png"
 
 Game::Game()
 {
-
-}
-
-Game::~Game()
-{
-
+	
 }
 
 
@@ -21,13 +18,13 @@ void Game::Start()
 {
 	window.create(VideoMode(SCREEN_WIDTH, SCREEN_HEIGHT), "RoyalRevolt 2");
 	TimerManager::GetInstance().SetRenderCallback(bind(&Game::UpdateWindow, this));
-	new Timer("Start", this, &Game::Init, seconds(1.0f), true, false);
-	new Map(5,Vector2f(window.getSize()));
+	new Timer(this, &Game::Init, seconds(1.0f), true, false);
 }
 
 void Game::Init()
 {
-	
+	Player* _player = new Player("Player", ObjectData(Vector2f(200.0f, 200.0f), Vector2f(150.0f, 150.0f), PATH_PLAYER));
+	_player->Init();
 }
 
 void Game::Update()

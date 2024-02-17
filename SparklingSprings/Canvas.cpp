@@ -7,6 +7,7 @@ Canvas::Canvas(const string& _name, const FloatRect& _rect, const vector<Widget*
 {
 	Register();
 
+	isVisible = true;
 	rect = _rect;
 	widgets = _widgets;
 }

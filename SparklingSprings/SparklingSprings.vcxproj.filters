@@ -13,35 +13,59 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="Fichiers sources\Manager">
-      <UniqueIdentifier>{b320851c-0630-4415-8c7a-ba03a7256633}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Fichiers sources\Ui">
-      <UniqueIdentifier>{fbd2d3fe-5621-494b-8f4b-e94ece1ba994}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Fichiers sources\Object">
-      <UniqueIdentifier>{59deda70-429d-499a-9372-cf743e160c23}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Fichiers sources\Component">
-      <UniqueIdentifier>{0a6a1754-be60-432c-8a62-b0713dc58aad}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Fichiers sources\Manager\Font">
-      <UniqueIdentifier>{da228f4c-d181-43c1-aaaf-af4c7befed5b}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Fichiers sources\Manager\Texture">
-      <UniqueIdentifier>{d0972d0c-bea6-449f-a47a-d86bdaa4e9a1}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Fichiers sources\Manager\Input">
-      <UniqueIdentifier>{cab228c6-9d33-4fb8-ac17-9c477a44eaf0}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Fichiers sources\Manager\Actor">
-      <UniqueIdentifier>{e1edfef5-1cf3-4b1e-8db3-21c686f4ef9d}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Fichiers sources\Manager\Timer">
-      <UniqueIdentifier>{309f0ea2-29a6-40e8-9c3c-e1139b84c3ea}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Fichiers sources\Misc">
       <UniqueIdentifier>{fc59658b-abd8-4b98-ab8c-e2b7749adffe}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\UI">
+      <UniqueIdentifier>{fbd2d3fe-5621-494b-8f4b-e94ece1ba994}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\Managers">
+      <UniqueIdentifier>{b320851c-0630-4415-8c7a-ba03a7256633}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\Managers\Font">
+      <UniqueIdentifier>{da228f4c-d181-43c1-aaaf-af4c7befed5b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\Managers\Texture">
+      <UniqueIdentifier>{d0972d0c-bea6-449f-a47a-d86bdaa4e9a1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\Managers\Input">
+      <UniqueIdentifier>{cab228c6-9d33-4fb8-ac17-9c477a44eaf0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\Managers\Actor">
+      <UniqueIdentifier>{e1edfef5-1cf3-4b1e-8db3-21c686f4ef9d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\Managers\Timer">
+      <UniqueIdentifier>{309f0ea2-29a6-40e8-9c3c-e1139b84c3ea}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\Components">
+      <UniqueIdentifier>{0a6a1754-be60-432c-8a62-b0713dc58aad}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\Objects">
+      <UniqueIdentifier>{59deda70-429d-499a-9372-cf743e160c23}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\Objects\Player">
+      <UniqueIdentifier>{d5bea249-770e-4755-bb6a-09f71f457657}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\UI\Widgets">
+      <UniqueIdentifier>{245e1a99-4a16-42f3-9de4-f32bb725c5a5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\UI\Widgets\ProgressBar">
+      <UniqueIdentifier>{4f6a148f-8cac-442e-b2c5-6359ba298325}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\UI\Widgets\Button">
+      <UniqueIdentifier>{09f624ed-1443-40fe-b6a4-fcbe4191b336}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\Components\Movements">
+      <UniqueIdentifier>{c3539d0f-3ac6-4158-b9ae-c1ae63ffa961}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\UI\Widgets\Storable">
+      <UniqueIdentifier>{a9203019-d2a4-44a4-ae09-f43fa4dbd908}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\Managers\Storage">
+      <UniqueIdentifier>{919ce94d-1f15-4630-9d99-271d2aa330db}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\UI\Widgets\Storable\Items">
+      <UniqueIdentifier>{92ce1b09-58fa-41e6-92f6-514f3edf3552}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -52,70 +76,97 @@
       <Filter>Fichiers sources</Filter>
     </ClCompile>
     <ClCompile Include="ActorManager.cpp">
-      <Filter>Fichiers sources\Manager\Actor</Filter>
+      <Filter>Fichiers sources\Managers\Actor</Filter>
     </ClCompile>
     <ClCompile Include="Action.cpp">
-      <Filter>Fichiers sources\Manager\Input</Filter>
+      <Filter>Fichiers sources\Managers\Input</Filter>
     </ClCompile>
     <ClCompile Include="ActionMap.cpp">
-      <Filter>Fichiers sources\Manager\Input</Filter>
+      <Filter>Fichiers sources\Managers\Input</Filter>
     </ClCompile>
     <ClCompile Include="InputManager.cpp">
-      <Filter>Fichiers sources\Manager\Input</Filter>
+      <Filter>Fichiers sources\Managers\Input</Filter>
     </ClCompile>
     <ClCompile Include="Macro.cpp">
-      <Filter>Fichiers sources\Manager\Font</Filter>
+      <Filter>Fichiers sources\Managers\Font</Filter>
     </ClCompile>
     <ClCompile Include="FontManager.cpp">
-      <Filter>Fichiers sources\Manager\Font</Filter>
+      <Filter>Fichiers sources\Managers\Font</Filter>
     </ClCompile>
     <ClCompile Include="FontData.cpp">
-      <Filter>Fichiers sources\Manager\Font</Filter>
+      <Filter>Fichiers sources\Managers\Font</Filter>
     </ClCompile>
     <ClCompile Include="TextureData.cpp">
-      <Filter>Fichiers sources\Manager\Texture</Filter>
+      <Filter>Fichiers sources\Managers\Texture</Filter>
     </ClCompile>
     <ClCompile Include="TextureManager.cpp">
-      <Filter>Fichiers sources\Manager\Texture</Filter>
+      <Filter>Fichiers sources\Managers\Texture</Filter>
     </ClCompile>
     <ClCompile Include="Timer.cpp">
-      <Filter>Fichiers sources\Manager\Timer</Filter>
+      <Filter>Fichiers sources\Managers\Timer</Filter>
     </ClCompile>
     <ClCompile Include="TimerManager.cpp">
-      <Filter>Fichiers sources\Manager\Timer</Filter>
+      <Filter>Fichiers sources\Managers\Timer</Filter>
     </ClCompile>
     <ClCompile Include="HUD.cpp">
-      <Filter>Fichiers sources\Ui</Filter>
+      <Filter>Fichiers sources\UI</Filter>
     </ClCompile>
     <ClCompile Include="Canvas.cpp">
-      <Filter>Fichiers sources\Ui</Filter>
-    </ClCompile>
-    <ClCompile Include="Widget.cpp">
-      <Filter>Fichiers sources\Ui</Filter>
-    </ClCompile>
-    <ClCompile Include="ProgressBar.cpp">
-      <Filter>Fichiers sources\Ui</Filter>
-    </ClCompile>
-    <ClCompile Include="Button.cpp">
-      <Filter>Fichiers sources\Ui</Filter>
+      <Filter>Fichiers sources\UI</Filter>
     </ClCompile>
     <ClCompile Include="Object.cpp">
-      <Filter>Fichiers sources\Object</Filter>
-    </ClCompile>
-    <ClCompile Include="Player.cpp">
-      <Filter>Fichiers sources\Object</Filter>
+      <Filter>Fichiers sources\Objects</Filter>
     </ClCompile>
     <ClCompile Include="Actor.cpp">
-      <Filter>Fichiers sources\Object</Filter>
-    </ClCompile>
-    <ClCompile Include="MovementComponent.cpp">
-      <Filter>Fichiers sources\Component</Filter>
+      <Filter>Fichiers sources\Objects</Filter>
     </ClCompile>
     <ClCompile Include="Component.cpp">
-      <Filter>Fichiers sources\Component</Filter>
+      <Filter>Fichiers sources\Components</Filter>
     </ClCompile>
     <ClCompile Include="Tile.cpp">
-      <Filter>Fichiers sources\Object</Filter>
+      <Filter>Fichiers sources\Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>Fichiers sources\Objects\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="Button.cpp">
+      <Filter>Fichiers sources\UI\Widgets\Button</Filter>
+    </ClCompile>
+    <ClCompile Include="ProgressBar.cpp">
+      <Filter>Fichiers sources\UI\Widgets\ProgressBar</Filter>
+    </ClCompile>
+    <ClCompile Include="Widget.cpp">
+      <Filter>Fichiers sources\UI\Widgets</Filter>
+    </ClCompile>
+    <ClCompile Include="MovementComponent.cpp">
+      <Filter>Fichiers sources\Components\Movements</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerMovementComponent.cpp">
+      <Filter>Fichiers sources\Components\Movements</Filter>
+    </ClCompile>
+    <ClCompile Include="Skill.cpp">
+      <Filter>Fichiers sources\UI\Widgets\Storable</Filter>
+    </ClCompile>
+    <ClCompile Include="Craft.cpp">
+      <Filter>Fichiers sources\UI\Widgets\Storable</Filter>
+    </ClCompile>
+    <ClCompile Include="Item.cpp">
+      <Filter>Fichiers sources\UI\Widgets\Storable\Items</Filter>
+    </ClCompile>
+    <ClCompile Include="Equipment.cpp">
+      <Filter>Fichiers sources\UI\Widgets\Storable\Items</Filter>
+    </ClCompile>
+    <ClCompile Include="Consumable.cpp">
+      <Filter>Fichiers sources\UI\Widgets\Storable\Items</Filter>
+    </ClCompile>
+    <ClCompile Include="Inventory.cpp">
+      <Filter>Fichiers sources\Managers\Storage</Filter>
+    </ClCompile>
+    <ClCompile Include="SkillTree.cpp">
+      <Filter>Fichiers sources\Managers\Storage</Filter>
+    </ClCompile>
+    <ClCompile Include="CraftBook.cpp">
+      <Filter>Fichiers sources</Filter>
     </ClCompile>
     <ClCompile Include="Biome.cpp">
       <Filter>Fichiers sources</Filter>
@@ -135,79 +186,109 @@
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
     <ClInclude Include="Action.h">
-      <Filter>Fichiers sources\Manager\Input</Filter>
+      <Filter>Fichiers sources\Managers\Input</Filter>
     </ClInclude>
     <ClInclude Include="InputManager.h">
-      <Filter>Fichiers sources\Manager\Input</Filter>
+      <Filter>Fichiers sources\Managers\Input</Filter>
     </ClInclude>
     <ClInclude Include="FontManager.h">
-      <Filter>Fichiers sources\Manager\Font</Filter>
+      <Filter>Fichiers sources\Managers\Font</Filter>
     </ClInclude>
     <ClInclude Include="FontData.h">
-      <Filter>Fichiers sources\Manager\Font</Filter>
+      <Filter>Fichiers sources\Managers\Font</Filter>
     </ClInclude>
     <ClInclude Include="ActionMap.h">
-      <Filter>Fichiers sources\Manager\Input</Filter>
+      <Filter>Fichiers sources\Managers\Input</Filter>
     </ClInclude>
     <ClInclude Include="ActorManager.h">
-      <Filter>Fichiers sources\Manager\Actor</Filter>
+      <Filter>Fichiers sources\Managers\Actor</Filter>
     </ClInclude>
     <ClInclude Include="TextureData.h">
-      <Filter>Fichiers sources\Manager\Texture</Filter>
+      <Filter>Fichiers sources\Managers\Texture</Filter>
     </ClInclude>
     <ClInclude Include="TextureManager.h">
-      <Filter>Fichiers sources\Manager\Texture</Filter>
+      <Filter>Fichiers sources\Managers\Texture</Filter>
     </ClInclude>
     <ClInclude Include="Timer.h">
-      <Filter>Fichiers sources\Manager\Timer</Filter>
+      <Filter>Fichiers sources\Managers\Timer</Filter>
     </ClInclude>
     <ClInclude Include="TimerManager.h">
-      <Filter>Fichiers sources\Manager\Timer</Filter>
+      <Filter>Fichiers sources\Managers\Timer</Filter>
     </ClInclude>
     <ClInclude Include="HUD.h">
-      <Filter>Fichiers sources\Ui</Filter>
+      <Filter>Fichiers sources\UI</Filter>
     </ClInclude>
     <ClInclude Include="Canvas.h">
-      <Filter>Fichiers sources\Ui</Filter>
-    </ClInclude>
-    <ClInclude Include="Widget.h">
-      <Filter>Fichiers sources\Ui</Filter>
-    </ClInclude>
-    <ClInclude Include="ProgressBar.h">
-      <Filter>Fichiers sources\Ui</Filter>
-    </ClInclude>
-    <ClInclude Include="Button.h">
-      <Filter>Fichiers sources\Ui</Filter>
-    </ClInclude>
-    <ClInclude Include="Player.h">
-      <Filter>Fichiers sources\Object</Filter>
+      <Filter>Fichiers sources\UI</Filter>
     </ClInclude>
     <ClInclude Include="Object.h">
-      <Filter>Fichiers sources\Object</Filter>
+      <Filter>Fichiers sources\Objects</Filter>
     </ClInclude>
     <ClInclude Include="Actor.h">
-      <Filter>Fichiers sources\Object</Filter>
-    </ClInclude>
-    <ClInclude Include="MovementComponent.h">
-      <Filter>Fichiers sources\Component</Filter>
+      <Filter>Fichiers sources\Objects</Filter>
     </ClInclude>
     <ClInclude Include="Component.h">
-      <Filter>Fichiers sources\Component</Filter>
+      <Filter>Fichiers sources\Components</Filter>
     </ClInclude>
     <ClInclude Include="IManagable.h">
-      <Filter>Fichiers sources\Manager</Filter>
+      <Filter>Fichiers sources\Managers</Filter>
     </ClInclude>
     <ClInclude Include="IManager.h">
-      <Filter>Fichiers sources\Manager</Filter>
+      <Filter>Fichiers sources\Managers</Filter>
     </ClInclude>
     <ClInclude Include="Singleton.h">
-      <Filter>Fichiers sources\Manager</Filter>
+      <Filter>Fichiers sources\Managers</Filter>
     </ClInclude>
     <ClInclude Include="FileLoader.h">
       <Filter>Fichiers sources\Misc</Filter>
     </ClInclude>
     <ClInclude Include="Tile.h">
-      <Filter>Fichiers sources\Object</Filter>
+      <Filter>Fichiers sources\Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerStats.h">
+      <Filter>Fichiers sources\Objects\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>Fichiers sources\Objects\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="Button.h">
+      <Filter>Fichiers sources\UI\Widgets\Button</Filter>
+    </ClInclude>
+    <ClInclude Include="ProgressBar.h">
+      <Filter>Fichiers sources\UI\Widgets\ProgressBar</Filter>
+    </ClInclude>
+    <ClInclude Include="Widget.h">
+      <Filter>Fichiers sources\UI\Widgets</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerMovementComponent.h">
+      <Filter>Fichiers sources\Components\Movements</Filter>
+    </ClInclude>
+    <ClInclude Include="MovementComponent.h">
+      <Filter>Fichiers sources\Components\Movements</Filter>
+    </ClInclude>
+    <ClInclude Include="Skill.h">
+      <Filter>Fichiers sources\UI\Widgets\Storable</Filter>
+    </ClInclude>
+    <ClInclude Include="Craft.h">
+      <Filter>Fichiers sources\UI\Widgets\Storable</Filter>
+    </ClInclude>
+    <ClInclude Include="Item.h">
+      <Filter>Fichiers sources\UI\Widgets\Storable\Items</Filter>
+    </ClInclude>
+    <ClInclude Include="Consumable.h">
+      <Filter>Fichiers sources\UI\Widgets\Storable\Items</Filter>
+    </ClInclude>
+    <ClInclude Include="Equipment.h">
+      <Filter>Fichiers sources\UI\Widgets\Storable\Items</Filter>
+    </ClInclude>
+    <ClInclude Include="Inventory.h">
+      <Filter>Fichiers sources\Managers\Storage</Filter>
+    </ClInclude>
+    <ClInclude Include="SkillTree.h">
+      <Filter>Fichiers sources\Managers\Storage</Filter>
+    </ClInclude>
+    <ClInclude Include="CraftBook.h">
+      <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
     <ClInclude Include="Biome.h">
       <Filter>Fichiers d%27en-tête</Filter>
