@@ -1,7 +1,6 @@
 #pragma once
 #include "Biome.h"
 #include "Macro.h"
-#include "Game.h"
 
 class Map
 {

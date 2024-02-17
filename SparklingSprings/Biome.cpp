@@ -7,7 +7,7 @@ Biome::Biome(const TileType& _type, const Vector2f& _position, const Vector2i& _
 	biome = vector<vector<Tile*>>();
 	const Vector2f& _tileSize = Vector2f(float(_size.x), float(_size.y));
 	InitBiome(_type, _position, _tileSize,_biomeSize);
-	securityZone = nullptr;
+	securityZoneSize = Vector2i(_size) * 5;
 }
 
 void Biome::InitBiome(const TileType& _type, const Vector2f& _position, const Vector2f& _size, const Vector2i& _biomeSize)
@@ -20,15 +20,11 @@ void Biome::InitBiome(const TileType& _type, const Vector2f& _position, const Ve
 		for (int _x = 0; _x < _tilesCount.x; _x++)
 		{
 			const Vector2f& _pos = _position + Vector2f(_x * _size.x, _y * _size.y);
-			_row.push_back(new Tile("Tile" + to_string(GetUniqueID()),_type, _pos, _size));
+			const TileType& _realType = ? _type : TT_NONE;
+			_row.push_back(new Tile("Tile" + to_string(GetUniqueID()), _realType, _pos, _size));
 		}
 		biome.push_back(_row);
 	}
-
-	const Vector2f& _securityZoneSize = _size * 5.f;
-	securityZone = new RectangleShape(_securityZoneSize);
-	securityZone->setOrigin(_securityZoneSize / 2.0f);
-	securityZone->setPosition(biome[_tilesCount.y / 2][_tilesCount.x /2]->GetShapePosition());
 }
 
 void Biome::Register()

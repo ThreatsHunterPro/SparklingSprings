@@ -27,7 +27,7 @@ void Inventory::Init()
 		{
 			const float _posX = _gridPos.x + _columnIndex * cellSize.x;
 			const float _posY = _gridPos.y + _rowIndex * cellSize.y;
-			Button* _button = new Button(ObjectData(Vector2f(_posX, _posY), cellSize, "Wood.png"), AllButtonData());
+			Button* _button = new Button(ObjectData(Vector2f(_posX, _posY), cellSize, ""), AllButtonData());
 			/*_button->GetShape()->setOutlineThickness(3.0f);
 			_button->GetShape()->setOutlineColor(Color(_rowIndex * 10 / 255, _columnIndex * 10 / 255, 255, 255));
 			canvas->AddWidget(_button);*/
