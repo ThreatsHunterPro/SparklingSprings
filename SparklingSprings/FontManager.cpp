@@ -77,5 +77,5 @@ void FontManager::LoadWithFade(const vector<Text*>& _texts, const string& _path,
 
 	alphaFactor = -1;
 	const function<void()>& _callback = [this, _texts, _path, _targetColor]() { Fade(_texts, _path, _targetColor); };
-	fadeTimer = new Timer("FontFade", _callback, seconds(_duration / (255 * 2)), true, true);
+	fadeTimer = new Timer(_callback, seconds(_duration / (255 * 2)), true, true);
 }

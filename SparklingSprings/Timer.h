@@ -1,5 +1,6 @@
 #pragma once
 #include "IManagable.h"
+#include "Macro.h"
 #include <SFML/Graphics.hpp>
 #include <functional>
 #include <string>
@@ -7,7 +8,7 @@
 using namespace std;
 using namespace sf;
 
-class Timer : public IManagable<string>
+class Timer : public IManagable<int>
 {
 	function<void()> callback;
 	float currentDuration;
@@ -23,8 +24,9 @@ public:
 
 public:
 	template <class Class, typename... Args>
-	Timer(const string& _id, Class* _owner, void (Class::* _callback)(Args...), const Time& _time,
-		const bool _startRunning = true, const bool _isLoop = false, const Args&... _args) : IManagable(_id)
+	Timer(Class* _owner, void (Class::* _callback)(Args...), const Time& _time,
+		const bool _startRunning = true, const bool _isLoop = false, const Args&... _args)
+		: IManagable(GetUniqueID())
 	{
 		Register();
 
@@ -40,7 +42,7 @@ public:
 		//const function<void()>& _callbackWithArgs = bind(_callback, _owner, _args...);
 	}
 
-	Timer(const string& _id, const function<void()>& _callback, const Time& _time,
+	Timer(const function<void()>& _callback, const Time& _time,
 		const bool _startRunning = true, const bool _isLoop = false);
 
 private:

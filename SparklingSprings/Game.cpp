@@ -20,7 +20,7 @@ void Game::Start()
 {
 	window.create(VideoMode(SCREEN_WIDTH, SCREEN_HEIGHT), "RoyalRevolt 2");
 	TimerManager::GetInstance().SetRenderCallback(bind(&Game::UpdateWindow, this));
-	new Timer("Start", this, &Game::Init, seconds(1.0f), true, false);
+	new Timer(this, &Game::Init, seconds(1.0f), true, false);
 }
 
 void Game::Init()

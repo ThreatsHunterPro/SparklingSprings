@@ -200,5 +200,8 @@
     <ClInclude Include="Tile.h">
       <Filter>Fichiers sources\Object</Filter>
     </ClInclude>
+    <ClInclude Include="PlayerStats.h">
+      <Filter>Fichiers sources\Object</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

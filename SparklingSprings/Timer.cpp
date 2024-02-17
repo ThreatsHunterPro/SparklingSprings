@@ -1,8 +1,8 @@
 #include "Timer.h"
 #include "TimerManager.h"
 
-Timer::Timer(const string& _id, const function<void()>& _callback, const Time& _time,
-	const bool _startRunning, const bool _isLoop) : IManagable(_id)
+Timer::Timer(const function<void()>& _callback, const Time& _time,
+	const bool _startRunning, const bool _isLoop) : IManagable(GetUniqueID())
 {
 	Register();
 
