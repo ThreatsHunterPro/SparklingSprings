@@ -10,7 +10,12 @@
 
 Game::Game()
 {
-	
+	map = new Map(1, Vector2f(window.getSize()));
+}
+
+Game::~Game()
+{
+	delete map;
 }
 
 
@@ -19,13 +24,12 @@ void Game::Start()
 	window.create(VideoMode(SCREEN_WIDTH, SCREEN_HEIGHT), "SparklingSprings");
 	TimerManager::GetInstance().SetRenderCallback(bind(&Game::UpdateWindow, this));
 	new Timer(this, &Game::Init, seconds(1.0f), true, false);
-	map = new Map(1,Vector2f(window.getSize()));
 }
 
 void Game::Init()
 {
-	///*Player* _player = new Player("Player", ObjectData(Vector2f(200.0f, 200.0f), Vector2f(150.0f, 150.0f), PATH_PLAYER));
-	//_player->Init(*/);
+	Player* _player = new Player("Player", ObjectData(Vector2f(200.0f, 200.0f), Vector2f(150.0f, 150.0f), PATH_PLAYER));
+	_player->Init();
 }
 
 void Game::Update()

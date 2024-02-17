@@ -13,8 +13,10 @@ class Game
 {
 	RenderWindow window;
 	Map* map;
+
 public:
 	Game();
+	~Game();
 
 private:
 	void Start();
