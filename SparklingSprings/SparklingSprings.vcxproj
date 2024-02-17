@@ -144,7 +144,6 @@
     <ClCompile Include="FontManager.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="HUD.cpp" />
-    <ClCompile Include="Input.cpp" />
     <ClCompile Include="InputManager.cpp" />
     <ClCompile Include="Macro.cpp" />
     <ClCompile Include="Main.cpp" />
@@ -174,7 +173,6 @@
     <ClInclude Include="HUD.h" />
     <ClInclude Include="IManagable.h" />
     <ClInclude Include="IManager.h" />
-    <ClInclude Include="Input.h" />
     <ClInclude Include="InputManager.h" />
     <ClInclude Include="Macro.h" />
     <ClInclude Include="MovementComponent.h" />
