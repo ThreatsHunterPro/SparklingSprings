@@ -1,9 +1,2 @@
-﻿  ActorManager.cpp
-  FontData.cpp
-  FontManager.cpp
-  Game.cpp
-  Player.cpp
-  Timer.cpp
-  TimerManager.cpp
-  Génération de code en cours...
+﻿  Player.cpp
   SparklingSprings.vcxproj -> D:\Prog\Cours\SFML\SparklingSprings\SparklingSprings\x64\Debug\SparklingSprings.exe

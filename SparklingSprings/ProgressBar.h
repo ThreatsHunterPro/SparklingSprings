@@ -30,6 +30,16 @@ public:
 		currentValue = _newValue > maxValue ? maxValue : _newValue < 0 ? 0 : _newValue;
 		Update();
 	}
+	void ResetValue()
+	{
+		currentValue = maxValue;
+		Update();
+	}
+	void ChangeMaxValue(const float _factor)
+	{
+		maxValue += _factor;
+		Update();
+	}
 
 public:
 	ProgressBar(const ObjectData& _data, Canvas* _canvas, const string& _path,

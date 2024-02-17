@@ -7,7 +7,7 @@ using namespace std;
 
 class Player : public Actor
 {
-	PlayerStats stats;
+	PlayerStats* stats;
 
 public:
 	Player(const string& _name, const ObjectData& _data);
@@ -15,4 +15,7 @@ public:
 private:
 	void SetupPlayerInput();
 	void InitHUD();
+
+public:
+	void Init();
 };

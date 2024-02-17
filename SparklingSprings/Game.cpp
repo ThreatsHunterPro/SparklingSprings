@@ -4,13 +4,11 @@
 #include "ActorManager.h"
 #include "HUD.h"
 #include "Widget.h"
+#include "Player.h"
+
+#define PATH_PLAYER "Player.png"
 
 Game::Game()
-{
-	
-}
-
-Game::~Game()
 {
 	
 }
@@ -25,7 +23,8 @@ void Game::Start()
 
 void Game::Init()
 {
-	
+	Player* _player = new Player("Player", ObjectData(Vector2f(200.0f, 200.0f), Vector2f(150.0f, 150.0f), PATH_PLAYER));
+	_player->Init();
 }
 
 void Game::Update()
