@@ -4,15 +4,16 @@
 #include "ActorManager.h"
 #include "HUD.h"
 #include "Widget.h"
+#include "Macro.h"
 
 Game::Game()
 {
-	
+	map = nullptr;
 }
 
 Game::~Game()
 {
-	
+	delete map;
 }
 
 
@@ -21,6 +22,7 @@ void Game::Start()
 	window.create(VideoMode(SCREEN_WIDTH, SCREEN_HEIGHT), "RoyalRevolt 2");
 	TimerManager::GetInstance().SetRenderCallback(bind(&Game::UpdateWindow, this));
 	new Timer("Start", this, &Game::Init, seconds(1.0f), true, false);
+	map = new Map(Vector2f(0.0f, 0.0f),{25.f,25.f}, "map.txt", 5);
 }
 
 void Game::Init()
@@ -65,6 +67,7 @@ void Game::UpdateWindow()
 			window.draw(*_widget->GetShape());
 		}
 	}
+	map->Draw(window);
 
 	window.display();
 }

@@ -1,0 +1,22 @@
+﻿  Biome.cpp
+C:\Users\Gregory ZANATTA\OneDrive\Bureau\Cours P1\SFML\SparklingSprings\SparklingSprings\Biome.cpp(9,44): warning C4244: 'argument' : conversion de 'int' en 'T', perte possible de données
+C:\Users\Gregory ZANATTA\OneDrive\Bureau\Cours P1\SFML\SparklingSprings\SparklingSprings\Biome.cpp(9,44): warning C4244:         with
+C:\Users\Gregory ZANATTA\OneDrive\Bureau\Cours P1\SFML\SparklingSprings\SparklingSprings\Biome.cpp(9,44): warning C4244:         [
+C:\Users\Gregory ZANATTA\OneDrive\Bureau\Cours P1\SFML\SparklingSprings\SparklingSprings\Biome.cpp(9,44): warning C4244:             T=float
+C:\Users\Gregory ZANATTA\OneDrive\Bureau\Cours P1\SFML\SparklingSprings\SparklingSprings\Biome.cpp(9,44): warning C4244:         ]
+C:\Users\Gregory ZANATTA\OneDrive\Bureau\Cours P1\SFML\SparklingSprings\SparklingSprings\Biome.cpp(9,29): warning C4244: 'argument' : conversion de 'int' en 'T', perte possible de données
+C:\Users\Gregory ZANATTA\OneDrive\Bureau\Cours P1\SFML\SparklingSprings\SparklingSprings\Biome.cpp(9,29): warning C4244:         with
+C:\Users\Gregory ZANATTA\OneDrive\Bureau\Cours P1\SFML\SparklingSprings\SparklingSprings\Biome.cpp(9,29): warning C4244:         [
+C:\Users\Gregory ZANATTA\OneDrive\Bureau\Cours P1\SFML\SparklingSprings\SparklingSprings\Biome.cpp(9,29): warning C4244:             T=float
+C:\Users\Gregory ZANATTA\OneDrive\Bureau\Cours P1\SFML\SparklingSprings\SparklingSprings\Biome.cpp(9,29): warning C4244:         ]
+C:\Users\Gregory ZANATTA\OneDrive\Bureau\Cours P1\SFML\SparklingSprings\SparklingSprings\Biome.cpp(44,47): warning C4244: 'argument' : conversion de 'T' en 'const unsigned __int64', perte possible de données
+C:\Users\Gregory ZANATTA\OneDrive\Bureau\Cours P1\SFML\SparklingSprings\SparklingSprings\Biome.cpp(44,47): warning C4244:         with
+C:\Users\Gregory ZANATTA\OneDrive\Bureau\Cours P1\SFML\SparklingSprings\SparklingSprings\Biome.cpp(44,47): warning C4244:         [
+C:\Users\Gregory ZANATTA\OneDrive\Bureau\Cours P1\SFML\SparklingSprings\SparklingSprings\Biome.cpp(44,47): warning C4244:             T=float
+C:\Users\Gregory ZANATTA\OneDrive\Bureau\Cours P1\SFML\SparklingSprings\SparklingSprings\Biome.cpp(44,47): warning C4244:         ]
+C:\Users\Gregory ZANATTA\OneDrive\Bureau\Cours P1\SFML\SparklingSprings\SparklingSprings\Biome.cpp(44,64): warning C4244: 'argument' : conversion de 'T' en 'const unsigned __int64', perte possible de données
+C:\Users\Gregory ZANATTA\OneDrive\Bureau\Cours P1\SFML\SparklingSprings\SparklingSprings\Biome.cpp(44,64): warning C4244:         with
+C:\Users\Gregory ZANATTA\OneDrive\Bureau\Cours P1\SFML\SparklingSprings\SparklingSprings\Biome.cpp(44,64): warning C4244:         [
+C:\Users\Gregory ZANATTA\OneDrive\Bureau\Cours P1\SFML\SparklingSprings\SparklingSprings\Biome.cpp(44,64): warning C4244:             T=float
+C:\Users\Gregory ZANATTA\OneDrive\Bureau\Cours P1\SFML\SparklingSprings\SparklingSprings\Biome.cpp(44,64): warning C4244:         ]
+  SparklingSprings.vcxproj -> C:\Users\Gregory ZANATTA\OneDrive\Bureau\Cours P1\SFML\SparklingSprings\SparklingSprings\x64\Debug\SparklingSprings.exe
