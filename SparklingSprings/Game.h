@@ -1,6 +1,7 @@
 #pragma once
 #include <iostream>
 #include <SFML/Graphics.hpp>
+#include "Map.h"
 
 using namespace std;
 using namespace sf;
@@ -11,7 +12,7 @@ using namespace sf;
 class Game
 {
 	RenderWindow window;
-
+	Map* map;
 public:
 	Game();
 

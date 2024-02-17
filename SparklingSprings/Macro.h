@@ -5,7 +5,7 @@
 using namespace std;
 using namespace sf;
 
-#define S_ID(name) name + to_string(GetUniqueID())
+#define STRING_ID(name) name + to_string(GetUniqueID())
 #define SIZE(vector) static_cast<int>(vector.size())
 
 int GetUniqueID();
