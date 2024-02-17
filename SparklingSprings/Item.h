@@ -25,11 +25,6 @@ public:
 	Item(const ObjectData& _data, const ItemType& _type,
 		 const RarityType& _rarity = RARITY_COMMON);
 
-private:
-	virtual void Register() override;
-
 public:
 	virtual void Consume();
-
-
 };

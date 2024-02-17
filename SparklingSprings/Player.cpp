@@ -38,7 +38,7 @@ Player::Player(const string& _name, const ObjectData& _data) : Actor(_name,_data
 
 void Player::SetupPlayerInput()
 {
-	new ActionMap("PlayerStats", {
+	/*new ActionMap("PlayerStats", {
 		ActionData("TakeDamages", [&]()
 		{
 			stats->TakeDamages(-30.0f);
@@ -47,7 +47,7 @@ void Player::SetupPlayerInput()
 		ActionData("UseMana", [&]() { stats->UseMana(-50.0f); }, { ActionType::MouseButtonPressed, Mouse::Right }),
 		ActionData("Drink", [&]() { stats->Drink(40.0f); }, { ActionType::KeyPressed, Keyboard::A }),
 		ActionData("Eat", [&]() { stats->Eat(30.0f); }, { ActionType::KeyPressed, Keyboard::E }),
-	});
+	});*/
 	new ActionMap("Deplacement", {
 		ActionData("P_Forward", [&]() { movement->SetDirectionY(-1.0f); }, InputData({ ActionType::KeyPressed, Keyboard::Z })),
 		ActionData("R_Forward", [&]() { movement->SetDirectionY(0.0f); }, InputData({ ActionType::KeyReleased, Keyboard::Z })),
@@ -115,5 +115,5 @@ void Player::InitSkillTree()
 void Player::Init()
 {
 	SetupPlayerInput();
-	InitHUD();
+	//InitHUD();
 }

@@ -4,7 +4,7 @@
 #include "Item.h"
 #include "Button.h"
 
-class Inventory : public Singleton<Inventory>, public IManager<int, Item>
+class Inventory : public IManager<int, Item>
 {
 	Canvas* canvas;
 	Vector2f cellSize;

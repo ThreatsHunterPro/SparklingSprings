@@ -38,5 +38,5 @@ public:
 	}
 
 protected:
-	virtual void Register() = 0;
+	virtual void Register() {};
 };

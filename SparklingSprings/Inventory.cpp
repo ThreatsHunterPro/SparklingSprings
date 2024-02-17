@@ -48,7 +48,9 @@ void Inventory::Init()
 void Inventory::AddItem(const string& _path, const ItemType& _type, const RarityType& _rarity)
 {
 	Button* _button = GetFirstAvailableButton();
-	Item* _item = new Item(ObjectData(_button->GetShapePosition(), cellSize, _path), _type, _rarity);
+	Item* _item = new Item(ObjectData(/*_button->GetShapePosition()*/Vector2f(), cellSize, _path), _type, _rarity);
+	Add(_item->GetID(), _item);
+	//Widget* _widget = new Widget(Vector2f(), Vector2f(200.0f, 200.0f, ""));
 	_item->GetShape()->setFillColor(Color::Red);
 	_button->SetForeground(_item);
 }
