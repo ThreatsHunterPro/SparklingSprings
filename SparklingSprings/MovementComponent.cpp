@@ -1,6 +1,6 @@
 #include "MovementComponent.h"
-#include "Macro.h"
 #include "Actor.h"
+#include "Macro.h"
 
 MovementComponent::MovementComponent(Actor* _owner) : Component(_owner)
 {

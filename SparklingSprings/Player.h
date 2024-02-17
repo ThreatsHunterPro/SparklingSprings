@@ -1,21 +1,10 @@
 #pragma once
-#include "Character.h"
-#include "Unit.h"
-#include "Spell.h"
+#include <string>
+#include "Actor.h"
+using namespace std;
 
-struct PlayerStats
+class Player : public Actor
 {
-	vector<Unit*> units;
-	vector<Spell*> spells;
-
-	int loadingBarSize;
-	float loadingBarSpeed;
-};
-
-class Player : public Character
-{
-	PlayerStats stats;
-
 public:
 	Player(const string& _name, const ObjectData& _data);
 

@@ -31,19 +31,19 @@
 
 #pragma endregion
 
-Player::Player(const string& _name, const ObjectData& _data) : Character(_name, _data)
+Player::Player(const string& _name, const ObjectData& _data) : Actor(_name,_data)
 {
-	SetupPlayerInput();
-	InitHUD();
+	/*SetupPlayerInput();
+	InitHUD();*/
 }
 
 
 void Player::SetupPlayerInput()
 {
-	new Action(ActionData("MovePlayer", [&]() {
+	/*new Action(ActionData("MovePlayer", [&]() {
 		const Vector2f& _mousePosition = InputManager::GetInstance().GetMousePosition(); 
 		movement->SetDestination(_mousePosition);
-	}, { ActionType::MouseButtonPressed, Mouse::Left }), "PlayerInput");
+	}, { ActionType::MouseButtonPressed, Mouse::Left }), "PlayerInput");*/
 }
 
 void Player::InitHUD()

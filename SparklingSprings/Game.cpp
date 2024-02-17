@@ -7,12 +7,12 @@
 
 Game::Game()
 {
-	map = new Map();
+	
 }
 
 Game::~Game()
 {
-	delete map;
+	
 }
 
 
@@ -25,7 +25,7 @@ void Game::Start()
 
 void Game::Init()
 {
-	map->Init();
+	
 }
 
 void Game::Update()

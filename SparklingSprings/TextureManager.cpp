@@ -1,5 +1,4 @@
 #include "TextureManager.h"
-#include "Macro.h"
 #include <iostream>
 
 void TextureManager::Load(Shape*& _shape, const string& _path, const bool _isRepeated, const bool _smooth)
