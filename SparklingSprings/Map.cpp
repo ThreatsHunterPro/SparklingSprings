@@ -1,27 +1,19 @@
 #include "Map.h"
-#include "Macro.h"
-Map::Map(const Vector2f& _startPosition, const Vector2f& _tilesSize, const string& _path, const int _biomeCount)
+
+Map::Map(const int _biomeCount,const Vector2f& _windowSize)
 {
-	biomes = vector<Biome*>();
-	startPosition = _startPosition;
-	tilesSize = _tilesSize;
-	path = _path;
-	InitBiomes(_biomeCount);
+	biomeCount = _biomeCount;
+	new Biome(TT_NONE, Vector2f(0, 0), Vector2i(25, 25), Vector2i(55, 55));
+	CreateMap(_windowSize);
 }
 
-void Map::InitBiomes(const int _biomeCount)
+void Map::CreateMap(const Vector2f& _windowSize)
 {
-	for (int i = 0; i < _biomeCount; i++)
+	const Vector2i& _tilesSize = { 25,25 };	
+	for (int _index = 0; _index < biomeCount; _index++)
 	{
-		biomes.push_back(new Biome(Vector2f(Random(1000,0), Random(600, 0)), tilesSize, path));
-	}
-
-}
-
-void Map::Draw(RenderWindow& _window)
-{
-	for (int _index = 0; _index < biomes.size(); _index++)
-	{
-		biomes[_index]->Draw(_window);
+		const Vector2i& _biomeSize = GetRandomBiomeSize();
+		const Vector2f& _biomePosition = GetValidPosition(_biomeSize, _windowSize);
+		new Biome(GetRandomType(), _biomePosition, _tilesSize, _biomeSize);
 	}
 }

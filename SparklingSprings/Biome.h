@@ -1,26 +1,19 @@
 #pragma once
 #include "Tile.h"
-class Biome
+#include "IManagable.h"
+
+
+class Biome : public IManagable<string>
 {
-	vector<vector<Tile*>> tiles;
-	Vector2f startPosition;
-	Vector2f tilesSize;
-	Vector2f tileCount;
-	string tilePath;
+	vector<vector<Tile*>> biome;
+	RectangleShape* securityZone;
 
 public:
-	vector<vector<Tile*>> GetTiles() const 
-	{ 
-		return tiles; 
-	};
+	Biome(const TileType& _type, const Vector2f& _position, const Vector2i& _size,const Vector2i& _biomeSize);
 
-public:
-	Biome(const Vector2f& _startPosition,const Vector2f& _tilesSize,const string& _tilePath);
+	void InitBiome(const TileType& _type, const Vector2f& _position, const Vector2f& _size, const Vector2i& _biomeSize);
 
-public:
-	void InitBiome();
-	void Draw(RenderWindow& _window);
-
-	void CreateSecurityZone();
+	// Hérité via IManagable
+	void Register() override;
 };
 

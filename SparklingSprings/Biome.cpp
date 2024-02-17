@@ -1,45 +1,37 @@
 #include "Biome.h"
 #include "Macro.h"
-Biome::Biome(const Vector2f& _startPosition, const Vector2f& _tilesSize, const string& _tilePath)
+#include "BiomeManager.h"
+
+Biome::Biome(const TileType& _type, const Vector2f& _position, const Vector2i& _size, const Vector2i& _biomeSize) : IManagable(STRING_ID("Biome"))
 {
-	tiles = vector<vector<Tile*>>();
-	startPosition = _startPosition;
-	tilesSize = _tilesSize;
-	tilePath = _tilePath;
-	tileCount = Vector2f(Random(25, 5), Random(25, 5));;
-	InitBiome();
+	biome = vector<vector<Tile*>>();
+	const Vector2f& _tileSize = Vector2f(float(_size.x), float(_size.y));
+	InitBiome(_type, _position, _tileSize,_biomeSize);
+	securityZone = nullptr;
 }
 
-void Biome::InitBiome()
+void Biome::InitBiome(const TileType& _type, const Vector2f& _position, const Vector2f& _size, const Vector2i& _biomeSize)
 {
-	for (int _columnIndex = 0; _columnIndex < tileCount.y; _columnIndex++)
+	const Vector2i& _tilesCount = _biomeSize;
+
+	for (int _y = 0; _y < _tilesCount.y; _y++)
 	{
-		vector<Tile*> newRow;
-		for (int _rowIndex = 0; _rowIndex < tileCount.x; _rowIndex++)
+		vector<Tile*> _row;
+		for (int _x = 0; _x < _tilesCount.x; _x++)
 		{
-			Tile* _tile = new Tile(Vector2f(int(startPosition.x) + _rowIndex * tilesSize.x, int(startPosition.y) + _columnIndex * tilesSize.y), tilesSize, tilePath);
-			newRow.push_back(_tile);
+			const Vector2f& _pos = _position + Vector2f(_x * _size.x, _y * _size.y);
+			_row.push_back(new Tile("Tile" + to_string(GetUniqueID()),_type, _pos, _size));
 		}
-		tiles.push_back(newRow);
+		biome.push_back(_row);
 	}
-	CreateSecurityZone();
+
+	const Vector2f& _securityZoneSize = _size * 5.f;
+	securityZone = new RectangleShape(_securityZoneSize);
+	securityZone->setOrigin(_securityZoneSize / 2.0f);
+	securityZone->setPosition(biome[_tilesCount.y / 2][_tilesCount.x /2]->GetShapePosition());
 }
 
-void Biome::Draw(RenderWindow& _window)
+void Biome::Register()
 {
-
-	for (int _columnIndex = 0; _columnIndex < tiles.size(); _columnIndex++)
-	{
-		for (int _rowIndex = 0; _rowIndex < tiles[_columnIndex].size(); _rowIndex++)
-		{
-			_window.draw(*tiles[_columnIndex][_rowIndex]->GetShape());
-		}
-	}
-}
-
-void Biome::CreateSecurityZone()
-{
-	RectangleShape* _securityZone = new RectangleShape(tilesSize * 5.f);
-	_securityZone->setOrigin(tilesSize * 5.f / 2.f);
-	_securityZone->setPosition(tiles[tileCount.y / 2][tileCount.x / 2]->GetShapePosition());
+	BiomeManager::GetInstance().Add(id, this);
 }

@@ -1,9 +1,10 @@
 #include "Tile.h"
 #include "Macro.h"
-Tile::Tile(const Vector2f& _position, const Vector2f& _size, const string& _path)
-	: Object({_position,_size,_path})
+
+Tile::Tile(const string& _name,const TileType& _type, const Vector2f& _position, const Vector2f& _size) : Actor(_name,{ _position, _size, GetPathWithType(_type)})
 {
-	objects = vector<Object*>();
-	shape->setOutlineThickness(1.f);
-	shape->setOutlineColor(Color::Red);
+	type = _type;
+	SetColorWithType();
+	shape->setOutlineThickness(-1.f);
+	shape->setFillColor(color);
 }

@@ -1,20 +1,40 @@
 #pragma once
 #include "Biome.h"
+#include "Macro.h"
+#include "Game.h"
 
 class Map
 {
-	vector<Biome*> biomes;
-	Vector2f startPosition;
-	Vector2f tilesSize;
-	string path;
+	int biomeCount;
+public:
+	Map(const int _biomeCount, const Vector2f& _windowSize);
 
 public:
-	Map(const Vector2f& _startPosition,const Vector2f& _tilesSize,const string& _path,const int _biomeCount);
+	TileType GetRandomType() const
+	{
+
+		return static_cast<TileType>(Random(TT_SIZE,0));
+	}
+
+	Vector2i GetRandomBiomeSize() const
+	{
+		return Vector2i(Random(25, 5), Random(25, 5));
+	}
+
+	Vector2f GetValidPosition(const Vector2i _biomeSize, const Vector2f& _windowSize) const
+	{
+		const int _x = Random(_biomeSize.x);
+		const int _y = Random(_biomeSize.y);
+		bool _isValid = false;
+	/*	do
+		{
+
+		} while (!_isValid);*/
+		return Vector2f();
+	}
+
 
 public:
-	void InitBiomes(const int _biomeCount);
-
-public:
-	void Draw(RenderWindow& _window);
+	void CreateMap(const Vector2f& _windowSize);
 };
 
