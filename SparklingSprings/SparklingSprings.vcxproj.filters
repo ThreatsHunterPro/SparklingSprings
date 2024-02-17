@@ -13,6 +13,9 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Fichiers d%27en-tête\TEST !!!">
+      <UniqueIdentifier>{6f5db9f8-818a-4c37-a64e-9c71e92ab67c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -22,30 +25,6 @@
       <Filter>Fichiers sources</Filter>
     </ClCompile>
     <ClCompile Include="ActionMap.cpp">
-      <Filter>Fichiers sources</Filter>
-    </ClCompile>
-    <ClCompile Include="Actor.cpp">
-      <Filter>Fichiers sources</Filter>
-    </ClCompile>
-    <ClCompile Include="ActorManager.cpp">
-      <Filter>Fichiers sources</Filter>
-    </ClCompile>
-    <ClCompile Include="Button.cpp">
-      <Filter>Fichiers sources</Filter>
-    </ClCompile>
-    <ClCompile Include="Canvas.cpp">
-      <Filter>Fichiers sources</Filter>
-    </ClCompile>
-    <ClCompile Include="Component.cpp">
-      <Filter>Fichiers sources</Filter>
-    </ClCompile>
-    <ClCompile Include="FontData.cpp">
-      <Filter>Fichiers sources</Filter>
-    </ClCompile>
-    <ClCompile Include="FontManager.cpp">
-      <Filter>Fichiers sources</Filter>
-    </ClCompile>
-    <ClCompile Include="Game.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
     <ClCompile Include="HUD.cpp">
@@ -90,36 +69,36 @@
     <ClCompile Include="Macro.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
+    <ClCompile Include="Actor.cpp">
+      <Filter>Fichiers d%27en-tête\TEST !!!</Filter>
+    </ClCompile>
+    <ClCompile Include="ActorManager.cpp">
+      <Filter>Fichiers d%27en-tête\TEST !!!</Filter>
+    </ClCompile>
+    <ClCompile Include="Button.cpp">
+      <Filter>Fichiers d%27en-tête\TEST !!!</Filter>
+    </ClCompile>
+    <ClCompile Include="Canvas.cpp">
+      <Filter>Fichiers d%27en-tête\TEST !!!</Filter>
+    </ClCompile>
+    <ClCompile Include="Component.cpp">
+      <Filter>Fichiers d%27en-tête\TEST !!!</Filter>
+    </ClCompile>
+    <ClCompile Include="FontData.cpp">
+      <Filter>Fichiers d%27en-tête\TEST !!!</Filter>
+    </ClCompile>
+    <ClCompile Include="FontManager.cpp">
+      <Filter>Fichiers d%27en-tête\TEST !!!</Filter>
+    </ClCompile>
+    <ClCompile Include="Game.cpp">
+      <Filter>Fichiers d%27en-tête\TEST !!!</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Action.h">
       <Filter>Fichiers sources</Filter>
     </ClInclude>
     <ClInclude Include="ActionMap.h">
-      <Filter>Fichiers sources</Filter>
-    </ClInclude>
-    <ClInclude Include="Actor.h">
-      <Filter>Fichiers sources</Filter>
-    </ClInclude>
-    <ClInclude Include="ActorManager.h">
-      <Filter>Fichiers sources</Filter>
-    </ClInclude>
-    <ClInclude Include="Button.h">
-      <Filter>Fichiers sources</Filter>
-    </ClInclude>
-    <ClInclude Include="Canvas.h">
-      <Filter>Fichiers sources</Filter>
-    </ClInclude>
-    <ClInclude Include="Component.h">
-      <Filter>Fichiers sources</Filter>
-    </ClInclude>
-    <ClInclude Include="FileLoader.h">
-      <Filter>Fichiers sources</Filter>
-    </ClInclude>
-    <ClInclude Include="FontData.h">
-      <Filter>Fichiers sources</Filter>
-    </ClInclude>
-    <ClInclude Include="FontManager.h">
       <Filter>Fichiers sources</Filter>
     </ClInclude>
     <ClInclude Include="Game.h">
@@ -175,6 +154,30 @@
     </ClInclude>
     <ClInclude Include="Macro.h">
       <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="Actor.h">
+      <Filter>Fichiers d%27en-tête\TEST !!!</Filter>
+    </ClInclude>
+    <ClInclude Include="ActorManager.h">
+      <Filter>Fichiers d%27en-tête\TEST !!!</Filter>
+    </ClInclude>
+    <ClInclude Include="Button.h">
+      <Filter>Fichiers d%27en-tête\TEST !!!</Filter>
+    </ClInclude>
+    <ClInclude Include="Canvas.h">
+      <Filter>Fichiers d%27en-tête\TEST !!!</Filter>
+    </ClInclude>
+    <ClInclude Include="Component.h">
+      <Filter>Fichiers d%27en-tête\TEST !!!</Filter>
+    </ClInclude>
+    <ClInclude Include="FileLoader.h">
+      <Filter>Fichiers d%27en-tête\TEST !!!</Filter>
+    </ClInclude>
+    <ClInclude Include="FontData.h">
+      <Filter>Fichiers d%27en-tête\TEST !!!</Filter>
+    </ClInclude>
+    <ClInclude Include="FontManager.h">
+      <Filter>Fichiers d%27en-tête\TEST !!!</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
