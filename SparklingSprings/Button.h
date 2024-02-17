@@ -56,6 +56,10 @@ public:
 	{
 		foreground = _foreground;
 	}
+	Widget* GetForeground() const
+	{
+		return foreground;
+	}
 
 public:
 	Button(const ObjectData& _data, const AllButtonData& _buttonData = AllButtonData());

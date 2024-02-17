@@ -67,7 +67,7 @@ void Player::SetupPlayerInput()
 
 	new ActionMap("TEMP", {
 		ActionData("AddItem", [&]() { 
-			//inventory->AddItem(PATH_ITEM, ITEM_RESOURCE); 
+			inventory->AddItem(PATH_ITEM, ITEM_RESOURCE); 
 		}, InputData({ ActionType::KeyPressed, Keyboard::Space })),
 	});
 }

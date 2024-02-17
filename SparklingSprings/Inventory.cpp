@@ -11,6 +11,14 @@ Inventory::Inventory()
 
 Button* Inventory::GetFirstAvailableButton() const
 {
+	for (Button* _button : allButtons)
+	{
+		if (!_button->GetForeground())
+		{
+			return _button;
+		}
+	}
+
 	return nullptr;
 }
 
@@ -27,10 +35,12 @@ void Inventory::Init()
 		{
 			const float _posX = _gridPos.x + _columnIndex * cellSize.x;
 			const float _posY = _gridPos.y + _rowIndex * cellSize.y;
-			Button* _button = new Button(ObjectData(Vector2f(_posX, _posY), cellSize, "Wood.png"), AllButtonData());
-			/*_button->GetShape()->setOutlineThickness(3.0f);
+			Button* _button = new Button(ObjectData(Vector2f(_posX, _posY), cellSize, ""), AllButtonData());
+			_button->GetShape()->setOutlineThickness(3.0f);
 			_button->GetShape()->setOutlineColor(Color(_rowIndex * 10 / 255, _columnIndex * 10 / 255, 255, 255));
-			canvas->AddWidget(_button);*/
+
+			allButtons.push_back(_button);
+			canvas->AddWidget(_button);
 		}
 	}
 }
@@ -39,5 +49,6 @@ void Inventory::AddItem(const string& _path, const ItemType& _type, const Rarity
 {
 	Button* _button = GetFirstAvailableButton();
 	Item* _item = new Item(ObjectData(_button->GetShapePosition(), cellSize, _path), _type, _rarity);
+	_item->GetShape()->setFillColor(Color::Red);
 	_button->SetForeground(_item);
 }

@@ -8,6 +8,7 @@ class Inventory : public Singleton<Inventory>, public IManager<int, Item>
 {
 	Canvas* canvas;
 	Vector2f cellSize;
+	vector<Button*> allButtons;
 
 public:
 	Inventory();
@@ -19,7 +20,7 @@ public:
 	void Init();
 	void Toggle()
 	{
-		canvas->SetVisibilityStatus(canvas->IsVisible() ? false : true);
+		canvas->SetVisibilityStatus(!canvas->IsVisible());
 	}
 	/*Widget* Select()
 	{
