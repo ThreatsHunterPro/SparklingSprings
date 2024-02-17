@@ -120,6 +120,9 @@
     <ClCompile Include="Player.cpp">
       <Filter>Fichiers sources\Objects\Player</Filter>
     </ClCompile>
+    <ClCompile Include="PlayerMovementComponent.cpp">
+      <Filter>Fichiers sources\Components</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game.h">
@@ -205,6 +208,9 @@
     </ClInclude>
     <ClInclude Include="Player.h">
       <Filter>Fichiers sources\Objects\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerMovementComponent.h">
+      <Filter>Fichiers sources\Components</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

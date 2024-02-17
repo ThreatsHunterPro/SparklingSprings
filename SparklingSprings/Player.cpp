@@ -29,6 +29,8 @@
 Player::Player(const string& _name, const ObjectData& _data) : Actor(_name,_data)
 {
 	stats = nullptr;
+	movement = new PlayerMovementComponent(this);
+	components.push_back(movement);
 }
 
 
@@ -56,6 +58,19 @@ void Player::SetupPlayerInput()
 			stats->Eat(30.0f);
 
 		}, { ActionType::KeyPressed, Keyboard::E }),
+	});
+	new ActionMap("Deplacement", {
+		ActionData("P_Forward", [&]() { movement->SetDirectionY(-1.0f); }, InputData({ ActionType::KeyPressed, Keyboard::Z })),
+		ActionData("R_Forward", [&]() { movement->SetDirectionY(0.0f); }, InputData({ ActionType::KeyReleased, Keyboard::Z })),
+
+		ActionData("P_Backward", [&]() { movement->SetDirectionY(1.0f); }, InputData({ ActionType::KeyPressed, Keyboard::S })),
+		ActionData("R_Backward", [&]() { movement->SetDirectionY(0.0f); }, InputData({ ActionType::KeyReleased, Keyboard::S })),
+
+		ActionData("P_Left", [&]() { movement->SetDirectionX(-1.0f); }, InputData({ ActionType::KeyPressed, Keyboard::Q })),
+		ActionData("R_Left", [&]() { movement->SetDirectionX(0.0f); }, InputData({ ActionType::KeyReleased, Keyboard::Q })),
+
+		ActionData("P_Right", [&]() { movement->SetDirectionX(1.0f); }, InputData({ ActionType::KeyPressed, Keyboard::D })),
+		ActionData("R_Right", [&]() { movement->SetDirectionX(0.0f); }, InputData({ ActionType::KeyReleased, Keyboard::D })),
 	});
 }
 

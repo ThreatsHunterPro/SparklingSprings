@@ -150,6 +150,7 @@
     <ClCompile Include="MovementComponent.cpp" />
     <ClCompile Include="Object.cpp" />
     <ClCompile Include="Player.cpp" />
+    <ClCompile Include="PlayerMovementComponent.cpp" />
     <ClCompile Include="ProgressBar.cpp" />
     <ClCompile Include="TextureData.cpp" />
     <ClCompile Include="TextureManager.cpp" />
@@ -178,6 +179,7 @@
     <ClInclude Include="MovementComponent.h" />
     <ClInclude Include="Object.h" />
     <ClInclude Include="Player.h" />
+    <ClInclude Include="PlayerMovementComponent.h" />
     <ClInclude Include="PlayerStats.h" />
     <ClInclude Include="ProgressBar.h" />
     <ClInclude Include="Singleton.h" />
