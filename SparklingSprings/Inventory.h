@@ -1,15 +1,14 @@
 #pragma once
-#include "Singleton.h"
 #include "IManager.h"
-#include "Item.h"
+#include "ItemData.h"
 #include "Button.h"
 
-class Inventory : public IManager<int, Item>
+class Inventory : public IManager<int, ItemData>
 {
 	Canvas* canvas;
 	Vector2f cellSize;
-	vector<Button*> allButtons;
-
+	vector<Button*> buttons;
+ 
 public:
 	Inventory();
 

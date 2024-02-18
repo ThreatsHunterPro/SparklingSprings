@@ -177,6 +177,9 @@
     <ClCompile Include="Map.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
+    <ClCompile Include="ItemData.cpp">
+      <Filter>Fichiers sources\Managers\Storage</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game.h">
@@ -298,6 +301,9 @@
     </ClInclude>
     <ClInclude Include="Map.h">
       <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="ItemData.h">
+      <Filter>Fichiers sources\Managers\Storage</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

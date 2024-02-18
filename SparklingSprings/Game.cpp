@@ -10,12 +10,12 @@
 
 Game::Game()
 {
-	map = new Map(1, Vector2f(window.getSize()));
+	//map = new Map(1, Vector2f(window.getSize()));
 }
 
 Game::~Game()
 {
-	delete map;
+	//delete map;
 }
 
 
@@ -63,7 +63,7 @@ void Game::UpdateWindow()
 		_view.setViewport(_canvas->GetRect());
 		window.setView(_view);
 
-		for (Widget* _widget : _canvas->GetWidgets())
+		for (Widget* _widget : _canvas->GetWidgets()) 
 		{
 			if (!_widget->IsVisible()) continue;
 			window.draw(*_widget->GetShape());

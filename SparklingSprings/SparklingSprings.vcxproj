@@ -139,6 +139,7 @@
     <ClCompile Include="ActorManager.cpp" />
     <ClCompile Include="Biome.cpp" />
     <ClCompile Include="Button.cpp" />
+    <ClCompile Include="ItemData.cpp" />
     <ClCompile Include="Canvas.cpp" />
     <ClCompile Include="Component.cpp" />
     <ClCompile Include="Consumable.cpp" />
@@ -177,6 +178,7 @@
     <ClInclude Include="ActorManager.h" />
     <ClInclude Include="Biome.h" />
     <ClInclude Include="Button.h" />
+    <ClInclude Include="ItemData.h" />
     <ClInclude Include="Canvas.h" />
     <ClInclude Include="Component.h" />
     <ClInclude Include="Consumable.h" />

@@ -6,11 +6,16 @@
 class InputManager : public Singleton<InputManager>, public IManager<string, ActionMap>
 {
 	Vector2f mousePosition;
+	Vector2f worldPosition;
 
 public:
 	Vector2f GetMousePosition() const 
 	{
 		return mousePosition;
+	}
+	Vector2f GetWorldPosition() const
+	{
+		return worldPosition;
 	}
 
 public:

@@ -1,16 +1,21 @@
 #include "InputManager.h"
+#include "HUD.h"
 
 bool InputManager::Update(RenderWindow& _window)
 {
+	const Vector2i& _mousePosition = Mouse::getPosition(_window);
+	mousePosition = Vector2f(_mousePosition);
+	worldPosition = _window.mapPixelToCoords(_mousePosition);
+
 	Event _event;
 	while (_window.pollEvent(_event))
 	{
 		if (_event.type == Event::Closed) return false;
 
+		HUD::GetInstance().Interact(worldPosition, _event.type);
 		UpdateInputs(_event);
 	}
 
-	mousePosition = Vector2f(Mouse::getPosition(_window));
 	GarbageValues();
 
 	return true;

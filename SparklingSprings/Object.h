@@ -46,4 +46,5 @@ public:
 
 public:
 	Object(const ObjectData& _data);
+	virtual ~Object() {};
 };

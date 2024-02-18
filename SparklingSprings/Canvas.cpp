@@ -16,3 +16,12 @@ void Canvas::Register()
 {
 	HUD::GetInstance().Add(id, this);
 }
+
+void Canvas::AddWidget(Widget* _widget)
+{
+	if (Button* _button = dynamic_cast<Button*>(_widget))
+	{
+		HUD::GetInstance().AddButton(_button);
+	}
+	widgets.push_back(_widget);
+}

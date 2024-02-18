@@ -19,10 +19,6 @@ public:
 	{
 		isVisible = _status;
 	}
-	void AddWidget(Widget* _widget)
-	{
-		widgets.push_back(_widget);
-	}
 	bool IsVisible() const
 	{
 		return isVisible;
@@ -41,4 +37,7 @@ public:
 
 private:
 	virtual void Register() override;
+
+public:
+	void AddWidget(Widget* _widget);
 };
