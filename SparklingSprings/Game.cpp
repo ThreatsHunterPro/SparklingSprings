@@ -7,7 +7,6 @@
 #include "Player.h"
 
 #define PATH_PLAYER "Player.png"
-#define FONT "Assets/Fonts/Font.ttf"
 
 Game::Game()
 {
@@ -22,7 +21,7 @@ Game::~Game()
 
 void Game::Start()
 {
-	window.create(VideoMode(SCREEN_WIDTH, SCREEN_HEIGHT), "SparklingSprings");
+	window.create(VideoMode(SCREEN_WIDTH, SCREEN_HEIGHT), "SparklingSprings",Style::Close);
 	TimerManager::GetInstance().SetRenderCallback(bind(&Game::UpdateWindow, this));
 	new Timer(this, &Game::Init, seconds(1.0f), true, false);
 }

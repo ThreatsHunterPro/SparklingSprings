@@ -38,6 +38,16 @@ public:
 		return text->getGlobalBounds().getSize();
 	}
 
+	void SetOriginAtMiddle()
+	{
+		text->setOrigin(text->getGlobalBounds().getSize() / 2.0f);
+	}
+
+	void SetColor(const Color& _color)
+	{
+		text->setFillColor(_color);
+	}
+
 public:
 	TextObject(const TextData& _data);
 };

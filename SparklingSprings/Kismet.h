@@ -5,6 +5,8 @@
 using namespace sf;
 using namespace std;
 
+
+
 struct HitInfo
 {
 	Vector2f position;

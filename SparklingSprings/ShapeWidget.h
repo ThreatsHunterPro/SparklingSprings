@@ -21,6 +21,18 @@ public:
 		GetDrawable()->setPosition(_position);
 	}
 
+	void SetOriginAtMiddle()
+	{
+		Shape* _shape = shapeObject->GetDrawable();
+		_shape->setOrigin(_shape->getGlobalBounds().getSize() / 2.0f);
+	}
+
+	void SetColor(const Color& _color)
+	{
+		Shape* _shape = shapeObject->GetDrawable();
+		_shape->setFillColor(_color);
+	}
+
 public:
 	ShapeWidget(const ShapeData& _data);
 };

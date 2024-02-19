@@ -4,6 +4,8 @@
 #include "Canvas.h"
 #include "Button.h"
 
+#define FONT "Font.ttf"
+
 class Inventory : public IManager<int, ItemData>
 {
 	Canvas* canvas;

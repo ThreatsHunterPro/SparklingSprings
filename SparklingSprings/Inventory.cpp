@@ -2,7 +2,6 @@
 #include "Button.h"
 #include <iostream>
 
-#define FONT "Font.ttf"
 #define PATH_CELL ".png"
 
 Inventory::Inventory()
