@@ -18,6 +18,8 @@ void Button::OnPressed()
 	{
 		data.pressedCallback();
 	}
+	GetDrawable()->setOutlineThickness(-1.5f); 
+	GetDrawable()->setOutlineColor(Color::Red);
 }
 
 void Button::OnHeld()
@@ -38,6 +40,8 @@ void Button::OnReleased()
 	{
 		data.releasedCallback();
 	}
+	GetDrawable()->setOutlineThickness(-1.5f); 
+	GetDrawable()->setOutlineColor(Color::Red);
 }
 
 void Button::OnHovered()
@@ -47,6 +51,8 @@ void Button::OnHovered()
 	{
 		data.hoveredCallback();
 	}
+	GetDrawable()->setOutlineThickness(-1.5f); 
+	GetDrawable()->setOutlineColor(Color::Blue);
 	
 }
 

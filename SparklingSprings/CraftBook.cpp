@@ -13,6 +13,7 @@ void CraftBook::Init()
 	const Vector2f& _gridPos = Vector2f(700.0f, 350.0f);
 	const Vector2i& _gridSize = Vector2i(3, 3);
 
+
 	for (int _i = 0; _i < _gridSize.y; _i++)
 	{
 		for (int _j = 0; _j < _gridSize.x; _j++)
@@ -20,13 +21,7 @@ void CraftBook::Init()
 			const float _posX = _gridPos.x + _j * cellSize.x;
 			const float _posY = _gridPos.y + _i * cellSize.y;
 
-			static Button* _button = new Button(ShapeData(Vector2f(_posX, _posY), cellSize, ""), ButtonData(
-				[&]() {_button->GetDrawable()->setOutlineThickness(-1.5f); _button->GetDrawable()->setOutlineColor(Color::Blue); },		//hovered 
-				[&]() {_button->GetDrawable()->setOutlineThickness(-1.5f); _button->GetDrawable()->setOutlineColor(Color::Black); },	  	//unhovered 
-				[&]() {_button->GetDrawable()->setOutlineThickness(-1.5f); _button->GetDrawable()->setOutlineColor(Color::Red); },		//pressed 
-				[&]() {_button->GetDrawable()->setOutlineThickness(-1.5f); _button->GetDrawable()->setOutlineColor(Color::Black); },	  	//released 
-				[&]() {_button->GetDrawable()->setOutlineThickness(-1.5f); _button->GetDrawable()->setOutlineColor(Color::Green); }		//held
-				));
+			Button* _button = new Button(ShapeData(Vector2f(_posX, _posY), cellSize, ""));
 
 			buttons.push_back(_button);
 			canvas->AddWidget(_button);
