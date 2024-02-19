@@ -9,7 +9,6 @@ Inventory::Inventory()
 	Init();
 }
 
-
 Button* Inventory::GetFirstAvailableButton() const
 {
 	for (Button* _button : buttons)

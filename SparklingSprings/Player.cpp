@@ -27,10 +27,11 @@
 
 #pragma endregion
 
-Player::Player(const string& _name, const ObjectData& _data) : Actor(_name,_data)
+Player::Player(const string& _name, const ObjectData& _data) : Actor(_name, _data)
 {
 	stats = nullptr;
 	inventory = new Inventory();
+	craftBook = new CraftBook();
 	movement = new PlayerMovementComponent(this);
 	components.push_back(movement);
 }
@@ -60,16 +61,22 @@ void Player::SetupPlayerInput()
 
 		ActionData("P_Right", [&]() { movement->SetDirectionX(1.0f); }, InputData({ ActionType::KeyPressed, Keyboard::D })),
 		ActionData("R_Right", [&]() { movement->SetDirectionX(0.0f); }, InputData({ ActionType::KeyReleased, Keyboard::D })),
-	});
+		});
 	new ActionMap("Storages", {
 		ActionData("Inventory", [&]() { inventory->Toggle(); }, InputData({ ActionType::KeyPressed, Keyboard::B })),
-	});
+		ActionData("CraftBook", [&]() { craftBook->Toggle(); }, InputData({ ActionType::KeyPressed, Keyboard::Tab })),
+		});
+
+	new ActionMap("Actions", {
+		ActionData("Click", [&]() { craftBook->BuildSelected(); }, InputData({ ActionType::MouseButtonPressed, Mouse::Left })),
+		});
+
 
 	new ActionMap("TEMP", {
-		ActionData("AddItem", [&]() { 
-			inventory->AddItem(PATH_ITEM, ITEM_RESOURCE); 
+		ActionData("AddItem", [&]() {
+			inventory->AddItem(PATH_ITEM, ITEM_RESOURCE);
 		}, InputData({ ActionType::KeyPressed, Keyboard::Space })),
-	});
+		});
 }
 
 void Player::InitHUD()

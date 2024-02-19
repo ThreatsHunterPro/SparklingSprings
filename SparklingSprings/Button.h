@@ -31,11 +31,20 @@ class Button : public Widget
 {
 	bool isSelected;
 	bool isHeld;
+	bool isHovered;
 	Widget* foreground;
 	function<void()> callback;
 	//AllButtonData allData;
 
 public:
+	bool IsSelected() const
+	{
+		return isSelected;
+	}
+	bool IsHovered() const
+	{
+		return isHovered;
+	}
 	void SetForeground(Widget* _foreground)
 	{
 		foreground = _foreground;

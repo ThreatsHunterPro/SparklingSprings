@@ -67,6 +67,12 @@
     <Filter Include="Fichiers sources\UI\Widgets\Storable\Items">
       <UniqueIdentifier>{92ce1b09-58fa-41e6-92f6-514f3edf3552}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Fichiers sources\UI\Widgets\Storable\Craft">
+      <UniqueIdentifier>{5a90874d-7194-4ab1-b8f9-b07054e18b92}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\UI\Widgets\Storable\Skill">
+      <UniqueIdentifier>{e0e58343-fc26-4263-b424-93e82a7612c1}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -144,12 +150,6 @@
     <ClCompile Include="PlayerMovementComponent.cpp">
       <Filter>Fichiers sources\Components\Movements</Filter>
     </ClCompile>
-    <ClCompile Include="Skill.cpp">
-      <Filter>Fichiers sources\UI\Widgets\Storable</Filter>
-    </ClCompile>
-    <ClCompile Include="Craft.cpp">
-      <Filter>Fichiers sources\UI\Widgets\Storable</Filter>
-    </ClCompile>
     <ClCompile Include="Item.cpp">
       <Filter>Fichiers sources\UI\Widgets\Storable\Items</Filter>
     </ClCompile>
@@ -165,9 +165,6 @@
     <ClCompile Include="SkillTree.cpp">
       <Filter>Fichiers sources\Managers\Storage</Filter>
     </ClCompile>
-    <ClCompile Include="CraftBook.cpp">
-      <Filter>Fichiers sources</Filter>
-    </ClCompile>
     <ClCompile Include="Biome.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
@@ -179,6 +176,15 @@
     </ClCompile>
     <ClCompile Include="ItemData.cpp">
       <Filter>Fichiers sources\Managers\Storage</Filter>
+    </ClCompile>
+    <ClCompile Include="CraftBook.cpp">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClCompile>
+    <ClCompile Include="Craft.cpp">
+      <Filter>Fichiers sources\UI\Widgets\Storable\Craft</Filter>
+    </ClCompile>
+    <ClCompile Include="Skill.cpp">
+      <Filter>Fichiers sources\UI\Widgets\Storable\Skill</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -269,12 +275,6 @@
     <ClInclude Include="MovementComponent.h">
       <Filter>Fichiers sources\Components\Movements</Filter>
     </ClInclude>
-    <ClInclude Include="Skill.h">
-      <Filter>Fichiers sources\UI\Widgets\Storable</Filter>
-    </ClInclude>
-    <ClInclude Include="Craft.h">
-      <Filter>Fichiers sources\UI\Widgets\Storable</Filter>
-    </ClInclude>
     <ClInclude Include="Item.h">
       <Filter>Fichiers sources\UI\Widgets\Storable\Items</Filter>
     </ClInclude>
@@ -304,6 +304,12 @@
     </ClInclude>
     <ClInclude Include="ItemData.h">
       <Filter>Fichiers sources\Managers\Storage</Filter>
+    </ClInclude>
+    <ClInclude Include="Craft.h">
+      <Filter>Fichiers sources\UI\Widgets\Storable\Craft</Filter>
+    </ClInclude>
+    <ClInclude Include="Skill.h">
+      <Filter>Fichiers sources\UI\Widgets\Storable\Skill</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

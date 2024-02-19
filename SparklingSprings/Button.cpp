@@ -5,6 +5,7 @@ Button::Button(const ObjectData& _data/*, const AllButtonData& _buttonData*/) : 
 {
 	//allData = _buttonData;
 	isSelected = false;
+	isHovered = false;
 	isHeld = false;
 	foreground = nullptr;
 }
@@ -35,12 +36,12 @@ void Button::OnReleased()
 
 void Button::OnHovered()
 {
-
+	isHovered = true;
 }
 
 void Button::OnUnhovered()
 {
-
+	isHovered = false;
 }
 
 
