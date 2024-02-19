@@ -4,6 +4,7 @@
 #include "Canvas.h"
 #include "ProgressBar.h"
 #include "Timer.h"
+#include "Kismet.h"
 
 #pragma region Defines
 
@@ -63,8 +64,8 @@ void Player::SetupPlayerInput()
 		ActionData("R_Right", [&]() { movement->SetDirectionX(0.0f); }, InputData({ ActionType::KeyReleased, Keyboard::D })),
 		});
 	new ActionMap("Fight", {
-		ActionData("LightAttack", [&]() { LightAttack(); }, InputData({ ActionType::MouseButtonPressed, Keyboard::Left })),
-		ActionData("HeavyAttack", [&]() { HeavyAttack(); }, InputData({ ActionType::MouseButtonPressed, Keyboard::Right })),
+		ActionData("LightAttack", [&]() { LightAttack(); }, InputData({ ActionType::MouseButtonPressed, Mouse::Left })),
+		ActionData("HeavyAttack", [&]() { HeavyAttack(); }, InputData({ ActionType::MouseButtonPressed, Mouse::Right })),
 	});
 	new ActionMap("Storages", {
 		ActionData("Inventory", [&]() { inventory->Toggle(); }, InputData({ ActionType::KeyPressed, Keyboard::B })),
