@@ -5,8 +5,9 @@
 class PlayerMovementComponent : public Component
 {
 	bool canMove;
-	Vector2f direction;
 	float speed;
+	float dashSpeed;
+	Vector2f direction;
 
 public:
 	void SetDirectionX(const float _directionX)
@@ -23,4 +24,17 @@ public:
 
 public:
 	virtual void Update(const float _deltaTime) override;
+
+	#pragma region Overworld
+
+	void Sprint();
+
+	#pragma endregion
+
+	#pragma region Overworld
+
+	void Jump();
+	void Dash();
+
+	#pragma endregion
 };

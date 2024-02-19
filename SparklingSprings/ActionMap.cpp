@@ -2,10 +2,12 @@
 #include "InputManager.h"
 #include <iostream>
 
-ActionMap::ActionMap(const string& _name, const vector<ActionData>& _actionsData) : IManagable(_name)
+ActionMap::ActionMap(const string& _name, const vector<ActionData>& _actionsData,
+					 const bool _isRunning) : IManagable(_name)
 {
 	Register();
 
+	isRunning = _isRunning;
 	for (const ActionData& _actionData : _actionsData)
 	{
 		actions.push_back(new Action(_actionData, id));
