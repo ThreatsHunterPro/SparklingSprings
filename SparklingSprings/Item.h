@@ -1,5 +1,6 @@
 #pragma once
-#include "Widget.h"
+#include "ShapeWidget.h"
+#include "IManagable.h"
 
 enum ItemType
 {
@@ -16,13 +17,13 @@ enum RarityType
 	RARITY_LEGENDARY
 };
 
-class Item : public Widget, public IManagable<int>
+class Item : public ShapeWidget, public IManagable<string>
 {
 	ItemType type;
 	RarityType rarity;
 
 public:
-	Item(const ObjectData& _data, const ItemType& _type,
+	Item(const ShapeData& _data, const ItemType& _type,
 		 const RarityType& _rarity = RARITY_COMMON);
 
 public:

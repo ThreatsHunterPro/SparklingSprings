@@ -2,9 +2,9 @@
 #include "Macro.h"
 #include "Inventory.h"
 
-Item::Item(const ObjectData& _data, const ItemType& _type,
+Item::Item(const ShapeData& _data, const ItemType& _type,
 		   const RarityType& _rarity)
-		 : Widget(_data), IManagable(GetUniqueID())
+		 : ShapeWidget(_data), IManagable(_data.path)
 {
 	type = _type;
 	rarity = _rarity;

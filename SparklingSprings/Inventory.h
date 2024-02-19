@@ -1,6 +1,7 @@
 #pragma once
 #include "IManager.h"
 #include "ItemData.h"
+#include "Canvas.h"
 #include "Button.h"
 
 class Inventory : public IManager<int, ItemData>
@@ -8,6 +9,7 @@ class Inventory : public IManager<int, ItemData>
 	Canvas* canvas;
 	Vector2f cellSize;
 	vector<Button*> buttons;
+	int stackSize;
  
 public:
 	Inventory();
@@ -21,18 +23,7 @@ public:
 	{
 		canvas->SetVisibilityStatus(!canvas->IsVisible());
 	}
-	/*Widget* Select()
-	{
-		const Vector2f& _mousePosition = InputManager::GetInstance().GetMousePosition();
-		for (Widget* _value : GetAllValues())
-		{
-			if (_value->GetShape()->getGlobalBounds().contains(_mousePosition))
-			{
-				return _value;
-			}
-		}
-	}*/
 
-	void AddItem(const string& _path, const ItemType& _type,
-				 const RarityType& _rarity = RarityType::RARITY_COMMON);
+	void AddItem(const string _path, const ItemType& _type,
+				 const RarityType& _rarity = RARITY_COMMON);
 };

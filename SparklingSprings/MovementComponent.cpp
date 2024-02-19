@@ -26,7 +26,7 @@ void MovementComponent::MoveToDestination(const float _deltaTime)
 		return;
 	}
 
-	Shape* _shape = owner->GetShape();
+	Shape* _shape = owner->GetDrawable();
 	Vector2f _direction = destination - _shape->getPosition();
 	Normalize(_direction);
 

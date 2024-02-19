@@ -1,5 +1,5 @@
 #pragma once
-#include "Widget.h"
+#include "ShapeWidget.h"
 #include <functional>
 
 using namespace std;
@@ -27,7 +27,7 @@ using namespace std;
 //	}
 //};
 
-class Button : public Widget
+class Button : public ShapeWidget
 {
 	bool isSelected;
 	bool isHeld;
@@ -55,7 +55,7 @@ public:
 	}
 
 public:
-	Button(const ObjectData& _data/*, const AllButtonData& _buttonData = AllButtonData()*/);
+	Button(const ShapeData& _data/*, const AllButtonData& _buttonData = AllButtonData()*/);
 
 public:
 	void OnPressed();

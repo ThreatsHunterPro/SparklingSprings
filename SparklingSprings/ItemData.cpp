@@ -1,16 +1,9 @@
 #include "ItemData.h"
-#include "Inventory.h"
+#include "Macro.h"
 
-ItemData::ItemData(Item* _item, Inventory* _owner) : IManagable(_item->GetID())
+ItemData::ItemData(Item* _item, const string& _fontPath) : IManagable(GetUniqueID())
 {
-	count = 0;
+	count = 1;
 	item = _item;
-	inventory = _owner;
-
-	Register();
-}
-
-void ItemData::Register()
-{
-	inventory->Add(id, this);
+	countText = new Label(TextData(to_string(count), _item->GetObject()->GetShapePosition(), _fontPath, 20, Color::Red));
 }

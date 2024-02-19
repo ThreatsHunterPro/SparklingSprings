@@ -7,6 +7,7 @@
 #include "Player.h"
 
 #define PATH_PLAYER "Player.png"
+#define FONT "Assets/Fonts/Font.ttf"
 
 Game::Game()
 {
@@ -28,7 +29,7 @@ void Game::Start()
 
 void Game::Init()
 {
-	Player* _player = new Player("Player", ObjectData(Vector2f(200.0f, 200.0f), Vector2f(150.0f, 150.0f), PATH_PLAYER));
+	Player* _player = new Player("Player", ShapeData(Vector2f(200.0f, 200.0f), Vector2f(150.0f, 150.0f), PATH_PLAYER));
 	_player->Init();
 }
 
@@ -51,7 +52,7 @@ void Game::UpdateWindow()
 	window.setView(_defaultView);
 	for (Actor* _actor : ActorManager::GetInstance().GetAllValues())
 	{
-		window.draw(*_actor->GetShape());
+		window.draw(*_actor->GetDrawable());
 	}
 
 	// UI
@@ -66,7 +67,7 @@ void Game::UpdateWindow()
 		for (Widget* _widget : _canvas->GetWidgets()) 
 		{
 			if (!_widget->IsVisible()) continue;
-			window.draw(*_widget->GetShape());
+			window.draw(*_widget->GetDrawable());
 		}
 	}
 

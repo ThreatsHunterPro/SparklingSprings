@@ -3,12 +3,12 @@
 #include "TextureManager.h"
 #include "HUD.h"
 
-ProgressBar::ProgressBar(const ObjectData& _data, Canvas* _canvas, const string& _path,
+ProgressBar::ProgressBar(const ShapeData& _data, Canvas* _canvas, const string& _path,
                          const ProgressType& _type, const float _maxValue)
-                       : Widget(_data)
+                       : ShapeWidget(_data)
 {
     type = _type;
-    foreground = new Widget(ObjectData(_data.position, _data.size, _path));
+    foreground = new ShapeWidget(ShapeData(_data.position, _data.size, _path));
     _canvas->AddWidget(foreground);
 
     UpdateOriginAndPosition(_data.size);
@@ -25,33 +25,33 @@ ProgressBar::~ProgressBar()
 
 void ProgressBar::UpdateOriginAndPosition(const Vector2f& _size)
 {
-	Shape* _fgShape = foreground->GetShape();
-    const Vector2f& _barPosition = GetShapePosition();
+	Shape* _fgShape = foreground->GetDrawable();
+    const Vector2f& _barPosition = shapeObject->GetShapePosition();
 
     if (type == PT_CENTER)
     {
         _fgShape->setOrigin(_size / 2.0f);
-        shape->setOrigin(_size / 2.0f);
+        GetDrawable()->setOrigin(_size / 2.0f);
     }
     else if (type == PT_RIGHT)
     {
         _fgShape->setOrigin(_size.x, 0);
-        shape->setOrigin(_size.x, 0);
+        shapeObject->GetDrawable()->setOrigin(_size.x, 0);
         _fgShape->setPosition(_barPosition + Vector2f(_size.x, 0.0f));
-        shape->setPosition(_barPosition + Vector2f(_size.x, 0.0f));
+        GetDrawable()->setPosition(_barPosition + Vector2f(_size.x, 0.0f));
     }
     else if (type == PT_BOTTOM)
     {
         _fgShape->setOrigin(0, _size.y);
-        shape->setOrigin(0, _size.y);
+        GetDrawable()->setOrigin(0, _size.y);
         _fgShape->setPosition(_barPosition + Vector2f(0.0f, _size.y));
-        shape->setPosition(_barPosition + Vector2f(0.0f, _size.y));
+        GetDrawable()->setPosition(_barPosition + Vector2f(0.0f, _size.y));
     }
 }
 
 IntRect ProgressBar::MakeRect(const float _percent)
 {
-    const Texture* _bgTexture = shape->getTexture();
+    const Texture* _bgTexture = GetDrawable()->getTexture();
     const Vector2f& _textureSize = Vector2f(_bgTexture->getSize());
     FloatRect _rect;
 
@@ -88,7 +88,7 @@ IntRect ProgressBar::MakeRect(const float _percent)
 
 void ProgressBar::Update()
 {
-    Shape* _fgShape = foreground->GetShape();
+    Shape* _fgShape = foreground->GetDrawable();
 
     const float _fillPercent = currentValue / maxValue;
     const IntRect& _rect = MakeRect(_fillPercent);

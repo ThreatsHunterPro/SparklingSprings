@@ -9,7 +9,7 @@ void HUD::Interact(const Vector2f& _worldPosition, const Event::EventType& _type
 	{
 		if (!_button->IsVisible()) continue;
 
-		if (_button->GetShape()->getGlobalBounds().contains(_worldPosition))
+		if (_button->GetDrawable()->getGlobalBounds().contains(_worldPosition))
 		{
 			if (_type == Event::EventType::MouseButtonPressed)
 			{
