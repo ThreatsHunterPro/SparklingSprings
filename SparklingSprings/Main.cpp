@@ -10,6 +10,7 @@ int main()
 
 	Game _game;
 	_game.Launch();
+	// test
 
 	/*NetworkManager& _network = NetworkManager::GetInstance();
 	_network.PrepareHost();*/
