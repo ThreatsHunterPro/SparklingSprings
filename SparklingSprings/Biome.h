@@ -2,7 +2,6 @@
 #include "Tile.h"
 #include "IManagable.h"
 
-
 class Biome : public IManagable<string>
 {
 	vector<vector<Tile*>> biome;

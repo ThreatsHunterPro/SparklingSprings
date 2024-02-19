@@ -2,12 +2,12 @@
 #include "Macro.h"
 #include "BiomeManager.h"
 
-Biome::Biome(const TileType& _type, const Vector2f& _position, const Vector2i& _size, const Vector2i& _biomeSize) : IManagable(STRING_ID("Biome"))
+Biome::Biome(const TileType& _type, const Vector2f& _position, const Vector2i& _size, const Vector2i& _biomeSize, const int _securityZone) : IManagable(STRING_ID("Biome"))
 {
 	biome = vector<vector<Tile*>>();
 	const Vector2f& _tileSize = Vector2f(float(_size.x), float(_size.y));
-	InitBiome(_type, _position, _tileSize,_biomeSize);
-	securityZoneSize = Vector2i(_size) * 5;
+	InitBiome(_type, _position, _tileSize, _biomeSize);
+	securityZoneSize = _securityZone;
 }
 
 void Biome::InitBiome(const TileType& _type, const Vector2f& _position, const Vector2f& _size, const Vector2i& _biomeSize)

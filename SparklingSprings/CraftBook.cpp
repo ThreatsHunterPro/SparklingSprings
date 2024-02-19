@@ -20,9 +20,9 @@ void CraftBook::Init()
 			const float _posX = _gridPos.x + _j * cellSize.x;
 			const float _posY = _gridPos.y + _i * cellSize.y;
 
-			Button* _button = new Button(ObjectData(Vector2f(_posX, _posY), cellSize, ""));
-			_button->GetShape()->setOutlineThickness(-1.5f);
-			_button->GetShape()->setOutlineColor(Color::Black);
+			Button* _button = new Button(ShapeData(Vector2f(_posX, _posY), cellSize, ""));
+			_button->GetDrawable()->setOutlineThickness(-1.5f);
+			_button->GetDrawable()->setOutlineColor(Color::Black);
 
 			buttons.push_back(_button);
 			canvas->AddWidget(_button);
@@ -36,13 +36,13 @@ void CraftBook::BuildHovered()
 	{
 		if (_button->IsHovered())
 		{
-			_button->GetShape()->setOutlineThickness(-3.0f);
-			_button->GetShape()->setOutlineColor(Color::Blue);
+			_button->GetDrawable()->setOutlineThickness(-3.0f);
+			_button->GetDrawable()->setOutlineColor(Color::Blue);
 		}
 		else
 		{
-			_button->GetShape()->setOutlineThickness(-1.5f);
-			_button->GetShape()->setOutlineColor(Color::Black);
+			_button->GetDrawable()->setOutlineThickness(-1.5f);
+			_button->GetDrawable()->setOutlineColor(Color::Black);
 		}
 	}
 }
@@ -54,13 +54,13 @@ void CraftBook::BuildSelected()
 		if (_button->IsSelected())
 		{
 			//action affectuer
-			_button->GetShape()->setOutlineThickness(-3.0f);
-			_button->GetShape()->setOutlineColor(Color::Green);
+			_button->GetDrawable()->setOutlineThickness(-3.0f);
+			_button->GetDrawable()->setOutlineColor(Color::Green);
 		}
 		else
 		{
-			_button->GetShape()->setOutlineThickness(-1.5f);
-			_button->GetShape()->setOutlineColor(Color::Black);
+			_button->GetDrawable()->setOutlineThickness(-1.5f);
+			_button->GetDrawable()->setOutlineColor(Color::Black);
 		}
 	}
 }
