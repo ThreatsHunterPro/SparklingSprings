@@ -6,10 +6,10 @@
 class Biome : public IManagable<string>
 {
 	vector<vector<Tile*>> biome;
-	Vector2i securityZoneSize;
+	int securityZoneSize;
 
 public:
-	Biome(const TileType& _type, const Vector2f& _position, const Vector2i& _size,const Vector2i& _biomeSize);
+	Biome(const TileType& _type, const Vector2f& _position, const Vector2i& _size,const Vector2i& _biomeSize,const int _securityZone);
 
 	void InitBiome(const TileType& _type, const Vector2f& _position, const Vector2f& _size, const Vector2i& _biomeSize);
 

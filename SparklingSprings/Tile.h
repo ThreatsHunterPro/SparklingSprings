@@ -1,16 +1,18 @@
 #pragma once
 #include "Actor.h"
 #include "IManagable.h"
+#include <iostream>
+
+using namespace std;
 
 enum TileType
 {
-	TT_NONE = -1, TT_GRASS, TT_ICE, TT_LAVA, TT_SAND,TT_STONE,TT_SIZE
+	TT_NONE, TT_GRASS, TT_ICE, TT_LAVA, TT_SAND,TT_STONE,TT_SIZE
 };
 
 class Tile : public Actor
 {
 	TileType type;
-	Color color;
 
 public:
 
@@ -26,7 +28,17 @@ public:
 			Color(128,128,128,255),
 		};
 
-		color = _colors[type + 1];
+		shape->setFillColor(_colors[type]);
+	}
+
+	void SetType(const TileType& _type)
+	{
+		type = _type;
+		if (_type != TT_NONE)
+		{
+			cout << "c'est good";
+		}
+		SetColorWithType();
 	}
 
 	string GetPathWithType(const TileType& _type) const

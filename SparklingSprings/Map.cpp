@@ -1,9 +1,10 @@
 #include "Map.h"
+#include "BiomeManager.h"
 
 Map::Map(const int _biomeCount,const Vector2f& _windowSize)
 {
 	biomeCount = _biomeCount;
-	//new Biome(TT_NONE, Vector2f(0, 0), Vector2i(25, 25), Vector2i(55, 55));
+	BiomeManager::GetInstance().InitBackgroundTiles({0.f,0.f},{25,25},{50,50});
 	CreateMap(_windowSize);
 }
 
@@ -14,6 +15,6 @@ void Map::CreateMap(const Vector2f& _windowSize)
 	{
 		const Vector2i& _biomeSize = GetRandomBiomeSize();
 		const Vector2f& _biomePosition = GetValidPosition(_biomeSize, _windowSize);
-		new Biome(GetRandomType(), _biomePosition, _tilesSize, _biomeSize);
+		new Biome(GetRandomType(), _biomePosition, _tilesSize, _biomeSize,5);
 	}
 }
