@@ -6,5 +6,4 @@ Tile::Tile(const string& _name,const TileType& _type, const Vector2f& _position,
 	type = _type;
 	SetColorWithType();
 	shape->setOutlineThickness(-1.f);
-	shape->setFillColor(color);
 }

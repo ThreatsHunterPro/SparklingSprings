@@ -25,11 +25,8 @@ public:
 		const int _x = Random(_biomeSize.x);
 		const int _y = Random(_biomeSize.y);
 		bool _isValid = false;
-	/*	do
-		{
 
-		} while (!_isValid);*/
-		return Vector2f();
+		return Vector2f(100.f,100.f);
 	}
 
 

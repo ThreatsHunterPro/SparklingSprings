@@ -1,0 +1,3 @@
+﻿  Biome.cpp
+C:\Users\Gregory ZANATTA\OneDrive\Bureau\Cours P1\SFML\SparklingSprings\SparklingSprings\BiomeManager.h(23,1): warning C4715: 'BiomeManager::GetTileByPosition' : les chemins de contrôle ne retournent pas tous une valeur
+  SparklingSprings.vcxproj -> C:\Users\Gregory ZANATTA\OneDrive\Bureau\Cours P1\SFML\SparklingSprings\SparklingSprings\x64\Debug\SparklingSprings.exe
