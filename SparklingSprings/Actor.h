@@ -1,11 +1,11 @@
 #pragma once
-#include "Object.h"
+#include "ShapeObject.h"
 #include "IManagable.h"
 #include "Component.h"
 
 using namespace std;
 
-class Actor : public Object, public IManagable<string>
+class Actor : public ShapeObject, public IManagable<string>
 {
 protected:
 	vector<Component*> components;
@@ -26,7 +26,7 @@ public:
 	}
 
 public:
-	Actor(const string& _name, const ObjectData& _data);
+	Actor(const string& _name, const ShapeData& _data);
 
 private:
 	virtual void Register() override;

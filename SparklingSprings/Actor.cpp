@@ -1,8 +1,8 @@
 #include "Actor.h"
 #include "ActorManager.h"
 
-Actor::Actor(const string& _name, const ObjectData& _data) : Object(_data),
-															IManagable(_name)
+Actor::Actor(const string& _name, const ShapeData& _data)
+		   : ShapeObject(_data), IManagable(_name)
 {
 	Register();
 }

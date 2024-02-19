@@ -43,36 +43,75 @@
     <Filter Include="Fichiers sources\Objects">
       <UniqueIdentifier>{59deda70-429d-499a-9372-cf743e160c23}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Fichiers sources\Objects\Player">
-      <UniqueIdentifier>{d5bea249-770e-4755-bb6a-09f71f457657}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Fichiers sources\UI\Widgets">
       <UniqueIdentifier>{245e1a99-4a16-42f3-9de4-f32bb725c5a5}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Fichiers sources\UI\Widgets\ProgressBar">
-      <UniqueIdentifier>{4f6a148f-8cac-442e-b2c5-6359ba298325}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Fichiers sources\UI\Widgets\Button">
-      <UniqueIdentifier>{09f624ed-1443-40fe-b6a4-fcbe4191b336}</UniqueIdentifier>
     </Filter>
     <Filter Include="Fichiers sources\Components\Movements">
       <UniqueIdentifier>{c3539d0f-3ac6-4158-b9ae-c1ae63ffa961}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Fichiers sources\UI\Widgets\Storable">
+    <Filter Include="Fichiers sources\Objects\ShapeObjects">
+      <UniqueIdentifier>{363e7997-a2dc-4dcc-a8d5-0554461e0ab6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\Objects\ShapeObjects\Actors">
+      <UniqueIdentifier>{dbabc253-2e36-431c-b65b-1cdd290642ad}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\Objects\ShapeObjects\Actors\Player">
+      <UniqueIdentifier>{d5bea249-770e-4755-bb6a-09f71f457657}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\Objects\ShapeObjects\Actors\Tile">
+      <UniqueIdentifier>{53fff5f1-0fdc-4fdd-9a7f-9331a96136e1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\Objects\TextObjects">
+      <UniqueIdentifier>{412e6d25-5c93-4d03-b827-d3b953724131}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\UI\Canvas">
+      <UniqueIdentifier>{bb7676bb-e637-49cf-919a-308c2af15136}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\UI\Widgets\ShapeWidgets">
+      <UniqueIdentifier>{fc2e4372-b3ba-49e9-b5b7-a3ac89399c1c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\UI\Widgets\TextWidgets">
+      <UniqueIdentifier>{9d55e438-d6fc-425f-8974-72a195532a1f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\UI\Widgets\TextWidgets\Label">
+      <UniqueIdentifier>{076c6097-33aa-489a-ac9d-1a8fcddb678f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\UI\Widgets\ShapeWidgets\Button">
+      <UniqueIdentifier>{09f624ed-1443-40fe-b6a4-fcbe4191b336}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\UI\Widgets\ShapeWidgets\ProgressBar">
+      <UniqueIdentifier>{4f6a148f-8cac-442e-b2c5-6359ba298325}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\Storable">
       <UniqueIdentifier>{a9203019-d2a4-44a4-ae09-f43fa4dbd908}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Fichiers sources\Managers\Storage">
-      <UniqueIdentifier>{919ce94d-1f15-4630-9d99-271d2aa330db}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Fichiers sources\UI\Widgets\Storable\Items">
+    <Filter Include="Fichiers sources\Storable\Items">
       <UniqueIdentifier>{92ce1b09-58fa-41e6-92f6-514f3edf3552}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\Storable\Crafts">
+      <UniqueIdentifier>{0c44b52d-5ff0-4367-a283-68020a8c816a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\Storable\Skills">
+      <UniqueIdentifier>{2941caa1-c590-4e25-9ddc-ff56429632d5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\Map">
+      <UniqueIdentifier>{b5f230cf-423f-4386-8010-ee4ea89451da}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\Game">
+      <UniqueIdentifier>{1be565d8-a01c-455b-b02b-fb8589dd01ef}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\Managers\Network">
+      <UniqueIdentifier>{a22ee6a4-7afe-4060-9c71-2fde059fda9b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers de ressources\Macro">
+      <UniqueIdentifier>{2ab5c073-8cda-46c2-862e-29124b7f2be3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers de ressources\Kismet">
+      <UniqueIdentifier>{70469d2f-7824-4388-9bf9-ce418bb969b3}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
-      <Filter>Fichiers sources</Filter>
-    </ClCompile>
-    <ClCompile Include="Game.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
     <ClCompile Include="ActorManager.cpp">
@@ -86,9 +125,6 @@
     </ClCompile>
     <ClCompile Include="InputManager.cpp">
       <Filter>Fichiers sources\Managers\Input</Filter>
-    </ClCompile>
-    <ClCompile Include="Macro.cpp">
-      <Filter>Fichiers sources\Managers\Font</Filter>
     </ClCompile>
     <ClCompile Include="FontManager.cpp">
       <Filter>Fichiers sources\Managers\Font</Filter>
@@ -111,29 +147,17 @@
     <ClCompile Include="HUD.cpp">
       <Filter>Fichiers sources\UI</Filter>
     </ClCompile>
-    <ClCompile Include="Canvas.cpp">
-      <Filter>Fichiers sources\UI</Filter>
-    </ClCompile>
     <ClCompile Include="Object.cpp">
-      <Filter>Fichiers sources\Objects</Filter>
-    </ClCompile>
-    <ClCompile Include="Actor.cpp">
       <Filter>Fichiers sources\Objects</Filter>
     </ClCompile>
     <ClCompile Include="Component.cpp">
       <Filter>Fichiers sources\Components</Filter>
     </ClCompile>
-    <ClCompile Include="Tile.cpp">
-      <Filter>Fichiers sources\Objects</Filter>
-    </ClCompile>
-    <ClCompile Include="Player.cpp">
-      <Filter>Fichiers sources\Objects\Player</Filter>
-    </ClCompile>
     <ClCompile Include="Button.cpp">
-      <Filter>Fichiers sources\UI\Widgets\Button</Filter>
+      <Filter>Fichiers sources\UI\Widgets\ShapeWidgets\Button</Filter>
     </ClCompile>
     <ClCompile Include="ProgressBar.cpp">
-      <Filter>Fichiers sources\UI\Widgets\ProgressBar</Filter>
+      <Filter>Fichiers sources\UI\Widgets\ShapeWidgets\ProgressBar</Filter>
     </ClCompile>
     <ClCompile Include="Widget.cpp">
       <Filter>Fichiers sources\UI\Widgets</Filter>
@@ -144,50 +168,83 @@
     <ClCompile Include="PlayerMovementComponent.cpp">
       <Filter>Fichiers sources\Components\Movements</Filter>
     </ClCompile>
-    <ClCompile Include="Skill.cpp">
-      <Filter>Fichiers sources\UI\Widgets\Storable</Filter>
-    </ClCompile>
-    <ClCompile Include="Craft.cpp">
-      <Filter>Fichiers sources\UI\Widgets\Storable</Filter>
-    </ClCompile>
     <ClCompile Include="Item.cpp">
-      <Filter>Fichiers sources\UI\Widgets\Storable\Items</Filter>
+      <Filter>Fichiers sources\Storable\Items</Filter>
     </ClCompile>
     <ClCompile Include="Equipment.cpp">
-      <Filter>Fichiers sources\UI\Widgets\Storable\Items</Filter>
+      <Filter>Fichiers sources\Storable\Items</Filter>
     </ClCompile>
     <ClCompile Include="Consumable.cpp">
-      <Filter>Fichiers sources\UI\Widgets\Storable\Items</Filter>
+      <Filter>Fichiers sources\Storable\Items</Filter>
     </ClCompile>
-    <ClCompile Include="Inventory.cpp">
-      <Filter>Fichiers sources\Managers\Storage</Filter>
+    <ClCompile Include="Label.cpp">
+      <Filter>Fichiers sources\UI\Widgets\TextWidgets\Label</Filter>
     </ClCompile>
-    <ClCompile Include="SkillTree.cpp">
-      <Filter>Fichiers sources\Managers\Storage</Filter>
+    <ClCompile Include="Player.cpp">
+      <Filter>Fichiers sources\Objects\ShapeObjects\Actors\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="Actor.cpp">
+      <Filter>Fichiers sources\Objects\ShapeObjects\Actors</Filter>
+    </ClCompile>
+    <ClCompile Include="Tile.cpp">
+      <Filter>Fichiers sources\Objects\ShapeObjects\Actors\Tile</Filter>
+    </ClCompile>
+    <ClCompile Include="ShapeObject.cpp">
+      <Filter>Fichiers sources\Objects\ShapeObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="TextObject.cpp">
+      <Filter>Fichiers sources\Objects\TextObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="Canvas.cpp">
+      <Filter>Fichiers sources\UI\Canvas</Filter>
+    </ClCompile>
+    <ClCompile Include="TextWidget.cpp">
+      <Filter>Fichiers sources\UI\Widgets\TextWidgets</Filter>
+    </ClCompile>
+    <ClCompile Include="ShapeWidget.cpp">
+      <Filter>Fichiers sources\UI\Widgets\ShapeWidgets</Filter>
+    </ClCompile>
+    <ClCompile Include="Craft.cpp">
+      <Filter>Fichiers sources\Storable\Crafts</Filter>
+    </ClCompile>
+    <ClCompile Include="Skill.cpp">
+      <Filter>Fichiers sources\Storable\Skills</Filter>
     </ClCompile>
     <ClCompile Include="CraftBook.cpp">
-      <Filter>Fichiers sources</Filter>
+      <Filter>Fichiers sources\Storable\Crafts</Filter>
     </ClCompile>
-    <ClCompile Include="Biome.cpp">
-      <Filter>Fichiers sources</Filter>
+    <ClCompile Include="SkillTree.cpp">
+      <Filter>Fichiers sources\Storable\Skills</Filter>
     </ClCompile>
-    <ClCompile Include="BiomeManager.cpp">
-      <Filter>Fichiers sources</Filter>
-    </ClCompile>
-    <ClCompile Include="Map.cpp">
-      <Filter>Fichiers sources</Filter>
+    <ClCompile Include="Inventory.cpp">
+      <Filter>Fichiers sources\Storable\Items</Filter>
     </ClCompile>
     <ClCompile Include="ItemData.cpp">
-      <Filter>Fichiers sources\Managers\Storage</Filter>
+      <Filter>Fichiers sources\Storable\Items</Filter>
+    </ClCompile>
+    <ClCompile Include="Map.cpp">
+      <Filter>Fichiers sources\Map</Filter>
+    </ClCompile>
+    <ClCompile Include="BiomeManager.cpp">
+      <Filter>Fichiers sources\Map</Filter>
+    </ClCompile>
+    <ClCompile Include="Biome.cpp">
+      <Filter>Fichiers sources\Map</Filter>
+    </ClCompile>
+    <ClCompile Include="Game.cpp">
+      <Filter>Fichiers sources\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="NetworkManager.cpp">
+      <Filter>Fichiers sources\Managers\Network</Filter>
+    </ClCompile>
+    <ClCompile Include="Macro.cpp">
+      <Filter>Fichiers de ressources\Macro</Filter>
+    </ClCompile>
+    <ClCompile Include="Kismet.cpp">
+      <Filter>Fichiers de ressources\Kismet</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Game.h">
-      <Filter>Fichiers sources</Filter>
-    </ClInclude>
-    <ClInclude Include="Macro.h">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
     <ClInclude Include="Action.h">
       <Filter>Fichiers sources\Managers\Input</Filter>
     </ClInclude>
@@ -221,13 +278,7 @@
     <ClInclude Include="HUD.h">
       <Filter>Fichiers sources\UI</Filter>
     </ClInclude>
-    <ClInclude Include="Canvas.h">
-      <Filter>Fichiers sources\UI</Filter>
-    </ClInclude>
     <ClInclude Include="Object.h">
-      <Filter>Fichiers sources\Objects</Filter>
-    </ClInclude>
-    <ClInclude Include="Actor.h">
       <Filter>Fichiers sources\Objects</Filter>
     </ClInclude>
     <ClInclude Include="Component.h">
@@ -245,20 +296,14 @@
     <ClInclude Include="FileLoader.h">
       <Filter>Fichiers sources\Misc</Filter>
     </ClInclude>
-    <ClInclude Include="Tile.h">
-      <Filter>Fichiers sources\Objects</Filter>
-    </ClInclude>
     <ClInclude Include="PlayerStats.h">
-      <Filter>Fichiers sources\Objects\Player</Filter>
-    </ClInclude>
-    <ClInclude Include="Player.h">
-      <Filter>Fichiers sources\Objects\Player</Filter>
+      <Filter>Fichiers sources\Objects\ShapeObjects\Actors\Player</Filter>
     </ClInclude>
     <ClInclude Include="Button.h">
-      <Filter>Fichiers sources\UI\Widgets\Button</Filter>
+      <Filter>Fichiers sources\UI\Widgets\ShapeWidgets\Button</Filter>
     </ClInclude>
     <ClInclude Include="ProgressBar.h">
-      <Filter>Fichiers sources\UI\Widgets\ProgressBar</Filter>
+      <Filter>Fichiers sources\UI\Widgets\ShapeWidgets\ProgressBar</Filter>
     </ClInclude>
     <ClInclude Include="Widget.h">
       <Filter>Fichiers sources\UI\Widgets</Filter>
@@ -269,41 +314,80 @@
     <ClInclude Include="MovementComponent.h">
       <Filter>Fichiers sources\Components\Movements</Filter>
     </ClInclude>
-    <ClInclude Include="Skill.h">
-      <Filter>Fichiers sources\UI\Widgets\Storable</Filter>
-    </ClInclude>
-    <ClInclude Include="Craft.h">
-      <Filter>Fichiers sources\UI\Widgets\Storable</Filter>
-    </ClInclude>
     <ClInclude Include="Item.h">
-      <Filter>Fichiers sources\UI\Widgets\Storable\Items</Filter>
+      <Filter>Fichiers sources\Storable\Items</Filter>
     </ClInclude>
     <ClInclude Include="Consumable.h">
-      <Filter>Fichiers sources\UI\Widgets\Storable\Items</Filter>
+      <Filter>Fichiers sources\Storable\Items</Filter>
     </ClInclude>
     <ClInclude Include="Equipment.h">
-      <Filter>Fichiers sources\UI\Widgets\Storable\Items</Filter>
+      <Filter>Fichiers sources\Storable\Items</Filter>
     </ClInclude>
-    <ClInclude Include="Inventory.h">
-      <Filter>Fichiers sources\Managers\Storage</Filter>
+    <ClInclude Include="Label.h">
+      <Filter>Fichiers sources\UI\Widgets\TextWidgets\Label</Filter>
     </ClInclude>
-    <ClInclude Include="SkillTree.h">
-      <Filter>Fichiers sources\Managers\Storage</Filter>
+    <ClInclude Include="Actor.h">
+      <Filter>Fichiers sources\Objects\ShapeObjects\Actors</Filter>
+    </ClInclude>
+    <ClInclude Include="Tile.h">
+      <Filter>Fichiers sources\Objects\ShapeObjects\Actors\Tile</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>Fichiers sources\Objects\ShapeObjects\Actors\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="ShapeObject.h">
+      <Filter>Fichiers sources\Objects\ShapeObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="TextObject.h">
+      <Filter>Fichiers sources\Objects\TextObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="Canvas.h">
+      <Filter>Fichiers sources\UI\Canvas</Filter>
+    </ClInclude>
+    <ClInclude Include="TextWidget.h">
+      <Filter>Fichiers sources\UI\Widgets\TextWidgets</Filter>
+    </ClInclude>
+    <ClInclude Include="ShapeWidget.h">
+      <Filter>Fichiers sources\UI\Widgets\ShapeWidgets</Filter>
+    </ClInclude>
+    <ClInclude Include="Skill.h">
+      <Filter>Fichiers sources\Storable\Skills</Filter>
+    </ClInclude>
+    <ClInclude Include="Craft.h">
+      <Filter>Fichiers sources\Storable\Crafts</Filter>
     </ClInclude>
     <ClInclude Include="CraftBook.h">
-      <Filter>Fichiers d%27en-tête</Filter>
+      <Filter>Fichiers sources\Storable\Crafts</Filter>
     </ClInclude>
-    <ClInclude Include="Biome.h">
-      <Filter>Fichiers d%27en-tête</Filter>
+    <ClInclude Include="SkillTree.h">
+      <Filter>Fichiers sources\Storable\Skills</Filter>
     </ClInclude>
-    <ClInclude Include="BiomeManager.h">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="Map.h">
-      <Filter>Fichiers d%27en-tête</Filter>
+    <ClInclude Include="Inventory.h">
+      <Filter>Fichiers sources\Storable\Items</Filter>
     </ClInclude>
     <ClInclude Include="ItemData.h">
-      <Filter>Fichiers sources\Managers\Storage</Filter>
+      <Filter>Fichiers sources\Storable\Items</Filter>
+    </ClInclude>
+    <ClInclude Include="Biome.h">
+      <Filter>Fichiers sources\Map</Filter>
+    </ClInclude>
+    <ClInclude Include="BiomeManager.h">
+      <Filter>Fichiers sources\Map</Filter>
+    </ClInclude>
+    <ClInclude Include="Map.h">
+      <Filter>Fichiers sources\Map</Filter>
+    </ClInclude>
+    <ClInclude Include="Game.h">
+      <Filter>Fichiers sources\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="NetworkManager.h">
+      <Filter>Fichiers sources\Managers\Network</Filter>
+    </ClInclude>
+    <ClInclude Include="Macro.h">
+      <Filter>Fichiers de ressources\Macro</Filter>
+    </ClInclude>
+    <ClInclude Include="Kismet.h">
+      <Filter>Fichiers de ressources\Kismet</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

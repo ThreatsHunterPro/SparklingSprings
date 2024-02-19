@@ -5,46 +5,53 @@
 using namespace std;
 using namespace sf;
 
-struct ObjectData
+struct Data
 {
 	Vector2f position;
-	Vector2f size;
 	string path;
-	IntRect rect;
 
-	ObjectData() = default;
-	ObjectData(const Vector2f& _position, const Vector2f& _size,
-		const string& _path = "", const IntRect& _rect = IntRect())
+	Data(const Vector2f& _position, const string& _path = "")
 	{
 		position = _position;
-		size = _size;
 		path = _path;
+	}
+};
+
+struct ShapeData : public Data
+{
+	Vector2f size;
+	IntRect rect;
+
+	ShapeData() = default;
+	ShapeData(const Vector2f& _position, const Vector2f& _size,
+		const string& _path = "", const IntRect& _rect = IntRect()) : Data(_position, _path)
+	{
+		size = _size;
 		rect = _rect;
+	}
+};
+
+struct TextData : public Data
+{
+	string text;
+	int size;
+	Color color;
+
+	TextData() = default;
+	TextData(const string& _text, const Vector2f& _position, const string& _path = "",
+			 const int _size = 16, const Color& _color = Color::White) : Data(_position, _path)
+	{
+		text = _text;
+		size = _size;
+		color = _color;
 	}
 };
 
 class Object
 {
-protected:
-	Shape* shape;
+public:
+	virtual Drawable* GetDrawable() const = 0;
 
 public:
-	Shape* GetShape() const
-	{
-		return shape;
-	}
-	Vector2f GetShapePosition() const
-	{
-		if (!shape) return Vector2f();
-		return shape->getPosition();
-	}
-	Vector2f GetShapeSize() const
-	{
-		if (!shape) return Vector2f();
-		return shape->getGlobalBounds().getSize();
-	}
-
-public:
-	Object(const ObjectData& _data);
 	virtual ~Object() {};
 };

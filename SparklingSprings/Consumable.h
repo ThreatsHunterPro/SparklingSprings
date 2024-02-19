@@ -6,7 +6,7 @@ class Consumable : public Item
 	float regenValue;
 
 public:
-	Consumable(const ObjectData& _data, const ItemType& _type,
+	Consumable(const ShapeData& _data, const ItemType& _type,
 			   const float _regenValue);
 
 public:

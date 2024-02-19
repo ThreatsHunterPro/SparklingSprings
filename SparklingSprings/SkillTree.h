@@ -2,6 +2,7 @@
 #include "Singleton.h"
 #include "IManager.h"
 #include "Skill.h"
+#include "Canvas.h"
 
 class SkillTree : public Singleton<SkillTree>, public IManager<string, Skill>
 {

@@ -1,11 +1,7 @@
 #pragma once
 #include "Object.h"
-#include "Canvas.h"
-#include <iostream>
 
-using namespace std;
-
-class Widget : public Object
+class Widget
 {
 	bool isVisible;
 
@@ -18,7 +14,10 @@ public:
 	{
 		return isVisible;
 	}
+	virtual Object* GetObject() const = 0;
+	virtual Drawable* GetDrawable() const = 0;
 
 public:
-	Widget(const ObjectData& _data);
+	Widget();
+	virtual ~Widget() {}
 };

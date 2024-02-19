@@ -1,4 +1,5 @@
 #include "Game.h"
+#include "NetworkManager.h"
 
 using namespace std;
 
@@ -9,4 +10,9 @@ int main()
 
 	Game _game;
 	_game.Launch();
+
+	/*NetworkManager& _network = NetworkManager::GetInstance();
+	_network.PrepareHost();*/
+
+	return 0;
 }

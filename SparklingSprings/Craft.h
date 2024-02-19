@@ -1,14 +1,14 @@
 #pragma once
-#include "Widget.h"
+#include "ShapeWidget.h"
 #include "Item.h"
 
-class Craft : public Widget
+class Craft : public ShapeWidget
 {
 	vector<Item*> requiredItems;
 	Object* building;
 
 public:
-	Craft(const ObjectData& _data, const vector<Item*>& _requiredItems,
+	Craft(const ShapeData& _data, const vector<Item*>& _requiredItems,
 		  Object* _building);
 
 public:

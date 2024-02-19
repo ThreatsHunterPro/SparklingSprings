@@ -61,7 +61,7 @@ void Biome::InitBiome(const TileType& _type, const Vector2f& _position, const Ve
 			{
 				_color = Color::White;
 			}
-			_tile->GetShape()->setFillColor(_color);
+			_tile->GetDrawable()->setFillColor(_color);
 
 			_row.push_back(_tile);
 		}

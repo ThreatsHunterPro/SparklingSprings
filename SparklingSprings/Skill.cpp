@@ -1,8 +1,9 @@
 #include "Skill.h"
+#include <iostream>
 
-Skill::Skill(const ObjectData& _data, const int _cost,
+Skill::Skill(const ShapeData& _data, const int _cost,
 			 const function<void()>& _callback, const bool _isUnlocked)
-			 : Widget(_data)
+			 : ShapeWidget(_data)
 {
 	isUnlocked = _isUnlocked;
 	cost = _cost;

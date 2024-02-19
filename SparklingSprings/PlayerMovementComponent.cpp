@@ -14,5 +14,5 @@ void PlayerMovementComponent::Update(const float _deltaTime)
 	if (!canMove) return;
 
 	const Vector2f& _offset = direction * speed * _deltaTime;
-	owner->GetShape()->move(_offset);
+	owner->GetDrawable()->move(_offset);
 }

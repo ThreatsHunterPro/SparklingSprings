@@ -18,13 +18,17 @@ class Player : public Actor
 	PlayerMovementComponent* movement;
 
 public:
-	Player(const string& _name, const ObjectData& _data);
+	Player(const string& _name, const ShapeData& _data);
 
 private:
 	void SetupPlayerInput();
 	void InitHUD();
 	void InitStats();
 	void InitSkillTree();
+
+	//TODO move
+	void LightAttack();
+	void HeavyAttack();
 
 public:
 	void Init();

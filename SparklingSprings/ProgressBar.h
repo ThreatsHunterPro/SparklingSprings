@@ -1,6 +1,6 @@
 #pragma once
-#include "Widget.h"
-#include "Object.h"
+#include "ShapeWidget.h"
+#include "Canvas.h"
 
 enum ProgressType
 {
@@ -11,10 +11,10 @@ enum ProgressType
 	PT_BOTTOM
 };
 
-class ProgressBar : public Widget
+class ProgressBar : public ShapeWidget
 {
 	ProgressType type;
-	Widget* foreground;
+	ShapeWidget* foreground;
 	float maxValue;
 	float currentValue;
 
@@ -42,7 +42,7 @@ public:
 	}
 
 public:
-	ProgressBar(const ObjectData& _data, Canvas* _canvas, const string& _path,
+	ProgressBar(const ShapeData& _data, Canvas* _canvas, const string& _path,
 				const ProgressType& _type, const float _maxValue = 100.0f);
 	~ProgressBar();
 

@@ -1,7 +1,7 @@
 #include "Button.h"
 #include <iostream>
 
-Button::Button(const ObjectData& _data/*, const AllButtonData& _buttonData*/) : Widget(_data)
+Button::Button(const ShapeData& _data/*, const AllButtonData& _buttonData*/) : ShapeWidget(_data)
 {
 	//allData = _buttonData;
 	isSelected = false;
@@ -12,7 +12,6 @@ Button::Button(const ObjectData& _data/*, const AllButtonData& _buttonData*/) : 
 
 void Button::OnPressed()
 {
-	cout << "OnPressed" << endl;
 	isSelected = true;
 	isHeld = true;
 }
@@ -20,15 +19,12 @@ void Button::OnPressed()
 void Button::OnHeld()
 {
 	if (!isHeld) return;
-
-	cout << "OnHeld" << endl;
 }
 
 void Button::OnReleased()
 {
 	if (!isSelected) return;
 
-	cout << "OnReleased" << endl;
 	isSelected = false;
 	isHeld = false;
 }

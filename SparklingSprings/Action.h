@@ -1,7 +1,5 @@
 #pragma once
-
 #include "IManagable.h"
-
 #include <SFML/Graphics.hpp>
 #include <functional>
 #include <vector>
