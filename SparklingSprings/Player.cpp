@@ -33,6 +33,7 @@ Player::Player(const string& _name, const ShapeData& _data) : Actor(_name,_data)
 {
 	stats = nullptr;
 	inventory = new Inventory();
+	craftBook = new CraftBook();
 	movement = new PlayerMovementComponent(this);
 	components.push_back(movement);
 }
@@ -69,9 +70,13 @@ void Player::SetupPlayerInput()
 	});
 	new ActionMap("Storages", {
 		ActionData("Inventory", [&]() { inventory->Toggle(); }, InputData({ ActionType::KeyPressed, Keyboard::B })),
+		ActionData("CraftBook", [&]() { craftBook->Toggle(); }, InputData({ ActionType::KeyPressed, Keyboard::Tab })),
 		ActionData("AddItem1", [&]() { inventory->AddItem(PATH_WOOD, ITEM_RESOURCE, RARITY_COMMON); }, InputData({ ActionType::KeyPressed, Keyboard::X })),
 		ActionData("AddItem2", [&]() { inventory->AddItem(PATH_ROCK, ITEM_RESOURCE, RARITY_COMMON); }, InputData({ ActionType::KeyPressed, Keyboard::C })),
 	});
+	//new ActionMap("Actions", {
+	//	ActionData("Click", [&]() { craftBook->BuildSelected(); }, InputData({ ActionType::MouseButtonPressed, Mouse::Left })),
+	//	});
 }
 
 void Player::InitHUD()

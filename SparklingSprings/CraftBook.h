@@ -21,7 +21,6 @@ public:
 	{
 		canvas->SetVisibilityStatus(canvas->IsVisible() ? false : true);
 	}
-	void BuildHovered();
-	void BuildSelected();
+	//void BuildSelected();
 
 };

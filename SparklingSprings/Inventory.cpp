@@ -40,7 +40,13 @@ void Inventory::Init()
 			const float _posX = _gridPos.x + _columnIndex * cellSize.x;
 			const float _posY = _gridPos.y + _rowIndex * cellSize.y;
 
-			Button* _button = new Button(ShapeData(Vector2f(_posX, _posY), cellSize, ""));
+			static Button* _button = new Button(ShapeData(Vector2f(_posX, _posY), cellSize, ""), ButtonData(
+				[&]() {_button->GetDrawable()->setOutlineThickness(-1.5f); _button->GetDrawable()->setOutlineColor(Color::Blue); },		//hovered 
+				[&]() {_button->GetDrawable()->setOutlineThickness(-1.5f); _button->GetDrawable()->setOutlineColor(Color::Black); },	//unhovered 
+				[&]() {_button->GetDrawable()->setOutlineThickness(-1.5f); _button->GetDrawable()->setOutlineColor(Color::Red); },		//pressed 
+				[&]() {_button->GetDrawable()->setOutlineThickness(-1.5f); _button->GetDrawable()->setOutlineColor(Color::Black); },	//released 
+				[&]() {_button->GetDrawable()->setOutlineThickness(-1.5f); _button->GetDrawable()->setOutlineColor(Color::Green); }		//held
+			));
 			_button->GetDrawable()->setOutlineThickness(3.0f);
 			_button->GetDrawable()->setOutlineColor(Color::Blue);
 
