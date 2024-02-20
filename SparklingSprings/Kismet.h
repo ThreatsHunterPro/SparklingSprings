@@ -11,6 +11,6 @@ struct HitInfo
 };
 
 bool Raycast(const Vector2f& _origin, const Vector2f& _direction, const float _maxDistance,
-			 HitInfo& _hitInfo, const float _precision = 0.01f);
+			 HitInfo& _hitInfo, const vector<Shape*>& _ignoredShapes, const float _precision = 0.01f);
 vector<HitInfo> RaycastAll(const Vector2f& _origin, const Vector2f& _direction, const float _maxDistance,
 			 HitInfo& _hitInfo, const float _precision = 0.01f);

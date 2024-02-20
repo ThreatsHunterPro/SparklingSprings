@@ -4,9 +4,39 @@
 
 class PlayerMovementComponent : public Component
 {
+	// Movement
 	bool canMove;
-	Vector2f direction;
 	float speed;
+	Vector2f direction;
+
+	// Sprint
+	bool isSprinting;
+	float sprintSpeed;
+
+	// Ground
+	bool isOnGround;
+	float checkGroundDistance;
+
+	#pragma region Jump & Dash
+
+	bool canJumpAndDash;
+
+	// Jump
+	bool isJumping;
+	float jumpForce;
+	float jumpDuration;
+	float gravity;
+
+	// Dash
+	bool canDash;
+	bool isDashing;
+	bool isResetingDash;
+	float dashSpeed;
+	float dashDuration;
+	float dashCooldown;
+	Vector2f dashDirection;
+
+	#pragma endregion
 
 public:
 	void SetDirectionX(const float _directionX)
@@ -17,10 +47,23 @@ public:
 	{
 		direction.y = _directionY;
 	}
+	void SetSprint(const bool _status)
+	{
+		isSprinting = _status;
+	}
+	void SetCanJumpAndDash(const bool _status)
+	{
+		canJumpAndDash = _status;
+	}
 
 public:
 	PlayerMovementComponent(Actor* _owner);
 
+private:
+	bool CheckGround();
+
 public:
 	virtual void Update(const float _deltaTime) override;
+	void Jump();
+	void Dash();
 };

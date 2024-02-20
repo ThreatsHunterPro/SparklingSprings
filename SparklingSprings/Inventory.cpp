@@ -56,17 +56,24 @@ void Inventory::Init()
 	}
 }
 
-void Inventory::AddItem(const string _path, const ItemType& _type, const RarityType& _rarity)
+void Inventory::AddItem(const int _count, const string _path, const ItemType& _type,
+						const RarityType& _rarity)
 {
+	if (_count <= 0) return;
+
+	// Recherche d'un emplacement
 	for (ItemData* _data : GetAllValues())
 	{
 		if (_data->GetPath() == _path && _data->GetCount() < stackSize)
 		{
+			// Utilisation de l'emplacement trouvé
 			_data->UpdateCount(1);
+			AddItem(_count - 1, _path, _type, _rarity);
 			return;
 		}
 	}
 	
+	// Création d'un nouvel emplacement
 	Button* _button = GetFirstAvailableButton();
 	if (!_button) return;
 
@@ -79,4 +86,6 @@ void Inventory::AddItem(const string _path, const ItemType& _type, const RarityT
 	canvas->AddWidget(_item);
 	canvas->AddWidget(_data->GetCountText());
 	_button->SetForeground(_item);
+
+	AddItem(_count - 1, _path, _type, _rarity);
 }

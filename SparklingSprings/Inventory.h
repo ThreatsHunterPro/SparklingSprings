@@ -24,6 +24,6 @@ public:
 		canvas->SetVisibilityStatus(!canvas->IsVisible());
 	}
 
-	void AddItem(const string _path, const ItemType& _type,
+	void AddItem(const int _count, const string _path, const ItemType& _type,
 				 const RarityType& _rarity = RARITY_COMMON);
 };

@@ -133,6 +133,18 @@
     <Filter Include="Fichiers sources\UI\Widgets\ShapeWidgets\Storable\Items\Equipment">
       <UniqueIdentifier>{3d012038-1781-4b90-a240-86a1ed9bb6e0}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Fichiers sources\Objects\ShapeObjects\Actors\Interactable">
+      <UniqueIdentifier>{ca8c8376-2978-4e8e-a29f-992234dc38a9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\Components\Interact">
+      <UniqueIdentifier>{a5ebce40-ec3e-47cf-831e-0b4b5911db10}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\Objects\ShapeObjects\Actors\Interactable\Resource">
+      <UniqueIdentifier>{2ddf9660-6e58-47e4-b8ad-935d2c1671fe}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\Components\Gather">
+      <UniqueIdentifier>{2a5f7a06-76e7-46fc-9178-d613062b0027}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -266,6 +278,18 @@
     </ClCompile>
     <ClCompile Include="Equipment.cpp">
       <Filter>Fichiers sources\UI\Widgets\ShapeWidgets\Storable\Items\Equipment</Filter>
+    </ClCompile>
+    <ClCompile Include="InteractableActor.cpp">
+      <Filter>Fichiers sources\Objects\ShapeObjects\Actors\Interactable</Filter>
+    </ClCompile>
+    <ClCompile Include="InteractComponent.cpp">
+      <Filter>Fichiers sources\Components\Interact</Filter>
+    </ClCompile>
+    <ClCompile Include="Resource.cpp">
+      <Filter>Fichiers sources\Objects\ShapeObjects\Actors\Interactable\Resource</Filter>
+    </ClCompile>
+    <ClCompile Include="GatherComponent.cpp">
+      <Filter>Fichiers sources\Components\Gather</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -412,6 +436,18 @@
     </ClInclude>
     <ClInclude Include="Equipment.h">
       <Filter>Fichiers sources\UI\Widgets\ShapeWidgets\Storable\Items\Equipment</Filter>
+    </ClInclude>
+    <ClInclude Include="InteractableActor.h">
+      <Filter>Fichiers sources\Objects\ShapeObjects\Actors\Interactable</Filter>
+    </ClInclude>
+    <ClInclude Include="InteractComponent.h">
+      <Filter>Fichiers sources\Components\Interact</Filter>
+    </ClInclude>
+    <ClInclude Include="Resource.h">
+      <Filter>Fichiers sources\Objects\ShapeObjects\Actors\Interactable\Resource</Filter>
+    </ClInclude>
+    <ClInclude Include="GatherComponent.h">
+      <Filter>Fichiers sources\Components\Gather</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
