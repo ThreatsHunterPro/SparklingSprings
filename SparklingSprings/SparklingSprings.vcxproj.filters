@@ -145,6 +145,12 @@
     <Filter Include="Fichiers sources\Components\Gather">
       <UniqueIdentifier>{2a5f7a06-76e7-46fc-9178-d613062b0027}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Fichiers sources\Components\FightComponent">
+      <UniqueIdentifier>{1fc40643-3911-4038-b0ca-eba49d5fe8db}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\Objects\ShapeObjects\Actors\Enemies">
+      <UniqueIdentifier>{291b6737-ef41-4cd9-b5a2-686d038d8104}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -290,6 +296,12 @@
     </ClCompile>
     <ClCompile Include="GatherComponent.cpp">
       <Filter>Fichiers sources\Components\Gather</Filter>
+    </ClCompile>
+    <ClCompile Include="FightComponent.cpp">
+      <Filter>Fichiers sources\Components\FightComponent</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy.cpp">
+      <Filter>Fichiers sources\Objects\ShapeObjects\Actors\Enemies</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -448,6 +460,15 @@
     </ClInclude>
     <ClInclude Include="GatherComponent.h">
       <Filter>Fichiers sources\Components\Gather</Filter>
+    </ClInclude>
+    <ClInclude Include="FightComponent.h">
+      <Filter>Fichiers sources\Components\FightComponent</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy.h">
+      <Filter>Fichiers sources\Objects\ShapeObjects\Actors\Enemies</Filter>
+    </ClInclude>
+    <ClInclude Include="Stat.h">
+      <Filter>Fichiers sources\Objects\ShapeObjects\Actors</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -33,7 +33,7 @@ private:
 		if (bar)
 		{
 			bar->SetValue(0.0f);
-			//bar->SetVisible(false);
+			bar->SetVisible(false);
 		}
 	}
 	bool IsGathering() const

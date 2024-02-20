@@ -16,6 +16,7 @@ public:
 
 private:
 	Button* GetFirstAvailableButton() const;
+	ItemData* FindItemData(const string& _path);
 
 public:
 	void Init();
@@ -23,7 +24,6 @@ public:
 	{
 		canvas->SetVisibilityStatus(!canvas->IsVisible());
 	}
-
-	void AddItem(const int _count, const string _path, const ItemType& _type,
-				 const RarityType& _rarity = RARITY_COMMON);
+	void AddItem(const int _count, const string _path, const ItemType& _type, const RarityType& _rarity = RARITY_COMMON);
+	void CreateItemData(const std::string& _path, const ItemType& _type, const RarityType& _rarity);
 };

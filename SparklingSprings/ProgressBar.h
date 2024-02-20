@@ -15,8 +15,8 @@ class ProgressBar : public ShapeWidget
 {
 	ProgressType type;
 	ShapeWidget* foreground;
-	float maxValue;
 	float currentValue;
+	float maxValue;
 
 public:
 	virtual void SetShapePosition(const Vector2f& _position) override
@@ -45,9 +45,13 @@ public:
 		maxValue += _factor;
 		Update();
 	}
-	float GetCurrentValue()
+	float GetCurrentValue() const
 	{
 		return currentValue;
+	}
+	float GetMaxValue() const
+	{
+		return maxValue;
 	}
 
 public:

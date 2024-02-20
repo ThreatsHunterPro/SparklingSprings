@@ -54,6 +54,9 @@ Player::Player(const string& _name, const ShapeData& _data) : Actor(_name,_data)
 	
 	gather = new GatherComponent(this);
 	components.push_back(gather);
+	
+	fight = new FightComponent(this);
+	components.push_back(fight);
 }
 
 
@@ -113,8 +116,8 @@ void Player::SetupPlayerInput()
 
 		#pragma region Fight
 
-		ActionData("LightAttack", [&]() { LightAttack(); }, InputData({ ActionType::MouseButtonPressed, Mouse::Left })),
-		ActionData("HeavyAttack", [&]() { HeavyAttack(); }, InputData({ ActionType::MouseButtonPressed, Mouse::Right })),
+		ActionData("LightAttack", [&]() { fight->LightAttack(); }, InputData({ ActionType::MouseButtonPressed, Mouse::Left })),
+		ActionData("HeavyAttack", [&]() { fight->HeavyAttack(); }, InputData({ ActionType::MouseButtonPressed, Mouse::Right })),
 
 		#pragma endregion
 	}, false);
@@ -126,26 +129,27 @@ void Player::SetupPlayerInput()
 	new ActionMap("TEMP", {
 		ActionData("SwapActionMap", [&]() { SwapActionMap(); }, InputData({ ActionType::KeyPressed, Keyboard::P })),
 	});
-
 	//TODO remove
 	new InteractableActor(InteractableData("Floor", ShapeData(Vector2f(50.0f, 650.0f), Vector2f(1100.0f, 50.0f), ""), []() {
 			cout << "C'est le sol ca connard !" << endl;
 		})
 	);
-
+	//TODO remove
 	static Resource* _tree = new Resource(
 		InteractableData("Tree", ShapeData(Vector2f(400.0f, 200.0f), Vector2f(50.0f, 50.0f), ""), [&]() {
-			cout << "Gather tree !" << endl;
 			gather->Gather(_tree);
 		}),
-		ResourceData(PATH_WOOD, ITEM_RESOURCE, RARITY_COMMON, 3, 5.0f, 0.1f)
+		ResourceData(PATH_WOOD, ITEM_RESOURCE, RARITY_COMMON, 3, 5.0f, 0.01f)
 	);
+	//TODO remove
 	static Resource* _rock = new Resource(
 		InteractableData("Rock", ShapeData(Vector2f(600.0f, 200.0f), Vector2f(50.0f, 50.0f), ""), [&]() {
 			gather->Gather(_rock);
 		}),
-		ResourceData(PATH_ROCK, ITEM_RESOURCE, RARITY_COMMON, 1, 2.0f, 0.1f)
+		ResourceData(PATH_ROCK, ITEM_RESOURCE, RARITY_COMMON, 1, 2.0f, 0.01f)
 	);
+	//TODO remove
+	Enemy* _enemy = new Enemy("Enemy", ShapeData(Vector2f(400.0f, 50.0f), Vector2f(100.0f, 100.0f), ""));
 }
 
 void Player::InitHUD()
@@ -188,17 +192,6 @@ void Player::InitStats()
 void Player::InitSkillTree()
 {
 	Canvas* _canvas = new Canvas("SkillTree", FloatRect(0, 0, 1, 1));
-}
-
-//TODO move
-void Player::LightAttack()
-{
-	cout << "LightAttack" << endl;
-}
-
-void Player::HeavyAttack()
-{
-	cout << "HeavyAttack" << endl;
 }
 
 void Player::SwapActionMap()

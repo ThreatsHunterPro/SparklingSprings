@@ -139,6 +139,8 @@
     <ClCompile Include="ActorManager.cpp" />
     <ClCompile Include="Biome.cpp" />
     <ClCompile Include="Button.cpp" />
+    <ClCompile Include="Enemy.cpp" />
+    <ClCompile Include="FightComponent.cpp" />
     <ClCompile Include="GatherComponent.cpp" />
     <ClCompile Include="InteractableActor.cpp" />
     <ClCompile Include="InteractComponent.cpp" />
@@ -189,6 +191,8 @@
     <ClInclude Include="ActorManager.h" />
     <ClInclude Include="Biome.h" />
     <ClInclude Include="Button.h" />
+    <ClInclude Include="Enemy.h" />
+    <ClInclude Include="FightComponent.h" />
     <ClInclude Include="GatherComponent.h" />
     <ClInclude Include="InteractableActor.h" />
     <ClInclude Include="InteractComponent.h" />
@@ -227,6 +231,7 @@
     <ClInclude Include="Singleton.h" />
     <ClInclude Include="Skill.h" />
     <ClInclude Include="SkillTree.h" />
+    <ClInclude Include="Stat.h" />
     <ClInclude Include="TextObject.h" />
     <ClInclude Include="TextureData.h" />
     <ClInclude Include="TextureManager.h" />

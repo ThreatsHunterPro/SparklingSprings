@@ -7,6 +7,7 @@
 #include "PlayerMovementComponent.h"
 #include "InteractComponent.h"
 #include "GatherComponent.h"
+#include "FightComponent.h"
 #include "ActionMap.h"
 
 using namespace std;
@@ -24,6 +25,7 @@ class Player : public Actor
 	PlayerMovementComponent* movement;
 	InteractComponent* interact;
 	GatherComponent* gather;
+	FightComponent* fight;
 
 public:
 	Inventory* GetInventory() const
@@ -42,10 +44,6 @@ private:
 
 	//TODO move
 	void SwapActionMap();
-
-	//TODO move
-	void LightAttack();
-	void HeavyAttack();
 
 public:
 	void Init();

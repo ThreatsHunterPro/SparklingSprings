@@ -13,6 +13,7 @@ Inventory::Inventory()
 	Init();
 }
 
+
 Button* Inventory::GetFirstAvailableButton() const
 {
 	for (Button* _button : buttons)
@@ -25,6 +26,20 @@ Button* Inventory::GetFirstAvailableButton() const
 
 	return nullptr;
 }
+
+ItemData* Inventory::FindItemData(const string& _path)
+{
+	for (ItemData* _data : GetAllValues())
+	{
+		if (_data->GetPath() == _path && _data->GetCount() < stackSize)
+		{
+			return _data;
+		}
+	}
+
+	return nullptr;
+}
+
 
 void Inventory::Init()
 {
@@ -50,24 +65,23 @@ void Inventory::Init()
 	}
 }
 
-void Inventory::AddItem(const int _count, const string _path, const ItemType& _type,
-						const RarityType& _rarity)
+void Inventory::AddItem(const int _count, const string _path, const ItemType& _type, const RarityType& _rarity)
 {
 	if (_count <= 0) return;
 
-	// Recherche d'un emplacement
-	for (ItemData* _data : GetAllValues())
+	if (ItemData* _data = FindItemData(_path))
 	{
-		if (_data->GetPath() == _path && _data->GetCount() < stackSize)
-		{
-			// Utilisation de l'emplacement trouvé
-			_data->UpdateCount(1);
-			AddItem(_count - 1, _path, _type, _rarity);
-			return;
-		}
+		_data->UpdateCount(1);
+		AddItem(_count - 1, _path, _type, _rarity);
+		return;
 	}
 	
-	// Création d'un nouvel emplacement
+	CreateItemData(_path, _type, _rarity);
+	AddItem(_count - 1, _path, _type, _rarity);
+}
+
+void Inventory::CreateItemData(const std::string& _path, const ItemType& _type, const RarityType& _rarity)
+{
 	Button* _button = GetFirstAvailableButton();
 	if (!_button) return;
 
@@ -80,6 +94,4 @@ void Inventory::AddItem(const int _count, const string _path, const ItemType& _t
 	canvas->AddWidget(_item);
 	canvas->AddWidget(_data->GetCountText());
 	_button->SetForeground(_item);
-
-	AddItem(_count - 1, _path, _type, _rarity);
 }

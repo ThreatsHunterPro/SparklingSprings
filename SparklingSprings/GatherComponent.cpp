@@ -25,6 +25,7 @@ void GatherComponent::Gather(Resource* _resource)
 	{
 		inventory = _player->GetInventory();
 	}
+	bar->SetVisible(true);
 
 	// 100% = durMax
 	const ResourceData& _data = resource->GetData();
@@ -38,27 +39,25 @@ void GatherComponent::Gather(Resource* _resource)
 		const float _durationMin = _durationMax * _precision;
 
 		// factor = durMin * 100 / durMax
-		factor = _durationMin * 100.0f / _durationMax;
+		factor = _durationMin * bar->GetMaxValue() / _durationMax;
 
 		timer = new Timer([&]() {
-			const ResourceData& _data = resource->GetData();
 			
-			if (bar->GetCurrentValue() >= _data.gatheringAmount * progress)
+			const ResourceData& _data = resource->GetData();
+			if (bar->GetCurrentValue() >= bar->GetMaxValue() / _data.gatheringAmount * (progress + 1))
 			{
-				progress++;
-
 				inventory->AddItem(1, _data.path, _data.type, _data.rarity);
+				progress++;
+			}
 
-				if (progress >= _data.gatheringAmount)
-				{
-					Reset();
-					timer->Stop();
-					return;
-				}
+			if (progress >= _data.gatheringAmount)
+			{
+				Reset();
+				timer->Stop();
+				return;
 			}
 			
 			bar->ChangeValue(factor);
-			cout << bar->GetCurrentValue() << endl;
 		},
 		seconds(_durationMin), true, true);
 	}
