@@ -24,3 +24,13 @@ void Normalize(Vector2f& _vector);
 
 float Distance(const Vector2f& _first, const Vector2f& _second);
 
+template <typename T>
+bool Contains(T* _valueToFind, const vector<T*>& _vector)
+{
+	for (T* _value : _vector)
+	{
+		if (_value == _valueToFind) return true;
+	}
+
+	return false;
+}

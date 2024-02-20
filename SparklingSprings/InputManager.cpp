@@ -25,6 +25,9 @@ void InputManager::UpdateInputs(const Event& _event)
 {
 	for (const auto& _pair : allValues)
 	{
-		_pair.second->Update(_event);
+		if (_pair.second->isActive)
+		{
+			_pair.second->Update(_event);
+		}
 	}
 }

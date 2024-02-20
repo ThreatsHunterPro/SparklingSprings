@@ -6,6 +6,7 @@
 #include "CraftBook.h"
 #include "SkillTree.h"
 #include "PlayerMovementComponent.h"
+#include "ActionMap.h"
 
 using namespace std;
 
@@ -16,6 +17,9 @@ class Player : public Actor
 	CraftBook* craftBook;
 	SkillTree* skillTree;
 	PlayerMovementComponent* movement;
+
+	ActionMap* overworldInputs;
+	ActionMap* donjonInputs;
 
 public:
 	Player(const string& _name, const ShapeData& _data);
@@ -30,6 +34,10 @@ private:
 	void LightAttack();
 	void HeavyAttack();
 
+	//TODO move
+	void SwapActionMap();
+
 public:
 	void Init();
+	void Interact();
 };

@@ -5,8 +5,20 @@
 class PlayerMovementComponent : public Component
 {
 	bool canMove;
-	Vector2f direction;
 	float speed;
+	Vector2f direction;
+
+	bool isSprinting;
+	float sprintSpeed;
+
+	bool isOnGround;
+	float checkGroundDistance;
+
+	bool canJump;
+	float jumpForce;
+	float gravity;
+
+	float dashSpeed;
 
 public:
 	void SetDirectionX(const float _directionX)
@@ -17,10 +29,23 @@ public:
 	{
 		direction.y = _directionY;
 	}
+	void SetSprint(const bool _status)
+	{
+		isSprinting = _status;
+	}
+	void SetCanJump(const bool _status)
+	{
+		canJump = _status;
+	}
 
 public:
 	PlayerMovementComponent(Actor* _owner);
 
+private:
+	bool CheckGround();
+
 public:
 	virtual void Update(const float _deltaTime) override;
+	void Jump();
+	void Dash();
 };
