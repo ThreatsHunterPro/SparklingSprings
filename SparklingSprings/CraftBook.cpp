@@ -22,27 +22,14 @@ void CraftBook::Init()
 			const float _posY = _gridPos.y + _i * cellSize.y;
 
 			Button* _button = new Button(ShapeData(Vector2f(_posX, _posY), cellSize, ""));
-
-			buttons.push_back(_button);
 			canvas->AddWidget(_button);
+
+			//bar de chargement qui load vers le haut pour le temps de craft de charque item
+			ProgressBar* _craftingBar = new ProgressBar(ShapeData(Vector2f(_posX, _posY), Vector2f(50.0f, 50.0f), "Craft.png"),
+				canvas, "", ProgressType::PT_TOP, 1000.0f);
+			canvas->AddWidget(_craftingBar);
+
+			//button->progressBarTimer->ChangeValue(craft->GetDuration());
 		}
 	}
 }
-
-//void CraftBook::BuildSelected()
-//{
-//	for (Button* _button : buttons)
-//	{
-//		if (_button->IsSelected())
-//		{
-//			//action affectuer
-//			_button->GetDrawable()->setOutlineThickness(-3.0f);
-//			_button->GetDrawable()->setOutlineColor(Color::Green);
-//		}
-//		else
-//		{
-//			_button->GetDrawable()->setOutlineThickness(-1.5f);
-//			_button->GetDrawable()->setOutlineColor(Color::Black);
-//		}
-//	}
-//}

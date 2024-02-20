@@ -9,8 +9,7 @@ class CraftBook : public IManager<int, Craft>
 {
 	Canvas* canvas;
 	Vector2f cellSize;
-	vector<Button*> buttons;
-
+	
 public:
 	CraftBook();
 
@@ -21,6 +20,6 @@ public:
 	{
 		canvas->SetVisibilityStatus(canvas->IsVisible() ? false : true);
 	}
-	//void BuildSelected();
+
 
 };
