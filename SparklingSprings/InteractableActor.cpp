@@ -1,14 +1,12 @@
 #include "InteractableActor.h"
 #include "ActorManager.h"
 
-InteractableActor::InteractableActor(const string& _name, const ShapeData& _data,
-									 const function<void()>& _callback) : Actor(_name, _data)
+InteractableActor::InteractableActor(const InteractableData& _data) : Actor(_data.name, _data.data)
 {
 	Register();
 
-	callback = _callback;
+	callback = _data.callback;
 }
-
 
 void InteractableActor::Register()
 {

@@ -139,7 +139,9 @@
     <ClCompile Include="ActorManager.cpp" />
     <ClCompile Include="Biome.cpp" />
     <ClCompile Include="Button.cpp" />
+    <ClCompile Include="GatherComponent.cpp" />
     <ClCompile Include="InteractableActor.cpp" />
+    <ClCompile Include="InteractComponent.cpp" />
     <ClCompile Include="ItemData.cpp" />
     <ClCompile Include="Canvas.cpp" />
     <ClCompile Include="Component.cpp" />
@@ -166,6 +168,7 @@
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="PlayerMovementComponent.cpp" />
     <ClCompile Include="ProgressBar.cpp" />
+    <ClCompile Include="Resource.cpp" />
     <ClCompile Include="ShapeObject.cpp" />
     <ClCompile Include="ShapeWidget.cpp" />
     <ClCompile Include="Skill.cpp" />
@@ -186,7 +189,9 @@
     <ClInclude Include="ActorManager.h" />
     <ClInclude Include="Biome.h" />
     <ClInclude Include="Button.h" />
+    <ClInclude Include="GatherComponent.h" />
     <ClInclude Include="InteractableActor.h" />
+    <ClInclude Include="InteractComponent.h" />
     <ClInclude Include="ItemData.h" />
     <ClInclude Include="Canvas.h" />
     <ClInclude Include="Component.h" />
@@ -216,6 +221,7 @@
     <ClInclude Include="PlayerMovementComponent.h" />
     <ClInclude Include="PlayerStats.h" />
     <ClInclude Include="ProgressBar.h" />
+    <ClInclude Include="Resource.h" />
     <ClInclude Include="ShapeObject.h" />
     <ClInclude Include="ShapeWidget.h" />
     <ClInclude Include="Singleton.h" />

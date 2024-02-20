@@ -19,5 +19,5 @@ public:
 
 public:
 	void Update();
-	void TryToInteract();
+	void TryToInteract(const Vector2f& _position, const float _range);
 };

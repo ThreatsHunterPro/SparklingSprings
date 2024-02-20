@@ -5,6 +5,8 @@
 #include "CraftBook.h"
 #include "SkillTree.h"
 #include "PlayerMovementComponent.h"
+#include "InteractComponent.h"
+#include "GatherComponent.h"
 #include "ActionMap.h"
 
 using namespace std;
@@ -20,6 +22,14 @@ class Player : public Actor
 	ActionMap* donjonInputs;
 
 	PlayerMovementComponent* movement;
+	InteractComponent* interact;
+	GatherComponent* gather;
+
+public:
+	Inventory* GetInventory() const
+	{
+		return inventory;
+	}
 
 public:
 	Player(const string& _name, const ShapeData& _data);
@@ -39,5 +49,4 @@ private:
 
 public:
 	void Init();
-	void Interact();
 };

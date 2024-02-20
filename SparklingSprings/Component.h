@@ -11,5 +11,5 @@ public:
 	Component(Actor* _owner);
 
 public:
-	virtual void Update(const float _deltaTime) = 0;
+	virtual void Update(const float _deltaTime) { };
 };

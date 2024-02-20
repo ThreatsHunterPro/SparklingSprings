@@ -20,9 +20,10 @@ void ActorManager::Update()
 	GarbageValues();
 }
 
-void ActorManager::TryToInteract()
+void ActorManager::TryToInteract(const Vector2f& _position, const float _range)
 {
 	const Vector2f& _mousePosition = InputManager::GetInstance().GetMousePosition();
+	if (Distance(_position, _mousePosition) > _range) return;
 
 	for (InteractableActor* _interactable : interactables)
 	{
