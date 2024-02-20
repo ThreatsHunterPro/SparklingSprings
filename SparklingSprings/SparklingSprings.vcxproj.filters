@@ -133,6 +133,9 @@
     <Filter Include="Fichiers sources\UI\Widgets\ShapeWidgets\Storable\Items\Equipment">
       <UniqueIdentifier>{3d012038-1781-4b90-a240-86a1ed9bb6e0}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Fichiers sources\Objects\ShapeObjects\Actors\Interactable">
+      <UniqueIdentifier>{ca8c8376-2978-4e8e-a29f-992234dc38a9}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -266,6 +269,9 @@
     </ClCompile>
     <ClCompile Include="Equipment.cpp">
       <Filter>Fichiers sources\UI\Widgets\ShapeWidgets\Storable\Items\Equipment</Filter>
+    </ClCompile>
+    <ClCompile Include="InteractableActor.cpp">
+      <Filter>Fichiers sources\Objects\ShapeObjects\Actors\Interactable</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -412,6 +418,9 @@
     </ClInclude>
     <ClInclude Include="Equipment.h">
       <Filter>Fichiers sources\UI\Widgets\ShapeWidgets\Storable\Items\Equipment</Filter>
+    </ClInclude>
+    <ClInclude Include="InteractableActor.h">
+      <Filter>Fichiers sources\Objects\ShapeObjects\Actors\Interactable</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

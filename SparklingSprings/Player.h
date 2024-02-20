@@ -15,12 +15,11 @@ class Player : public Actor
 	Inventory* inventory;
 	CraftBook* craftBook;
 	SkillTree* skillTree;
-	PlayerMovementComponent* movement;
-	ActionMap* overworldActionMap;
-	ActionMap* donjonActionMap;
 
 	ActionMap* overworldInputs;
 	ActionMap* donjonInputs;
+
+	PlayerMovementComponent* movement;
 
 public:
 	Player(const string& _name, const ShapeData& _data);
@@ -37,9 +36,6 @@ private:
 	//TODO move
 	void LightAttack();
 	void HeavyAttack();
-
-	//TODO move
-	void SwapActionMap();
 
 public:
 	void Init();

@@ -1,6 +1,7 @@
 #include "Player.h"
 #include "Action.h"
 #include "InputManager.h"
+#include "ActorManager.h"
 #include "Canvas.h"
 #include "ProgressBar.h"
 #include "Timer.h"
@@ -33,6 +34,12 @@ Player::Player(const string& _name, const ShapeData& _data) : Actor(_name,_data)
 {
 	stats = nullptr;
 	inventory = new Inventory();
+	craftBook = nullptr;
+	skillTree = nullptr;
+
+	overworldInputs = nullptr;
+	donjonInputs = nullptr;
+
 	movement = new PlayerMovementComponent(this);
 	components.push_back(movement);
 }
@@ -66,8 +73,8 @@ void Player::SetupPlayerInput()
 		ActionData("Overworld_Right", [&]() { movement->SetDirectionX(1.0f); }, InputData({ ActionType::KeyPressed, Keyboard::D })),
 		ActionData("Overworld_StopRight", [&]() { movement->SetDirectionX(0.0f); }, InputData({ ActionType::KeyReleased, Keyboard::D })),
 
-		ActionData("Sprint", [&]() { movement->SetSprint(true); }, InputData({ ActionType::KeyPressed, Keyboard::LShift })),
-		ActionData("StopSprint", [&]() { movement->SetSprint(false); }, InputData({ ActionType::KeyReleased, Keyboard::LShift })),
+		ActionData("Sprint", [&]() { movement->SetSprint(true); }, InputData({ ActionType::KeyPressed, Keyboard::LControl })),
+		ActionData("StopSprint", [&]() { movement->SetSprint(false); }, InputData({ ActionType::KeyReleased, Keyboard::LControl })),
 
 		#pragma endregion
 
@@ -88,7 +95,7 @@ void Player::SetupPlayerInput()
 		ActionData("Overworld_StopRight", [&]() { movement->SetDirectionX(0.0f); }, InputData({ ActionType::KeyReleased, Keyboard::D })),
 
 		ActionData("Jump", [&]() { movement->Jump(); }, InputData({ ActionType::KeyPressed, Keyboard::Space })),
-		ActionData("Dash", [&]() { movement->Dash(); }, InputData({ ActionType::KeyPressed, Keyboard::LShift })),
+		ActionData("Dash", [&]() { movement->Dash(); }, InputData({ ActionType::KeyPressed, Keyboard::LControl })),
 
 		#pragma endregion
 
@@ -111,7 +118,9 @@ void Player::SetupPlayerInput()
 	});
 
 	//TODO remove
-	new Actor("Floor", ShapeData(Vector2f(50.0f, 650.0f), Vector2f(1100.0f, 50.0f), ""));
+	new InteractableActor("Floor", ShapeData(Vector2f(50.0f, 650.0f), Vector2f(1100.0f, 50.0f), ""), [](){
+		cout << "Salut beauté !" << endl;
+	});
 }
 
 void Player::InitHUD()
@@ -166,7 +175,7 @@ void Player::SwapActionMap()
 {
 	overworldInputs->isActive = !overworldInputs->isActive;
 	donjonInputs->isActive = !donjonInputs->isActive;
-	movement->SetCanJump(donjonInputs->isActive);
+	movement->SetCanJumpAndDash(donjonInputs->isActive);
 }
 
 
@@ -178,5 +187,5 @@ void Player::Init()
 
 void Player::Interact()
 {
-	cout << "Interact" << endl;
+	ActorManager::GetInstance().TryToInteract();
 }
