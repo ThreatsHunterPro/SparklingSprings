@@ -8,6 +8,7 @@ class PlayerMovementComponent : public Component
 	bool canMove;
 	float speed;
 	Vector2f direction;
+	Vector2f lastDirection;
 
 	// Sprint
 	bool isSprinting;
@@ -42,10 +43,18 @@ public:
 	void SetDirectionX(const float _directionX)
 	{
 		direction.x = _directionX;
+		if (direction.x != 0.0f)
+		{
+			lastDirection.x = direction.x;
+		}
 	}
 	void SetDirectionY(const float _directionY)
 	{
 		direction.y = _directionY;
+		if (direction.y != 0.0f)
+		{
+			lastDirection.y = direction.y;
+		}
 	}
 	void SetSprint(const bool _status)
 	{
@@ -54,6 +63,10 @@ public:
 	void SetCanJumpAndDash(const bool _status)
 	{
 		canJumpAndDash = _status;
+	}
+	Vector2f GetLastDirection() const
+	{
+		return lastDirection;
 	}
 
 public:

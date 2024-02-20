@@ -4,6 +4,7 @@
 
 class Enemy : public Actor
 {
+	Vector2f barOffset;
 	Stat* health;
 
 public:
@@ -13,5 +14,6 @@ private:
 	void InitHUD();
 
 public:
+	virtual void Update(const float _deltaTime) override;
 	void SetDamages(const float _damages);
 };

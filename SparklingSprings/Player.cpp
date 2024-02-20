@@ -57,6 +57,9 @@ Player::Player(const string& _name, const ShapeData& _data) : Actor(_name,_data)
 	
 	fight = new FightComponent(this);
 	components.push_back(fight);
+
+	//TODO remove
+	canvas = nullptr;
 }
 
 
@@ -128,6 +131,7 @@ void Player::SetupPlayerInput()
 	//TODO remove
 	new ActionMap("TEMP", {
 		ActionData("SwapActionMap", [&]() { SwapActionMap(); }, InputData({ ActionType::KeyPressed, Keyboard::P })),
+		ActionData("HideHUD", [&]() { canvas->SetVisibilityStatus(!canvas->IsVisible()); }, InputData({ ActionType::KeyPressed, Keyboard::M })),
 	});
 	//TODO remove
 	new InteractableActor(InteractableData("Floor", ShapeData(Vector2f(50.0f, 650.0f), Vector2f(1100.0f, 50.0f), ""), []() {
@@ -149,7 +153,7 @@ void Player::SetupPlayerInput()
 		ResourceData(PATH_ROCK, ITEM_RESOURCE, RARITY_COMMON, 1, 2.0f, 0.01f)
 	);
 	//TODO remove
-	Enemy* _enemy = new Enemy("Enemy", ShapeData(Vector2f(400.0f, 50.0f), Vector2f(100.0f, 100.0f), ""));
+	Enemy* _enemy = new Enemy("Enemy", ShapeData(Vector2f(800.0f, 550.0f), Vector2f(100.0f, 100.0f), ""));
 }
 
 void Player::InitHUD()
@@ -160,32 +164,32 @@ void Player::InitHUD()
 
 void Player::InitStats()
 {
-	Canvas* _canvas = new Canvas("PlayerStats", FloatRect(0, 0, 1, 1));
+	canvas = new Canvas("PlayerStats", FloatRect(0, 0, 1, 1));
 
 	float _sizeX = 200.0f; float _sizeY = 150.0f;
 	float _posX = 10.0f; float _posY = 10.0f;
 
-	/*ProgressBar* _healthBar = new ProgressBar(ShapeData(Vector2f(_posX, _posY), Vector2f(_sizeX, _sizeY), PATH_HEALTH_BAR_EMPTY),
-											  _canvas, PATH_HEALTH_BAR_FULL, ProgressType::PT_LEFT, 1000.0f);
-	_canvas->AddWidget(_healthBar);
+	ProgressBar* _healthBar = new ProgressBar(ShapeData(Vector2f(_posX, _posY), Vector2f(_sizeX, _sizeY), PATH_HEALTH_BAR_EMPTY),
+											  canvas, PATH_HEALTH_BAR_FULL, ProgressType::PT_LEFT, 1000.0f);
+	canvas->AddWidget(_healthBar);
 
 	ProgressBar* _manaBar = new ProgressBar(ShapeData(Vector2f(_posX, _posY + 50.0f), Vector2f(_sizeX, _sizeY), PATH_MANA_BAR_EMPTY),
-											  _canvas, PATH_MANA_BAR_FULL, ProgressType::PT_LEFT, 1000.0f);
-	_canvas->AddWidget(_manaBar);
+											  canvas, PATH_MANA_BAR_FULL, ProgressType::PT_LEFT, 1000.0f);
+	canvas->AddWidget(_manaBar);
 
 	ProgressBar* _thirstBar = new ProgressBar(ShapeData(Vector2f(_posX, _posY + 100.0f), Vector2f(_sizeX, _sizeY), PATH_THIRST_BAR_EMPTY),
-											  _canvas, PATH_THIRST_BAR_FULL, ProgressType::PT_LEFT, 1000.0f);
-	_canvas->AddWidget(_thirstBar);
+											  canvas, PATH_THIRST_BAR_FULL, ProgressType::PT_LEFT, 1000.0f);
+	canvas->AddWidget(_thirstBar);
 
 	ProgressBar* _hungerBar = new ProgressBar(ShapeData(Vector2f(_posX, _posY + 150.0f), Vector2f(_sizeX, _sizeY), PATH_HUNGER_BAR_EMPTY),
-											  _canvas, PATH_HUNGER_BAR_FULL, ProgressType::PT_LEFT, 1000.0f);
-	_canvas->AddWidget(_hungerBar);
+											  canvas, PATH_HUNGER_BAR_FULL, ProgressType::PT_LEFT, 1000.0f);
+	canvas->AddWidget(_hungerBar);
 
-	stats = new PlayerStats(_healthBar, _manaBar, _thirstBar, _hungerBar);*/
+	stats = new PlayerStats(_healthBar, _manaBar, _thirstBar, _hungerBar);
 
 	ProgressBar* _gatherBar = new ProgressBar(ShapeData(Vector2f(50.0f, 50.0f), Vector2f(_sizeX, _sizeY), PATH_HUNGER_BAR_EMPTY),
-											  _canvas, PATH_HUNGER_BAR_FULL, ProgressType::PT_LEFT, 100.0f);
-	_canvas->AddWidget(_gatherBar);
+											  canvas, PATH_HUNGER_BAR_FULL, ProgressType::PT_LEFT, 100.0f);
+	canvas->AddWidget(_gatherBar);
 	gather->SetProgressBar(_gatherBar);
 }
 

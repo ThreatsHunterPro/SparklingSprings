@@ -7,33 +7,17 @@ using namespace std;
 
 struct Stat
 {
-	float valueFactor;
-	float rate;
 	ProgressBar* bar;
-	Timer* updateTimer;
-
 	float maxValueUpgradeFactor;
-	float valueFactorUpgradeFactor;
-	float rateUpgradeFactor;
 
 	Stat() = default;
 	Stat(const float _valueFactor, ProgressBar* _bar)
 	{
-		valueFactor = _valueFactor;
-		rate = 0.01f;
 		bar = _bar;
-		updateTimer = StartUpdateTimer();
 		maxValueUpgradeFactor = 0.3f;
-		valueFactorUpgradeFactor = 0.3f;
-		rateUpgradeFactor = 0.3f;
 	}
 
-	Timer* StartUpdateTimer()
-	{
-		return new Timer(this, &Stat::Update, seconds(rate), true, true, valueFactor);
-	}
-
-	void Update(const float _value)
+	virtual void Update(const float _value)
 	{
 		bar->ChangeValue(_value);
 	}
@@ -43,11 +27,45 @@ struct Stat
 		bar->ResetValue();
 	}
 
-	void Upgrade()
+	virtual void Upgrade()
+	{
+		bar->ChangeMaxValue(maxValueUpgradeFactor);
+	}
+};
+
+struct ChangingStat : public Stat
+{
+	float valueFactor;
+	float rate;
+	Timer* updateTimer;
+	float valueFactorUpgradeFactor;
+	float rateUpgradeFactor;
+
+	ChangingStat(const float _valueFactor, ProgressBar* _bar)
+				: Stat(_valueFactor, _bar)
+	{
+		valueFactor = _valueFactor;
+		rate = 0.01f;
+		updateTimer = StartUpdateTimer();
+		valueFactorUpgradeFactor = 0.3f;
+		rateUpgradeFactor = 0.3f;
+	}
+
+	Timer* StartUpdateTimer()
+	{
+		return new Timer(this, &ChangingStat::Update, seconds(rate), true, true, valueFactor);
+	}
+
+	virtual void Update(const float _value) override
+	{
+		Stat::Update(_value);
+	}
+
+	virtual void Upgrade() override
 	{
 		updateTimer->Stop();
 
-		bar->ChangeMaxValue(maxValueUpgradeFactor);
+		Stat::Upgrade();
 		valueFactor += valueFactor * valueFactorUpgradeFactor;
 		rate += rate * rateUpgradeFactor;
 

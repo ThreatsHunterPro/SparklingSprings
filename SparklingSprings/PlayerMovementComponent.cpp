@@ -10,6 +10,7 @@ PlayerMovementComponent::PlayerMovementComponent(Actor* _owner) : Component(_own
 	canMove = true;
 	speed = 0.1f;
 	direction = Vector2f();
+	lastDirection = Vector2f();
 
 	// Sprint
 	isSprinting = false;
@@ -17,7 +18,7 @@ PlayerMovementComponent::PlayerMovementComponent(Actor* _owner) : Component(_own
 
 	// Ground
 	isOnGround = false;
-	checkGroundDistance = 1.7f;
+	checkGroundDistance = 95.0f;
 
 	canJumpAndDash = false;
 

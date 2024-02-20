@@ -27,6 +27,9 @@ class Player : public Actor
 	GatherComponent* gather;
 	FightComponent* fight;
 
+	//TODO remove
+	Canvas* canvas;
+
 public:
 	Inventory* GetInventory() const
 	{
