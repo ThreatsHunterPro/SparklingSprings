@@ -1,5 +1,12 @@
 #include "ActorManager.h"
 #include "TimerManager.h"
+#include "InputManager.h"
+
+ActorManager::ActorManager()
+{
+	interactables = vector<InteractableActor*>();
+}
+
 
 void ActorManager::Update()
 {
@@ -11,4 +18,18 @@ void ActorManager::Update()
 	}
 
 	GarbageValues();
+}
+
+void ActorManager::TryToInteract(const Vector2f& _position, const float _range)
+{
+	const Vector2f& _mousePosition = InputManager::GetInstance().GetMousePosition();
+	if (Distance(_position, _mousePosition) > _range) return;
+
+	for (InteractableActor* _interactable : interactables)
+	{
+		if (_interactable->GetDrawable()->getGlobalBounds().contains(_mousePosition))
+		{
+			_interactable->Interact();
+		}
+	}
 }

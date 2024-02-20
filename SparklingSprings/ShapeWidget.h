@@ -16,6 +16,10 @@ public:
 	{
 		return shapeObject->GetDrawable();
 	}
+	virtual void SetShapePosition(const Vector2f& _position)
+	{
+		GetDrawable()->setPosition(_position);
+	}
 
 public:
 	ShapeWidget(const ShapeData& _data);
