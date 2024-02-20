@@ -19,6 +19,9 @@ class Player : public Actor
 	ActionMap* overworldActionMap;
 	ActionMap* donjonActionMap;
 
+	ActionMap* overworldInputs;
+	ActionMap* donjonInputs;
+
 public:
 	Player(const string& _name, const ShapeData& _data);
 
@@ -35,6 +38,10 @@ private:
 	void LightAttack();
 	void HeavyAttack();
 
+	//TODO move
+	void SwapActionMap();
+
 public:
 	void Init();
+	void Interact();
 };

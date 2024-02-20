@@ -50,44 +50,68 @@ void Player::SetupPlayerInput()
 		ActionData("Drink", [&]() { stats->Drink(40.0f); }, { ActionType::KeyPressed, Keyboard::A }),
 		ActionData("Eat", [&]() { stats->Eat(30.0f); }, { ActionType::KeyPressed, Keyboard::E }),
 		});
-	overworldActionMap = new ActionMap("Overworld", {
+	overworldInputs = new ActionMap("Overworld", {
+
+		#pragma region Movement
+
 		ActionData("Overworld_Forward", [&]() { movement->SetDirectionY(-1.0f); }, InputData({ ActionType::KeyPressed, Keyboard::Z })),
-		ActionData("Overworld_R_Forward", [&]() { movement->SetDirectionY(0.0f); }, InputData({ ActionType::KeyReleased, Keyboard::Z })),
+		ActionData("Overworld_StopForward", [&]() { movement->SetDirectionY(0.0f); }, InputData({ ActionType::KeyReleased, Keyboard::Z })),
 
 		ActionData("Overworld_Backward", [&]() { movement->SetDirectionY(1.0f); }, InputData({ ActionType::KeyPressed, Keyboard::S })),
-		ActionData("Overworld_R_Backward", [&]() { movement->SetDirectionY(0.0f); }, InputData({ ActionType::KeyReleased, Keyboard::S })),
+		ActionData("Overworld_StopBackward", [&]() { movement->SetDirectionY(0.0f); }, InputData({ ActionType::KeyReleased, Keyboard::S })),
 
 		ActionData("Overworld_Left", [&]() { movement->SetDirectionX(-1.0f); }, InputData({ ActionType::KeyPressed, Keyboard::Q })),
-		ActionData("Overworld_R_Left", [&]() { movement->SetDirectionX(0.0f); }, InputData({ ActionType::KeyReleased, Keyboard::Q })),
+		ActionData("Overworld_StopLeft", [&]() { movement->SetDirectionX(0.0f); }, InputData({ ActionType::KeyReleased, Keyboard::Q })),
 
 		ActionData("Overworld_Right", [&]() { movement->SetDirectionX(1.0f); }, InputData({ ActionType::KeyPressed, Keyboard::D })),
-		ActionData("Overworld_R_Right", [&]() { movement->SetDirectionX(0.0f); }, InputData({ ActionType::KeyReleased, Keyboard::D })),
+		ActionData("Overworld_StopRight", [&]() { movement->SetDirectionX(0.0f); }, InputData({ ActionType::KeyReleased, Keyboard::D })),
 
-		ActionData("Sprint", [&]() { movement->Sprint(); }, InputData({ ActionType::KeyPressed, Keyboard::LShift })),
+		ActionData("Sprint", [&]() { movement->SetSprint(true); }, InputData({ ActionType::KeyPressed, Keyboard::LShift })),
+		ActionData("StopSprint", [&]() { movement->SetSprint(false); }, InputData({ ActionType::KeyReleased, Keyboard::LShift })),
+
+		#pragma endregion
+
+		#pragma region Interaction
+
+		ActionData("Interact", [&]() { Interact(); }, InputData({ ActionType::MouseButtonPressed, Mouse::Left })),
+
+		#pragma endregion
 	});
-	donjonActionMap = new ActionMap("Donjon", {
-		ActionData("Donjon_Left", [&]() { movement->SetDirectionX(-1.0f); }, InputData({ ActionType::KeyPressed, Keyboard::Q })),
-		ActionData("Donjon_R_Left", [&]() { movement->SetDirectionX(0.0f); }, InputData({ ActionType::KeyReleased, Keyboard::Q })),
+	donjonInputs = new ActionMap("Donjon", {
 
-		ActionData("Donjon_Right", [&]() { movement->SetDirectionX(1.0f); }, InputData({ ActionType::KeyPressed, Keyboard::D })),
-		ActionData("Donjon_R_Right", [&]() { movement->SetDirectionX(0.0f); }, InputData({ ActionType::KeyReleased, Keyboard::D })),
+		#pragma region Movement
+
+		ActionData("Overworld_Left", [&]() { movement->SetDirectionX(-1.0f); }, InputData({ ActionType::KeyPressed, Keyboard::Q })),
+		ActionData("Overworld_StopLeft", [&]() { movement->SetDirectionX(0.0f); }, InputData({ ActionType::KeyReleased, Keyboard::Q })),
+
+		ActionData("Overworld_Right", [&]() { movement->SetDirectionX(1.0f); }, InputData({ ActionType::KeyPressed, Keyboard::D })),
+		ActionData("Overworld_StopRight", [&]() { movement->SetDirectionX(0.0f); }, InputData({ ActionType::KeyReleased, Keyboard::D })),
 
 		ActionData("Jump", [&]() { movement->Jump(); }, InputData({ ActionType::KeyPressed, Keyboard::Space })),
 		ActionData("Dash", [&]() { movement->Dash(); }, InputData({ ActionType::KeyPressed, Keyboard::LShift })),
-	}, false);
-	new ActionMap("Fight", {
+
+		#pragma endregion
+
+		#pragma region Fight
+
 		ActionData("LightAttack", [&]() { LightAttack(); }, InputData({ ActionType::MouseButtonPressed, Mouse::Left })),
 		ActionData("HeavyAttack", [&]() { HeavyAttack(); }, InputData({ ActionType::MouseButtonPressed, Mouse::Right })),
-	});
+
+		#pragma endregion
+	}, false);
 	new ActionMap("Storages", {
 		ActionData("Inventory", [&]() { inventory->Toggle(); }, InputData({ ActionType::KeyPressed, Keyboard::B })),
 		ActionData("AddItem1", [&]() { inventory->AddItem(PATH_WOOD, ITEM_RESOURCE, RARITY_COMMON); }, InputData({ ActionType::KeyPressed, Keyboard::X })),
 		ActionData("AddItem2", [&]() { inventory->AddItem(PATH_ROCK, ITEM_RESOURCE, RARITY_COMMON); }, InputData({ ActionType::KeyPressed, Keyboard::C })),
 	});
 
+	//TODO remove
 	new ActionMap("TEMP", {
-		ActionData("SwapActionMap", [&]() { SwapActionMap(); }, InputData({ ActionType::KeyPressed, Keyboard::M })),
+		ActionData("SwapActionMap", [&]() { SwapActionMap(); }, InputData({ ActionType::KeyPressed, Keyboard::P })),
 	});
+
+	//TODO remove
+	new Actor("Floor", ShapeData(Vector2f(50.0f, 650.0f), Vector2f(1100.0f, 50.0f), ""));
 }
 
 void Player::InitHUD()
@@ -127,12 +151,6 @@ void Player::InitSkillTree()
 	Canvas* _canvas = new Canvas("SkillTree", FloatRect(0, 0, 1, 1));
 }
 
-void Player::SwapActionMap()
-{
-	overworldActionMap->SetIsRunning(!overworldActionMap->IsRunning());
-	donjonActionMap->SetIsRunning(!donjonActionMap->IsRunning());
-}
-
 //TODO move
 void Player::LightAttack()
 {
@@ -144,9 +162,21 @@ void Player::HeavyAttack()
 	cout << "HeavyAttack" << endl;
 }
 
+void Player::SwapActionMap()
+{
+	overworldInputs->isActive = !overworldInputs->isActive;
+	donjonInputs->isActive = !donjonInputs->isActive;
+	movement->SetCanJump(donjonInputs->isActive);
+}
+
 
 void Player::Init()
 {
 	SetupPlayerInput();
 	InitHUD();
+}
+
+void Player::Interact()
+{
+	cout << "Interact" << endl;
 }

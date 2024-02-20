@@ -1,8 +1,9 @@
 #include "Kismet.h"
+#include "Macro.h"
 #include "ActorManager.h"
 
 bool Raycast(const Vector2f& _origin, const Vector2f& _direction, const float _maxDistance,
-			 HitInfo& _hitInfo, const float _precision)
+			 HitInfo& _hitInfo, const vector<Shape*>& _ignoredShapes, const float _precision)
 {
 	Vector2f _currentPosition = _origin;
 	float _distance = 0.0f;
@@ -11,7 +12,10 @@ bool Raycast(const Vector2f& _origin, const Vector2f& _direction, const float _m
 	{
 		for (Actor* _actor : ActorManager::GetInstance().GetAllValues())
 		{
-			if (_actor->GetDrawable()->getGlobalBounds().contains(_currentPosition))
+			Shape* _shape = _actor->GetDrawable();
+			if (Contains(_shape, _ignoredShapes)) continue;
+
+			if (_shape->getGlobalBounds().contains(_currentPosition))
 			{
 				_hitInfo.position = _currentPosition;
 				_hitInfo.distance = _distance;
