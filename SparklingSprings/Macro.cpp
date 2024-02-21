@@ -1,13 +1,9 @@
 #include "Macro.h"
+
 int GetUniqueID()
 {
 	static int _id = 0;
 	return _id++;
-}
-
-int Random(const int _max, const int _min)
-{
-	return rand() % _max + _min;
 }
 
 float Length(Vector2f& _vector)

@@ -7,7 +7,13 @@ using namespace std;
 
 enum TileType
 {
-	TT_NONE, TT_GRASS, TT_ICE, TT_LAVA, TT_SAND,TT_STONE,TT_SIZE
+	TT_NONE,
+	TT_GRASS,
+	TT_ICE,
+	TT_LAVA,
+	TT_SAND,
+	TT_STONE,
+	TT_SIZE
 };
 
 class Tile : public Actor
@@ -15,8 +21,7 @@ class Tile : public Actor
 	TileType type;
 
 public:
-
-	void SetColorWithType()
+	void SetColorWithType(const TileType& _type)
 	{
 		vector<Color> _colors =
 		{
@@ -28,19 +33,8 @@ public:
 			Color(128,128,128,255),
 		};
 
-		shape->setFillColor(_colors[type]);
+		shape->setFillColor(_colors[_type]);
 	}
-
-	void SetType(const TileType& _type)
-	{
-		type = _type;
-		if (_type != TT_NONE)
-		{
-			cout << "c'est good";
-		}
-		SetColorWithType();
-	}
-
 	string GetPathWithType(const TileType& _type) const
 	{
 		vector<string> _paths =
@@ -53,9 +47,13 @@ public:
 			" ",
 		};
 
-		return _paths[_type + 1];
+		return _paths[_type];
+	}
+	TileType GetType() const
+	{
+		return type;
 	}
 
 public:
-	Tile(const string& _name, const TileType& _type,const Vector2f& _position, const Vector2f& _size);
+	Tile(const Vector2f& _position, const Vector2f& _size, const TileType& _type);
 };
