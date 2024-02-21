@@ -10,7 +10,7 @@ class Skill : public ShapeWidget
 
 public:
 	Skill(const ShapeData& _data, const int _cost,
-		const function<void()>& _callback, const bool _isUnlocked = false);
+		const function<void()>& _callback, const int _layer, const bool _isUnlocked = false);
 
 public:
 	void Unlock();

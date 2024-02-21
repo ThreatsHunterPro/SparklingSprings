@@ -34,5 +34,5 @@ public:
 	}
 
 public:
-	ShapeWidget(const ShapeData& _data);
+	ShapeWidget(const ShapeData& _data, const int _layer);
 };

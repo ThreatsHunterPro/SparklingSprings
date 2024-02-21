@@ -1,7 +1,7 @@
 #include "Craft.h"
 
 Craft::Craft(const ShapeData& _data, const vector<Item*>& _requiredItems,
-			 Object* _building) : ShapeWidget(_data)
+			 Object* _building,const int _layer) : ShapeWidget(_data,_layer)
 {
 	requiredItems = _requiredItems;
 	building = _building;

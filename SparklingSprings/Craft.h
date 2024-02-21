@@ -9,7 +9,7 @@ class Craft : public ShapeWidget
 
 public:
 	Craft(const ShapeData& _data, const vector<Item*>& _requiredItems,
-		  Object* _building);
+		  Object* _building,const int _layer);
 
 public:
 	void Build();

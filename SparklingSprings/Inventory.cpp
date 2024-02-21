@@ -54,7 +54,7 @@ void Inventory::Init()
 			const float _posX = _gridPos.x + _columnIndex * cellSize.x;
 			const float _posY = _gridPos.y + _rowIndex * cellSize.y;
 
-			Button* _button = new Button(ShapeData(Vector2f(_posX, _posY), cellSize, ""));
+			Button* _button = new Button(ShapeData(Vector2f(_posX, _posY), cellSize, ""),1);
 			_button->GetDrawable()->setOutlineThickness(3.0f);
 			_button->GetDrawable()->setOutlineColor(Color::Blue);
 
@@ -87,7 +87,7 @@ void Inventory::CreateItemData(const std::string& _path, const ItemType& _type, 
 	const ShapeData& _objectData = ShapeData(_button->GetObject()->GetShapePosition(),
 											 _button->GetObject()->GetShapeSize(), _path);
 	Item* _item = new Item(_objectData, _type, _rarity);
-	ItemData* _data = new ItemData(_item, FONT);
+	ItemData* _data = new ItemData(_item, FONT,1);
 	Add(_data->GetID(), _data);
 
 	canvas->AddWidget(_item);

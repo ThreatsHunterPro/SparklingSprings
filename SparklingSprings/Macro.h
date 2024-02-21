@@ -13,11 +13,7 @@ using namespace sf;
 
 int GetUniqueID();
 
-template <typename T>
-T Random(const T _max, const T _min = T(0))
-{
-	return int(rand() % (int)_max) + _min;
-}
+int Random(const int _max, const int _min = 0);
 
 template <typename T>
 bool IsEqual(const T& _first, const T& _second, const float _minRange = 0.001f)
@@ -31,13 +27,20 @@ void Normalize(Vector2f& _vector);
 
 float Distance(const Vector2f& _first, const Vector2f& _second);
 
-template <typename T>
-bool Contains(T* _valueToFind, const vector<T*>& _vector)
+template<typename T>
+void Sort(vector<T>& _vector)
 {
-	for (T* _value : _vector)
+	const int _tempCount = (const int)_vector.size();
+	for (int _index = 0; _index < _tempCount; _index++)
 	{
-		if (_value == _valueToFind) return true;
+		const int _layer = _vector[_index]->GetLayer();
+		int _currentIndex = _index;
+		while (_currentIndex > 0 && _vector[_currentIndex - 1]->GetLayer() > _layer)
+		{
+			_vector[_currentIndex] = _vector[_currentIndex - 1];
+			_currentIndex--;
+		}
+		_vector[_currentIndex] = _vector[_index];
 	}
-
-	return false;
 }
+

@@ -10,5 +10,5 @@ class Equipment : public Item
 public:
 	Equipment(const ShapeData& _data, const ItemType& _type,
 		const float _damages, const float _protection,
-		const float _durability);
+		const float _durability,const int _layer);
 };

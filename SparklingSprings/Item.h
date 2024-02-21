@@ -24,8 +24,7 @@ class Item : public ShapeWidget, public IManagable<string>
 	RarityType rarity;
 
 public:
-	Item(const ShapeData& _data, const ItemType& _type,
-		 const RarityType& _rarity = RARITY_COMMON);
+	Item(const ShapeData& _data, const ItemType& _type,const int _layer,const RarityType& _rarity = RARITY_COMMON);
 
 public:
 	virtual void Consume();

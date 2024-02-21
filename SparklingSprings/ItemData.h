@@ -34,6 +34,6 @@ public:
 	}
 
 public:
-	ItemData(Item* _item, const string& _fontPath);
+	ItemData(Item* _item, const string& _fontPath, const int _layer);
 };
 

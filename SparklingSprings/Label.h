@@ -10,5 +10,5 @@ public:
 	}
 
 public:
-	Label(const TextData& _data);
+	Label(const TextData& _data,const int _layer);
 };

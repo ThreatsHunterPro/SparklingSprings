@@ -55,7 +55,7 @@ public:
 	}
 
 public:
-	Button(const ShapeData& _data/*, const AllButtonData& _buttonData = AllButtonData()*/);
+	Button(const ShapeData& _data/*, const AllButtonData& _buttonData = AllButtonData()*/,const int _layer);
 
 public:
 	void OnPressed();

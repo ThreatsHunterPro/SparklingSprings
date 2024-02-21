@@ -17,6 +17,12 @@ public:
 		return textObject->GetDrawable();
 	}
 
+	void SetOrigineAtMiddle()
+	{
+		Text* _text = textObject->GetDrawable();
+		_text->setOrigin(_text->getLocalBounds().getSize() / 2.f);
+	}
+
 public:
-	TextWidget(const TextData& _data);
+	TextWidget(const TextData& _data,const int _layer);
 };

@@ -1,7 +1,7 @@
 #include "Button.h"
 #include <iostream>
 
-Button::Button(const ShapeData& _data/*, const AllButtonData& _buttonData*/) : ShapeWidget(_data)
+Button::Button(const ShapeData& _data/*, const AllButtonData& _buttonData = AllButtonData()*/, const int _layer) : ShapeWidget(_data,_layer)
 {
 	//allData = _buttonData;
 	isSelected = false;

@@ -12,6 +12,14 @@ Canvas::Canvas(const string& _name, const FloatRect& _rect, const vector<Widget*
 	widgets = _widgets;
 }
 
+Canvas::~Canvas()
+{
+	for (Widget* _widget : widgets)
+	{
+		delete _widget;
+	}
+}
+
 void Canvas::Register()
 {
 	HUD::GetInstance().Add(id, this);

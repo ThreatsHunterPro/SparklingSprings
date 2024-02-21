@@ -1,6 +1,7 @@
 #include "Widget.h"
 
-Widget::Widget()
+Widget::Widget(const int _layer)
 {
 	isVisible = true;
+	layer = _layer;
 }

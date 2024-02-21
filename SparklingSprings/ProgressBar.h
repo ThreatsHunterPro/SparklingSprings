@@ -56,7 +56,7 @@ public:
 
 public:
 	ProgressBar(const ShapeData& _data, Canvas* _canvas, const string& _path,
-				const ProgressType& _type, const float _maxValue = 100.0f);
+				const ProgressType& _type,const int _layer, const float _maxValue = 100.0f);
 	~ProgressBar();
 
 private:

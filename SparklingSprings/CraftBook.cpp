@@ -20,7 +20,7 @@ void CraftBook::Init()
 			const float _posX = _gridPos.x + _j * cellSize.x;
 			const float _posY = _gridPos.y + _i * cellSize.y;
 
-			Button* _button = new Button(ShapeData(Vector2f(_posX, _posY), cellSize, ""));
+			Button* _button = new Button(ShapeData(Vector2f(_posX, _posY), cellSize, ""),1);
 			_button->GetDrawable()->setOutlineThickness(-1.5f);
 			_button->GetDrawable()->setOutlineColor(Color::Black);
 

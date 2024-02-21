@@ -32,3 +32,5 @@ void HUD::Interact(const Vector2f& _worldPosition, const Event::EventType& _type
 		_button->OnHeld();
 	}
 }
+
+

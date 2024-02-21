@@ -4,6 +4,7 @@
 class Widget
 {
 	bool isVisible;
+	int layer;
 
 public:
 	void SetVisible(const bool _status)
@@ -14,10 +15,16 @@ public:
 	{
 		return isVisible;
 	}
+
+	const int GetLayer() const
+	{
+		return layer;
+	}
+
 	virtual Object* GetObject() const = 0;
 	virtual Drawable* GetDrawable() const = 0;
 
 public:
-	Widget();
+	Widget(const int _layer);
 	virtual ~Widget() {}
 };

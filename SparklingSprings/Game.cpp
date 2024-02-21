@@ -5,12 +5,11 @@
 #include "HUD.h"
 #include "Widget.h"
 #include "Player.h"
-
 #define PATH_PLAYER "Player.png"
 
 Game::Game()
 {
-	map = new Map();
+	map = new Map(1, Vector2f(window.getSize()));
 }
 
 Game::~Game()
@@ -28,8 +27,8 @@ void Game::Start()
 
 void Game::Init()
 {
-	map->Init(Vector2f(window.getSize()));
-	Player* _player = new Player("Player", ShapeData(Vector2f(300.0f, 500.0f), Vector2f(100.0f, 100.0f), PATH_PLAYER));
+	Player* _player = new Player("Player", ShapeData(Vector2f(200.0f, 200.0f), Vector2f(150.0f, 150.0f), PATH_PLAYER));
+	_player->Init();
 }
 
 void Game::Update()
@@ -56,18 +55,16 @@ void Game::UpdateWindow()
 
 	// UI
 	View _view = _defaultView;
-	for (Canvas* _canvas : HUD::GetInstance().GetAllValues())
+
+	vector<Widget*> _widgets = HUD::GetInstance().GetAllWidgets();
+
+	Sort(_widgets);
+
+	for (int _index = (int)_widgets.size(); _index > 0; _index--)
 	{
-		if (!_canvas->IsVisible()) continue;
-
-		_view.setViewport(_canvas->GetRect());
+		/*_view.setViewport(_canvas->GetRect())*/;
 		window.setView(_view);
-
-		for (Widget* _widget : _canvas->GetWidgets()) 
-		{
-			if (!_widget->IsVisible()) continue;
-			window.draw(*_widget->GetDrawable());
-		}
+		window.draw(*_widgets[_index]->GetDrawable());
 	}
 
 	window.display();
