@@ -14,7 +14,7 @@ struct PlayerStats
 	{
 		health = new ChangingStat(1.0f, _healthBar);
 		regenCooldown = 3.0f;
-		mana = new ChangingStat(0.5f, _manaBar);
+		mana = new ChangingStat(0.2f, _manaBar);
 		thirst = new ChangingStat(-1.0f, _thirstBar);
 		hunger = new ChangingStat(-0.3f, _hungerBar);
 	}

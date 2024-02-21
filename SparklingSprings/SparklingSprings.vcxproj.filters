@@ -303,6 +303,9 @@
     <ClCompile Include="Enemy.cpp">
       <Filter>Fichiers sources\Objects\ShapeObjects\Actors\Enemies</Filter>
     </ClCompile>
+    <ClCompile Include="Transporter.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Action.h">
@@ -469,6 +472,9 @@
     </ClInclude>
     <ClInclude Include="Stat.h">
       <Filter>Fichiers sources\Objects\ShapeObjects\Actors</Filter>
+    </ClInclude>
+    <ClInclude Include="Transporter.h">
+      <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

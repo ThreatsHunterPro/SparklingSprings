@@ -6,6 +6,7 @@
 #include "Action.h"
 #include "Timer.h"
 #include "Resource.h"
+#include "Transporter.h"
 
 // UI
 #include "Canvas.h"
@@ -36,9 +37,10 @@
 
 #pragma endregion
 
-Player::Player(const string& _name, const ShapeData& _data) : Actor(_name,_data)
+Player::Player(const string& _name, const ShapeData& _data) : Actor(_name, _data)
 {
-	stats = nullptr;
+	InitStats();
+
 	inventory = new Inventory();
 	craftBook = nullptr;
 	skillTree = nullptr;
@@ -58,10 +60,15 @@ Player::Player(const string& _name, const ShapeData& _data) : Actor(_name,_data)
 	fight = new FightComponent(this);
 	components.push_back(fight);
 
-	//TODO remove
-	canvas = nullptr;
+	Init();
 }
 
+
+void Player::Init()
+{
+	SetupPlayerInput();
+	InitHUD();
+}
 
 void Player::SetupPlayerInput()
 {
@@ -153,12 +160,21 @@ void Player::SetupPlayerInput()
 		ResourceData(PATH_ROCK, ITEM_RESOURCE, RARITY_COMMON, 1, 2.0f, 0.01f)
 	);
 	//TODO remove
-	Enemy* _enemy = new Enemy("Enemy", ShapeData(Vector2f(800.0f, 550.0f), Vector2f(100.0f, 100.0f), ""));
+	new Enemy("Enemy", ShapeData(Vector2f(800.0f, 550.0f), Vector2f(100.0f, 100.0f), ""));
+	//TODO remove
+	static Transporter* _transporter = new Transporter(InteractableData("Transporter" + to_string(GetUniqueID()),
+													   ShapeData(Vector2f(500.0f, 300.0f), Vector2f(30.0f, 30.0f), ""),
+													   [&]() { _transporter->Teleport(this); }),
+													   Vector2f(800.0f, 200.0f));
 }
 
 void Player::InitHUD()
 {
-	InitStats();
+	ProgressBar* _gatherBar = new ProgressBar(ShapeData(Vector2f(50.0f, 50.0f), Vector2f(200.0f, 150.0f), PATH_HUNGER_BAR_EMPTY),
+											  canvas, PATH_HUNGER_BAR_FULL, ProgressType::PT_LEFT, 100.0f);
+	canvas->AddWidget(_gatherBar);
+	gather->SetProgressBar(_gatherBar);
+
 	InitSkillTree();
 }
 
@@ -186,11 +202,6 @@ void Player::InitStats()
 	canvas->AddWidget(_hungerBar);
 
 	stats = new PlayerStats(_healthBar, _manaBar, _thirstBar, _hungerBar);
-
-	ProgressBar* _gatherBar = new ProgressBar(ShapeData(Vector2f(50.0f, 50.0f), Vector2f(_sizeX, _sizeY), PATH_HUNGER_BAR_EMPTY),
-											  canvas, PATH_HUNGER_BAR_FULL, ProgressType::PT_LEFT, 100.0f);
-	canvas->AddWidget(_gatherBar);
-	gather->SetProgressBar(_gatherBar);
 }
 
 void Player::InitSkillTree()
@@ -203,11 +214,4 @@ void Player::SwapActionMap()
 	overworldInputs->isActive = !overworldInputs->isActive;
 	donjonInputs->isActive = !donjonInputs->isActive;
 	movement->SetCanJumpAndDash(donjonInputs->isActive);
-}
-
-
-void Player::Init()
-{
-	SetupPlayerInput();
-	InitHUD();
 }

@@ -41,6 +41,11 @@ struct ChangingStat : public Stat
 	float valueFactorUpgradeFactor;
 	float rateUpgradeFactor;
 
+	float GetCurrentValue() const
+	{
+		return bar->GetCurrentValue();
+	}
+
 	ChangingStat(const float _valueFactor, ProgressBar* _bar)
 				: Stat(_valueFactor, _bar)
 	{

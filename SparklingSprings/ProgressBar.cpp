@@ -38,14 +38,14 @@ void ProgressBar::UpdateOriginAndPosition(const Vector2f& _size)
         _fgShape->setOrigin(_size.x, 0);
         shapeObject->GetDrawable()->setOrigin(_size.x, 0);
         _fgShape->setPosition(_barPosition + Vector2f(_size.x, 0.0f));
-        GetDrawable()->setPosition(_barPosition + Vector2f(_size.x, 0.0f));
+        SetShapePosition(_barPosition + Vector2f(_size.x, 0.0f));
     }
     else if (type == PT_BOTTOM)
     {
         _fgShape->setOrigin(0, _size.y);
         GetDrawable()->setOrigin(0, _size.y);
         _fgShape->setPosition(_barPosition + Vector2f(0.0f, _size.y));
-        GetDrawable()->setPosition(_barPosition + Vector2f(0.0f, _size.y));
+        SetShapePosition(_barPosition + Vector2f(0.0f, _size.y));
     }
 }
 

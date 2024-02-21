@@ -1,6 +1,7 @@
 #pragma once
 #include "Action.h"
 #include "MovementComponent.h"
+#include "Stat.h"
 
 class PlayerMovementComponent : public Component
 {
@@ -10,17 +11,21 @@ class PlayerMovementComponent : public Component
 	Vector2f direction;
 	Vector2f lastDirection;
 
+	#pragma region Overworld
+
 	// Sprint
 	bool isSprinting;
 	float sprintSpeed;
+	float sprintConso;
 
+	#pragma endregion
+
+	#pragma region Donjon
+	
 	// Ground
+	bool canJumpAndDash;
 	bool isOnGround;
 	float checkGroundDistance;
-
-	#pragma region Jump & Dash
-
-	bool canJumpAndDash;
 
 	// Jump
 	bool isJumping;
@@ -35,9 +40,12 @@ class PlayerMovementComponent : public Component
 	float dashSpeed;
 	float dashDuration;
 	float dashCooldown;
+	float dashConso;
 	Vector2f dashDirection;
 
 	#pragma endregion
+
+	ChangingStat* mana;
 
 public:
 	void SetDirectionX(const float _directionX)

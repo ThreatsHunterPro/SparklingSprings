@@ -1,5 +1,6 @@
 #include "PlayerMovementComponent.h"
 #include "Actor.h"
+#include "Player.h"
 #include "Timer.h"
 #include "Macro.h"
 #include "Kismet.h"
@@ -15,6 +16,7 @@ PlayerMovementComponent::PlayerMovementComponent(Actor* _owner) : Component(_own
 	// Sprint
 	isSprinting = false;
 	sprintSpeed = 0.3f;
+	sprintConso = 0.3f;
 
 	// Ground
 	isOnGround = false;
@@ -35,6 +37,9 @@ PlayerMovementComponent::PlayerMovementComponent(Actor* _owner) : Component(_own
 	dashSpeed = 0.75f;
 	dashDuration = 0.2f;
 	dashCooldown = 3.0f;
+	dashConso = 400.0f;
+
+	mana = dynamic_cast<Player*>(owner)->GetStats()->mana;
 }
 
 
@@ -54,6 +59,12 @@ void PlayerMovementComponent::Update(const float _deltaTime)
 	Vector2f _offset;
 		
 	// Déplacement par défaut
+	const float _sprintConso = sprintConso * _deltaTime;
+	if (isSprinting && mana->GetCurrentValue() >= _sprintConso)
+	{
+		mana->Update(-_sprintConso);
+	}
+
 	const float _finalSpeed = isSprinting ? sprintSpeed : speed;
 	_offset = direction * _finalSpeed * _deltaTime;
 
@@ -113,10 +124,13 @@ void PlayerMovementComponent::Jump()
 
 void PlayerMovementComponent::Dash()
 {
-	if (!isOnGround || !canDash || isDashing) return;
+	if (!isOnGround || !canDash || isDashing || mana->GetCurrentValue() >= dashConso) return;
+
+	cout << mana->GetCurrentValue() << endl;
 
 	canDash = false;
 	isDashing = true;
 	dashDirection = direction;
 	new Timer([this]() { isDashing = false; }, seconds(dashDuration));
+	mana->Update(-dashConso);
 }

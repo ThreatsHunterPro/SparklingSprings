@@ -41,7 +41,7 @@ void FightComponent::Update(const float _deltaTime)
 {
 	HitInfo _hitInfo;
 	const bool _enemyFound = FindEnemy(_hitInfo);
-	hitPoint->GetDrawable()->setPosition(_hitInfo.position);
+	hitPoint->SetShapePosition(_hitInfo.position);
 }
 
 void FightComponent::LightAttack()

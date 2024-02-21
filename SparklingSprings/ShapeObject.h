@@ -22,6 +22,10 @@ protected:
 	Shape* shape;
 
 public:
+	void SetShapePosition(const Vector2f& _position)
+	{
+		shape->setPosition(_position);
+	}
 	virtual Shape* GetDrawable() const override
 	{
 		return shape;

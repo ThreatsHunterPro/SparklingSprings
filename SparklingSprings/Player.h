@@ -31,6 +31,10 @@ class Player : public Actor
 	Canvas* canvas;
 
 public:
+	PlayerStats* GetStats() const
+	{
+		return stats;
+	}
 	Inventory* GetInventory() const
 	{
 		return inventory;
@@ -40,6 +44,7 @@ public:
 	Player(const string& _name, const ShapeData& _data);
 
 private:
+	void Init(); public:
 	void SetupPlayerInput();
 	void InitHUD();
 	void InitStats();
@@ -47,7 +52,4 @@ private:
 
 	//TODO move
 	void SwapActionMap();
-
-public:
-	void Init();
 };
