@@ -87,4 +87,5 @@ public:
 	virtual void Update(const float _deltaTime) override;
 	void Jump();
 	void Dash();
+	void TryClimbLadder(const float _directionY);
 };

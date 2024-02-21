@@ -306,6 +306,9 @@
     <ClCompile Include="Transporter.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
+    <ClCompile Include="Ladder.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Action.h">
@@ -474,6 +477,9 @@
       <Filter>Fichiers sources\Objects\ShapeObjects\Actors</Filter>
     </ClInclude>
     <ClInclude Include="Transporter.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="Ladder.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
   </ItemGroup>

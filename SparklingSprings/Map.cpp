@@ -4,13 +4,13 @@
 Map::Map()
 {
 	position = Vector2f(0.0f, 0.0f);
-	size = Vector2i(100, 100);
+	size = Vector2i(50, 50);
 	tileSize = Vector2f(25.0f, 25.0f);
 
 	biomeCount = 5;
 	biomeSizeMinMax = {
 		Vector2i(5, 5),
-		Vector2i(20, 20), //size
+		Vector2i(20, 20),
 	};
 	securityZoneSizeMinMax = {
 		Vector2i(3, 3),

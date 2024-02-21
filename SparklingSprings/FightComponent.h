@@ -8,9 +8,15 @@ using namespace std;
 class FightComponent : public Component
 {
 	float range;
-	float lightDamages;
-	float heavyDamages;
 	Vector2f offset;
+
+	float lightDamages;
+	float lightConso;
+
+	float heavyDamages;
+	float heavyConso;
+
+	ChangingStat* mana;
 
 	//TODO remove
 	ShapeObject* hitPoint;

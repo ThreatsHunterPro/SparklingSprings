@@ -1,5 +1,7 @@
 #include "Player.h"
 
+#include "Ladder.h"
+
 // Managers
 #include "ActorManager.h"
 #include "InputManager.h"
@@ -59,8 +61,6 @@ Player::Player(const string& _name, const ShapeData& _data) : Actor(_name, _data
 	
 	fight = new FightComponent(this);
 	components.push_back(fight);
-
-	Init();
 }
 
 
@@ -113,11 +113,17 @@ void Player::SetupPlayerInput()
 
 		#pragma region Movement
 
-		ActionData("Overworld_Left", [&]() { movement->SetDirectionX(-1.0f); }, InputData({ ActionType::KeyPressed, Keyboard::Q })),
-		ActionData("Overworld_StopLeft", [&]() { movement->SetDirectionX(0.0f); }, InputData({ ActionType::KeyReleased, Keyboard::Q })),
+		ActionData("Donjon_Left", [&]() { movement->SetDirectionX(-1.0f); }, InputData({ ActionType::KeyPressed, Keyboard::Q })),
+		ActionData("Donjon_StopLeft", [&]() { movement->SetDirectionX(0.0f); }, InputData({ ActionType::KeyReleased, Keyboard::Q })),
 
-		ActionData("Overworld_Right", [&]() { movement->SetDirectionX(1.0f); }, InputData({ ActionType::KeyPressed, Keyboard::D })),
-		ActionData("Overworld_StopRight", [&]() { movement->SetDirectionX(0.0f); }, InputData({ ActionType::KeyReleased, Keyboard::D })),
+		ActionData("Donjon_Right", [&]() { movement->SetDirectionX(1.0f); }, InputData({ ActionType::KeyPressed, Keyboard::D })),
+		ActionData("Donjon_StopRight", [&]() { movement->SetDirectionX(0.0f); }, InputData({ ActionType::KeyReleased, Keyboard::D })),
+
+		ActionData("Donjon_Up", [&]() { movement->TryClimbLadder(-1.0f); }, InputData({ ActionType::KeyPressed, Keyboard::Z })),
+		ActionData("Donjon_StopUp", [&]() { movement->TryClimbLadder(0.0f); }, InputData({ ActionType::KeyReleased, Keyboard::Z })),
+
+		ActionData("Donjon_Down", [&]() { movement->TryClimbLadder(1.0f); }, InputData({ ActionType::KeyPressed, Keyboard::S })),
+		ActionData("Donjon_StopDown", [&]() { movement->TryClimbLadder(0.0f); }, InputData({ ActionType::KeyReleased, Keyboard::S })),
 
 		ActionData("Jump", [&]() { movement->Jump(); }, InputData({ ActionType::KeyPressed, Keyboard::Space })),
 		ActionData("Dash", [&]() { movement->Dash(); }, InputData({ ActionType::KeyPressed, Keyboard::LControl })),
@@ -166,6 +172,8 @@ void Player::SetupPlayerInput()
 													   ShapeData(Vector2f(500.0f, 300.0f), Vector2f(30.0f, 30.0f), ""),
 													   [&]() { _transporter->Teleport(this); }),
 													   Vector2f(800.0f, 200.0f));
+	//TODO remove
+	new Ladder("Ladder", ShapeData(Vector2f(500.0f, 450.0f), Vector2f(80.0f, 250.0f), ""));
 }
 
 void Player::InitHUD()

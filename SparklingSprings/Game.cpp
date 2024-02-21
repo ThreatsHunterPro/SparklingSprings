@@ -11,12 +11,12 @@
 
 Game::Game()
 {
-	map = new Map();
+	//map = new Map();
 }
 
 Game::~Game()
 {
-	delete map;
+	//delete map;
 }
 
 
@@ -29,8 +29,10 @@ void Game::Start()
 
 void Game::Init()
 {
-	map->Init(Vector2f(window.getSize()));
+	//map->Init(Vector2f(window.getSize()));
+
 	Player* _player = new Player("Player", ShapeData(Vector2f(300.0f, 500.0f), Vector2f(100.0f, 100.0f), PATH_PLAYER));
+	_player->Init();
 }
 
 void Game::Update()

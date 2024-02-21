@@ -2,6 +2,8 @@
 #include "Actor.h"
 #include "Player.h"
 #include "Timer.h"
+#include "Ladder.h"
+
 #include "Macro.h"
 #include "Kismet.h"
 
@@ -133,4 +135,20 @@ void PlayerMovementComponent::Dash()
 	dashDirection = direction;
 	new Timer([this]() { isDashing = false; }, seconds(dashDuration));
 	mana->Update(-dashConso);
+}
+
+void PlayerMovementComponent::TryClimbLadder(const float _directionY)
+{
+	cout << _directionY << endl;
+	cout << owner->GetShapePosition().x << " " << owner->GetShapePosition().y << endl;
+
+	HitInfo _hitInfo;
+	const bool _hasHit = Raycast(owner->GetShapePosition(), Vector2f(0.0f, _directionY), 1.0f,
+								 _hitInfo, { owner->GetDrawable(), });
+
+	if (_hasHit && dynamic_cast<Ladder*>(_hitInfo.actor))
+	{
+		cout << "_directionY" << endl;
+		SetDirectionY(_directionY);
+	}
 }
