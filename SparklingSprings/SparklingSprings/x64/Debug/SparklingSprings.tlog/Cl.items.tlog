@@ -4,6 +4,9 @@ C:\Users\vokin\Documents\GitHub\SparklingSprings\SparklingSprings\Actor.cpp;C:\U
 C:\Users\vokin\Documents\GitHub\SparklingSprings\SparklingSprings\ActorManager.cpp;C:\Users\vokin\Documents\GitHub\SparklingSprings\SparklingSprings\SparklingSprings\x64\Debug\ActorManager.obj
 C:\Users\vokin\Documents\GitHub\SparklingSprings\SparklingSprings\Biome.cpp;C:\Users\vokin\Documents\GitHub\SparklingSprings\SparklingSprings\SparklingSprings\x64\Debug\Biome.obj
 C:\Users\vokin\Documents\GitHub\SparklingSprings\SparklingSprings\Button.cpp;C:\Users\vokin\Documents\GitHub\SparklingSprings\SparklingSprings\SparklingSprings\x64\Debug\Button.obj
+C:\Users\vokin\Documents\GitHub\SparklingSprings\SparklingSprings\GatherComponent.cpp;C:\Users\vokin\Documents\GitHub\SparklingSprings\SparklingSprings\SparklingSprings\x64\Debug\GatherComponent.obj
+C:\Users\vokin\Documents\GitHub\SparklingSprings\SparklingSprings\InteractableActor.cpp;C:\Users\vokin\Documents\GitHub\SparklingSprings\SparklingSprings\SparklingSprings\x64\Debug\InteractableActor.obj
+C:\Users\vokin\Documents\GitHub\SparklingSprings\SparklingSprings\InteractComponent.cpp;C:\Users\vokin\Documents\GitHub\SparklingSprings\SparklingSprings\SparklingSprings\x64\Debug\InteractComponent.obj
 C:\Users\vokin\Documents\GitHub\SparklingSprings\SparklingSprings\ItemData.cpp;C:\Users\vokin\Documents\GitHub\SparklingSprings\SparklingSprings\SparklingSprings\x64\Debug\ItemData.obj
 C:\Users\vokin\Documents\GitHub\SparklingSprings\SparklingSprings\Canvas.cpp;C:\Users\vokin\Documents\GitHub\SparklingSprings\SparklingSprings\SparklingSprings\x64\Debug\Canvas.obj
 C:\Users\vokin\Documents\GitHub\SparklingSprings\SparklingSprings\Component.cpp;C:\Users\vokin\Documents\GitHub\SparklingSprings\SparklingSprings\SparklingSprings\x64\Debug\Component.obj
@@ -30,6 +33,7 @@ C:\Users\vokin\Documents\GitHub\SparklingSprings\SparklingSprings\Object.cpp;C:\
 C:\Users\vokin\Documents\GitHub\SparklingSprings\SparklingSprings\Player.cpp;C:\Users\vokin\Documents\GitHub\SparklingSprings\SparklingSprings\SparklingSprings\x64\Debug\Player.obj
 C:\Users\vokin\Documents\GitHub\SparklingSprings\SparklingSprings\PlayerMovementComponent.cpp;C:\Users\vokin\Documents\GitHub\SparklingSprings\SparklingSprings\SparklingSprings\x64\Debug\PlayerMovementComponent.obj
 C:\Users\vokin\Documents\GitHub\SparklingSprings\SparklingSprings\ProgressBar.cpp;C:\Users\vokin\Documents\GitHub\SparklingSprings\SparklingSprings\SparklingSprings\x64\Debug\ProgressBar.obj
+C:\Users\vokin\Documents\GitHub\SparklingSprings\SparklingSprings\Resource.cpp;C:\Users\vokin\Documents\GitHub\SparklingSprings\SparklingSprings\SparklingSprings\x64\Debug\Resource.obj
 C:\Users\vokin\Documents\GitHub\SparklingSprings\SparklingSprings\ShapeObject.cpp;C:\Users\vokin\Documents\GitHub\SparklingSprings\SparklingSprings\SparklingSprings\x64\Debug\ShapeObject.obj
 C:\Users\vokin\Documents\GitHub\SparklingSprings\SparklingSprings\ShapeWidget.cpp;C:\Users\vokin\Documents\GitHub\SparklingSprings\SparklingSprings\SparklingSprings\x64\Debug\ShapeWidget.obj
 C:\Users\vokin\Documents\GitHub\SparklingSprings\SparklingSprings\Skill.cpp;C:\Users\vokin\Documents\GitHub\SparklingSprings\SparklingSprings\SparklingSprings\x64\Debug\Skill.obj

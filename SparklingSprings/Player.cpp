@@ -36,7 +36,7 @@
 
 #pragma endregion
 
-Player::Player(const string& _name, const ShapeData& _data) : Actor(_name,_data)
+Player::Player(const string& _name, const ShapeData& _data) : Actor(_name, _data)
 {
 	stats = nullptr;
 	inventory = new Inventory();
@@ -45,13 +45,13 @@ Player::Player(const string& _name, const ShapeData& _data) : Actor(_name,_data)
 
 	overworldInputs = nullptr;
 	donjonInputs = nullptr;
-	
+
 	movement = new PlayerMovementComponent(this);
 	components.push_back(movement);
 
 	interact = new InteractComponent(this);
 	components.push_back(interact);
-	
+
 	gather = new GatherComponent(this);
 	components.push_back(gather);
 }
@@ -95,7 +95,7 @@ void Player::SetupPlayerInput()
 		ActionData("Interact", [&]() { interact->Interact(); }, InputData({ ActionType::MouseButtonPressed, Mouse::Left })),
 
 		#pragma endregion
-	});
+		});
 	donjonInputs = new ActionMap("Donjon", {
 
 		#pragma region Movement
@@ -117,26 +117,23 @@ void Player::SetupPlayerInput()
 		ActionData("HeavyAttack", [&]() { HeavyAttack(); }, InputData({ ActionType::MouseButtonPressed, Mouse::Right })),
 
 		#pragma endregion
-	}, false);
+		}, false);
 	new ActionMap("Storages", {
 		ActionData("Inventory", [&]() { inventory->Toggle(); }, InputData({ ActionType::KeyPressed, Keyboard::B })),
 		ActionData("CraftBook", [&]() { craftBook->Toggle(); }, InputData({ ActionType::KeyPressed, Keyboard::Tab })),
-		ActionData("AddItem1", [&]() { inventory->AddItem(PATH_WOOD, ITEM_RESOURCE, RARITY_COMMON); }, InputData({ ActionType::KeyPressed, Keyboard::X })),
-		ActionData("AddItem2", [&]() { inventory->AddItem(PATH_ROCK, ITEM_RESOURCE, RARITY_COMMON); }, InputData({ ActionType::KeyPressed, Keyboard::C })),
-	});
-	//new ActionMap("Actions", {
-	//	ActionData("Click", [&]() { craftBook->BuildSelected(); }, InputData({ ActionType::MouseButtonPressed, Mouse::Left })),
-	//	});
-	//});
+		//ActionData("AddItem1", [&]() { inventory->AddItem(PATH_WOOD, ITEM_RESOURCE, RARITY_COMMON); }, InputData({ ActionType::KeyPressed, Keyboard::X })),
+		//ActionData("AddItem2", [&]() { inventory->AddItem(PATH_ROCK, ITEM_RESOURCE, RARITY_COMMON); }, InputData({ ActionType::KeyPressed, Keyboard::C })),
+		});
+	
 
 	//TODO remove
 	new ActionMap("TEMP", {
 		ActionData("SwapActionMap", [&]() { SwapActionMap(); }, InputData({ ActionType::KeyPressed, Keyboard::P })),
-	});
+		});
 
 	//TODO remove
 	new InteractableActor(InteractableData("Floor", ShapeData(Vector2f(50.0f, 650.0f), Vector2f(1100.0f, 50.0f), ""), []() {
-			cout << "C'est le sol ca connard !" << endl;
+		cout << "C'est le sol ca connard !" << endl;
 		})
 	);
 
@@ -144,13 +141,13 @@ void Player::SetupPlayerInput()
 		InteractableData("Tree", ShapeData(Vector2f(400.0f, 200.0f), Vector2f(50.0f, 50.0f), ""), [&]() {
 			cout << "Gather tree !" << endl;
 			gather->Gather(_tree);
-		}),
+			}),
 		ResourceData(PATH_WOOD, ITEM_RESOURCE, RARITY_COMMON, 3, 5.0f, 0.1f)
 	);
 	static Resource* _rock = new Resource(
 		InteractableData("Rock", ShapeData(Vector2f(600.0f, 200.0f), Vector2f(50.0f, 50.0f), ""), [&]() {
 			gather->Gather(_rock);
-		}),
+			}),
 		ResourceData(PATH_ROCK, ITEM_RESOURCE, RARITY_COMMON, 1, 2.0f, 0.1f)
 	);
 }
@@ -168,26 +165,26 @@ void Player::InitStats()
 	float _sizeX = 200.0f; float _sizeY = 150.0f;
 	float _posX = 10.0f; float _posY = 10.0f;
 
-	/*ProgressBar* _healthBar = new ProgressBar(ShapeData(Vector2f(_posX, _posY), Vector2f(_sizeX, _sizeY), PATH_HEALTH_BAR_EMPTY),
-											  _canvas, PATH_HEALTH_BAR_FULL, ProgressType::PT_LEFT, 1000.0f);
+	ProgressBar* _healthBar = new ProgressBar(ShapeData(Vector2f(_posX, _posY), Vector2f(_sizeX, _sizeY), PATH_HEALTH_BAR_EMPTY),
+		_canvas, PATH_HEALTH_BAR_FULL, ProgressType::PT_LEFT, 1000.0f);
 	_canvas->AddWidget(_healthBar);
 
 	ProgressBar* _manaBar = new ProgressBar(ShapeData(Vector2f(_posX, _posY + 50.0f), Vector2f(_sizeX, _sizeY), PATH_MANA_BAR_EMPTY),
-											  _canvas, PATH_MANA_BAR_FULL, ProgressType::PT_LEFT, 1000.0f);
+		_canvas, PATH_MANA_BAR_FULL, ProgressType::PT_LEFT, 1000.0f);
 	_canvas->AddWidget(_manaBar);
 
 	ProgressBar* _thirstBar = new ProgressBar(ShapeData(Vector2f(_posX, _posY + 100.0f), Vector2f(_sizeX, _sizeY), PATH_THIRST_BAR_EMPTY),
-											  _canvas, PATH_THIRST_BAR_FULL, ProgressType::PT_LEFT, 1000.0f);
+		_canvas, PATH_THIRST_BAR_FULL, ProgressType::PT_LEFT, 1000.0f);
 	_canvas->AddWidget(_thirstBar);
 
 	ProgressBar* _hungerBar = new ProgressBar(ShapeData(Vector2f(_posX, _posY + 150.0f), Vector2f(_sizeX, _sizeY), PATH_HUNGER_BAR_EMPTY),
-											  _canvas, PATH_HUNGER_BAR_FULL, ProgressType::PT_LEFT, 1000.0f);
+		_canvas, PATH_HUNGER_BAR_FULL, ProgressType::PT_LEFT, 1000.0f);
 	_canvas->AddWidget(_hungerBar);
 
-	stats = new PlayerStats(_healthBar, _manaBar, _thirstBar, _hungerBar);*/
+	stats = new PlayerStats(_healthBar, _manaBar, _thirstBar, _hungerBar);
 
 	ProgressBar* _gatherBar = new ProgressBar(ShapeData(Vector2f(50.0f, 50.0f), Vector2f(_sizeX, _sizeY), PATH_HUNGER_BAR_EMPTY),
-											  _canvas, PATH_HUNGER_BAR_FULL, ProgressType::PT_LEFT, 100.0f);
+		_canvas, PATH_HUNGER_BAR_FULL, ProgressType::PT_LEFT, 100.0f);
 	_canvas->AddWidget(_gatherBar);
 	gather->SetProgressBar(_gatherBar);
 }

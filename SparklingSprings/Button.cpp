@@ -20,6 +20,7 @@ void Button::OnPressed()
 	}
 	GetDrawable()->setOutlineThickness(-1.5f); 
 	GetDrawable()->setOutlineColor(Color::Red);
+	
 }
 
 void Button::OnHeld()

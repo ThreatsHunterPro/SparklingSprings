@@ -5,14 +5,15 @@
 #include "Craft.h"
 #include "Button.h"
 
+
 class CraftBook : public IManager<int, Craft>
 {
 	Canvas* canvas;
 	Vector2f cellSize;
+	vector<CraftInfo> craftInfos;
 	
 public:
 	CraftBook();
-
 private:
 	void Init();
 public:
@@ -20,6 +21,5 @@ public:
 	{
 		canvas->SetVisibilityStatus(canvas->IsVisible() ? false : true);
 	}
-
 
 };

@@ -18,6 +18,28 @@ enum RarityType
 	RARITY_LEGENDARY
 };
 
+struct ItemInfo
+{
+	string path;
+	ItemType type;
+	RarityType rarity;
+
+	ItemInfo()
+	{
+		path = "";
+		type = ITEM_NONE;
+		rarity = RARITY_COMMON;
+	}
+
+	ItemInfo(const string& _path, const ItemType& _type, const RarityType& _rarity)
+	{
+		path = _path;
+		type = _type;
+		rarity = _rarity;
+	}
+
+};
+
 class Item : public ShapeWidget, public IManagable<string>
 {
 	ItemType type;
