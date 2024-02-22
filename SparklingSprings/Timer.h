@@ -1,12 +1,6 @@
 #pragma once
 #include "IManagable.h"
 #include "Macro.h"
-#include <SFML/Graphics.hpp>
-#include <functional>
-#include <string>
-
-using namespace std;
-using namespace sf;
 
 class Timer : public IManagable<int>
 {

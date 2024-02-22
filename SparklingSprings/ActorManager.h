@@ -2,16 +2,30 @@
 #include "Singleton.h"
 #include "IManager.h"
 #include "Actor.h"
-#include "InteractableActor.h"
+#include "IInteractable.h"
+#include "IDamagable.h"
 
 class ActorManager : public Singleton<ActorManager>, public IManager<string, Actor>
 {
-	vector<InteractableActor*> interactables;
+	vector<IInteractable*> interactables;
+	vector<IDamagable*> damagables;
 
 public:
-	void AddInteractable(InteractableActor* _interactable)
+	void AddInteractable(IInteractable* _interactable)
 	{
 		interactables.push_back(_interactable);
+	}
+	void AddDamagable(IDamagable* _damagable)
+	{
+		damagables.push_back(_damagable);
+	}
+	vector<IInteractable*> GetInteractables() const
+	{
+		return interactables;
+	}
+	vector<IDamagable*> GetDamagables() const
+	{
+		return damagables;
 	}
 
 public:
@@ -19,5 +33,4 @@ public:
 
 public:
 	void Update();
-	void TryToInteract(const Vector2f& _position, const float _range);
 };

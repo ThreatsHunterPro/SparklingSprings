@@ -19,11 +19,6 @@ struct PlayerStats
 		hunger = new ChangingStat(-0.3f, _hungerBar);
 	}
 
-	void TakeDamages(const float _damages)
-	{
-		health->Update(_damages);
-	}
-
 	void UseMana(const float _mana)
 	{
 		mana->Update(_mana);

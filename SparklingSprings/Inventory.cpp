@@ -44,6 +44,7 @@ ItemData* Inventory::FindItemData(const string& _path)
 void Inventory::Init()
 {
 	canvas = new Canvas("PlayerInventory", FloatRect(0, 0, 1, 1));
+	canvas->SetVisibilityStatus(false);
 
 	const Vector2f& _gridPos = Vector2f(300.0f, 150.0f);
 	const Vector2i& _gridSize = Vector2i(5, 8);

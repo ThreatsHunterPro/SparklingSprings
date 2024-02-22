@@ -1,5 +1,5 @@
 #pragma once
-#include "InteractableActor.h"
+#include "IInteractable.h"
 #include "Item.h"
 
 struct ResourceData
@@ -33,7 +33,7 @@ struct ResourceData
 	}
 };
 
-class Resource : public InteractableActor
+class Resource : public Actor, public IInteractable
 {
 	ResourceData data;
 
@@ -44,5 +44,6 @@ public:
 	}
 
 public:
-	Resource(const InteractableData& _interactableData, const ResourceData& _data);
+	Resource(const string& _name, const ShapeData& _shapeData, const ResourceData& _data,
+			 const function<void()>& _callback);
 };

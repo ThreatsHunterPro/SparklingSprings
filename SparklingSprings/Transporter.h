@@ -1,13 +1,15 @@
 #pragma once
-#include "InteractableActor.h"
-#include "Player.h"
+#include "Actor.h"
+#include "IInteractable.h"
 
-class Transporter : public InteractableActor
+class Player;
+
+class Transporter : public Actor, public IInteractable
 {
 	Vector2f destination;
 
 public:
-	Transporter(const InteractableData& _data, const Vector2f& _destination);
+	Transporter(const ShapeData& _data, const function<void()>& _callback, const Vector2f& _destination);
 
 public:
 	void Teleport(Player* _player);

@@ -1,20 +1,23 @@
 #include "Player.h"
-
-#include "Ladder.h"
+#include "Macro.h"
+#include "Kismet.h"
 
 // Managers
 #include "ActorManager.h"
 #include "InputManager.h"
 #include "Action.h"
 #include "Timer.h"
-#include "Resource.h"
-#include "Transporter.h"
 
-// UI
+// UIs
 #include "Canvas.h"
 #include "ProgressBar.h"
 
-#include "Kismet.h"
+// GPEs
+#include "Resource.h"
+#include "Transporter.h"
+#include "Ladder.h"
+#include "ArrowTrap.h"
+#include "FlameThrower.h"
 
 #pragma region Defines
 
@@ -37,9 +40,14 @@
 #define PATH_WOOD "Wood.png"
 #define PATH_ROCK "Rock.png"
 
+#define PATH_LADDER "GPEs/Ladder.png"
+#define PATH_ARROW_TRAP "GPEs/ArrowTrap.png"
+#define PATH_FLAME_THROWER "GPEs/FlameThrower.png"
+
 #pragma endregion
 
-Player::Player(const string& _name, const ShapeData& _data) : Actor(_name, _data)
+Player::Player(const string& _name, const ShapeData& _data)
+			: Actor(_name, _data), IDamagable(GetDrawable())
 {
 	InitStats();
 
@@ -64,10 +72,65 @@ Player::Player(const string& _name, const ShapeData& _data) : Actor(_name, _data
 }
 
 
+void Player::Update(const float _deltaTime)
+{
+	Actor::Update(_deltaTime);
+}
+
 void Player::Init()
 {
 	SetupPlayerInput();
 	InitHUD();
+
+	//TODO remove
+	#pragma region Environment
+
+	/*new InteractableActor(InteractableData("Floor", ShapeData(Vector2f(20.0f, 650.0f), Vector2f(1250.0f, 50.0f), ""), []() {
+		cout << "C'est le sol ca connard !" << endl;
+	}));
+
+	new InteractableActor(InteractableData("Floor2", ShapeData(Vector2f(320.0f, 400.0f), Vector2f(650.0f, 50.0f), ""), []() {
+		cout << "C'est le sol ca connard !" << endl;
+	}));*/
+
+	#pragma endregion
+
+	#pragma region Resources
+
+	/*static Resource* _tree = new Resource(
+		InteractableData("Tree", ShapeData(Vector2f(400.0f, 200.0f), Vector2f(50.0f, 50.0f), ""), [&]() {
+			gather->Gather(_tree);
+			}),
+		ResourceData(PATH_WOOD, ITEM_RESOURCE, RARITY_COMMON, 3, 5.0f, 0.01f)
+	);
+	static Resource* _rock = new Resource(
+		InteractableData("Rock", ShapeData(Vector2f(600.0f, 200.0f), Vector2f(50.0f, 50.0f), ""), [&]() {
+			gather->Gather(_rock);
+			}),
+		ResourceData(PATH_ROCK, ITEM_RESOURCE, RARITY_COMMON, 1, 2.0f, 0.01f)
+	);*/
+
+	#pragma endregion
+
+	#pragma region GPEs
+
+	/*static Transporter* _transporter = new Transporter(InteractableData(
+														ShapeData(Vector2f(500.0f, 300.0f), Vector2f(30.0f, 30.0f), ""),
+														[&]() { _transporter->Teleport(this); }), Vector2f(800.0f, 200.0f));*/
+
+	/*new Ladder("Ladder", ShapeData(Vector2f(500.0f, 360.0f), Vector2f(70.0f, 300.0f), PATH_LADDER));
+	new Ladder("Ladder2", ShapeData(Vector2f(800.0f, 110.0f), Vector2f(70.0f, 300.0f), PATH_LADDER));*/
+
+	new ArrowTrap(ShapeData(Vector2f(800.0f, 600.0f), Vector2f(20.0f, 100.0f), PATH_ARROW_TRAP), Vector2f(-1.0f, 0.0f));
+	new FlameThrower(ShapeData(Vector2f(800.0f, 300.0f), Vector2f(20.0f, 100.0f), PATH_FLAME_THROWER), Vector2f(-1.0f, 0.0f));
+
+	#pragma endregion
+
+	#pragma region Enemies
+
+	new Enemy("Enemy", ShapeData(Vector2f(450.0f, 610.0f), Vector2f(80.0f, 80.0f), ""));
+
+	#pragma endregion
 }
 
 void Player::SetupPlayerInput()
@@ -146,34 +209,6 @@ void Player::SetupPlayerInput()
 		ActionData("SwapActionMap", [&]() { SwapActionMap(); }, InputData({ ActionType::KeyPressed, Keyboard::P })),
 		ActionData("HideHUD", [&]() { canvas->SetVisibilityStatus(!canvas->IsVisible()); }, InputData({ ActionType::KeyPressed, Keyboard::M })),
 	});
-	//TODO remove
-	new InteractableActor(InteractableData("Floor", ShapeData(Vector2f(50.0f, 650.0f), Vector2f(1100.0f, 50.0f), ""), []() {
-			cout << "C'est le sol ca connard !" << endl;
-		})
-	);
-	//TODO remove
-	static Resource* _tree = new Resource(
-		InteractableData("Tree", ShapeData(Vector2f(400.0f, 200.0f), Vector2f(50.0f, 50.0f), ""), [&]() {
-			gather->Gather(_tree);
-		}),
-		ResourceData(PATH_WOOD, ITEM_RESOURCE, RARITY_COMMON, 3, 5.0f, 0.01f)
-	);
-	//TODO remove
-	static Resource* _rock = new Resource(
-		InteractableData("Rock", ShapeData(Vector2f(600.0f, 200.0f), Vector2f(50.0f, 50.0f), ""), [&]() {
-			gather->Gather(_rock);
-		}),
-		ResourceData(PATH_ROCK, ITEM_RESOURCE, RARITY_COMMON, 1, 2.0f, 0.01f)
-	);
-	//TODO remove
-	new Enemy("Enemy", ShapeData(Vector2f(800.0f, 550.0f), Vector2f(100.0f, 100.0f), ""));
-	//TODO remove
-	static Transporter* _transporter = new Transporter(InteractableData("Transporter" + to_string(GetUniqueID()),
-													   ShapeData(Vector2f(500.0f, 300.0f), Vector2f(30.0f, 30.0f), ""),
-													   [&]() { _transporter->Teleport(this); }),
-													   Vector2f(800.0f, 200.0f));
-	//TODO remove
-	new Ladder("Ladder", ShapeData(Vector2f(500.0f, 450.0f), Vector2f(80.0f, 250.0f), ""));
 }
 
 void Player::InitHUD()
@@ -190,8 +225,8 @@ void Player::InitStats()
 {
 	canvas = new Canvas("PlayerStats", FloatRect(0, 0, 1, 1));
 
-	float _sizeX = 200.0f; float _sizeY = 150.0f;
-	float _posX = 10.0f; float _posY = 10.0f;
+	float _sizeX = 200.0f, _sizeY = 150.0f;
+	float _posX = _sizeX / 2.0f + 20.0f, _posY = 50.0f;
 
 	ProgressBar* _healthBar = new ProgressBar(ShapeData(Vector2f(_posX, _posY), Vector2f(_sizeX, _sizeY), PATH_HEALTH_BAR_EMPTY),
 											  canvas, PATH_HEALTH_BAR_FULL, ProgressType::PT_LEFT, 1000.0f);
@@ -210,6 +245,7 @@ void Player::InitStats()
 	canvas->AddWidget(_hungerBar);
 
 	stats = new PlayerStats(_healthBar, _manaBar, _thirstBar, _hungerBar);
+	SetStat(stats->health);
 }
 
 void Player::InitSkillTree()

@@ -28,24 +28,25 @@ void ProgressBar::UpdateOriginAndPosition(const Vector2f& _size)
 	Shape* _fgShape = foreground->GetDrawable();
     const Vector2f& _barPosition = shapeObject->GetShapePosition();
 
-    if (type == PT_CENTER)
+    if (type == PT_LEFT)
     {
-        _fgShape->setOrigin(_size / 2.0f);
-        GetDrawable()->setOrigin(_size / 2.0f);
+        _fgShape->setOrigin(_fgShape->getOrigin() - Vector2f(_size.x / 2.0f, 0.0f));
+        _fgShape->setPosition(_barPosition - Vector2f(_size.x / 2.0f, 0.0f));
     }
     else if (type == PT_RIGHT)
     {
-        _fgShape->setOrigin(_size.x, 0);
-        shapeObject->GetDrawable()->setOrigin(_size.x, 0);
-        _fgShape->setPosition(_barPosition + Vector2f(_size.x, 0.0f));
-        SetShapePosition(_barPosition + Vector2f(_size.x, 0.0f));
+        _fgShape->setOrigin(_fgShape->getOrigin() + Vector2f(_size.x / 2.0f, 0.0f));
+        _fgShape->setPosition(_barPosition + Vector2f(_size.x / 2.0f, 0.0f));
+    }
+    else if (type == PT_TOP)
+    {
+        _fgShape->setOrigin(_fgShape->getOrigin() - Vector2f(0.0f, _size.y / 2.0f));
+        _fgShape->setPosition(_barPosition - Vector2f(0.0f, _size.y / 2.0f));
     }
     else if (type == PT_BOTTOM)
     {
-        _fgShape->setOrigin(0, _size.y);
-        GetDrawable()->setOrigin(0, _size.y);
-        _fgShape->setPosition(_barPosition + Vector2f(0.0f, _size.y));
-        SetShapePosition(_barPosition + Vector2f(0.0f, _size.y));
+        _fgShape->setOrigin(_fgShape->getOrigin() + Vector2f(0.0f, _size.y / 2.0f));
+        _fgShape->setPosition(_barPosition + Vector2f(0.0f, _size.y / 2.0f));
     }
 }
 

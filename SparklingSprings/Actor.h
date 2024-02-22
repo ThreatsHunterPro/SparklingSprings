@@ -33,4 +33,7 @@ private:
 
 public:
 	virtual void Update(const float _deltaTime);
+
+protected:
+	void Destroy(const float _waitingTime = 0.0f);
 };

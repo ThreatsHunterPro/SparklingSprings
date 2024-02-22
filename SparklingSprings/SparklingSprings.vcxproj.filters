@@ -133,14 +133,8 @@
     <Filter Include="Fichiers sources\UI\Widgets\ShapeWidgets\Storable\Items\Equipment">
       <UniqueIdentifier>{3d012038-1781-4b90-a240-86a1ed9bb6e0}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Fichiers sources\Objects\ShapeObjects\Actors\Interactable">
-      <UniqueIdentifier>{ca8c8376-2978-4e8e-a29f-992234dc38a9}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Fichiers sources\Components\Interact">
       <UniqueIdentifier>{a5ebce40-ec3e-47cf-831e-0b4b5911db10}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Fichiers sources\Objects\ShapeObjects\Actors\Interactable\Resource">
-      <UniqueIdentifier>{2ddf9660-6e58-47e4-b8ad-935d2c1671fe}</UniqueIdentifier>
     </Filter>
     <Filter Include="Fichiers sources\Components\Gather">
       <UniqueIdentifier>{2a5f7a06-76e7-46fc-9178-d613062b0027}</UniqueIdentifier>
@@ -150,6 +144,39 @@
     </Filter>
     <Filter Include="Fichiers sources\Objects\ShapeObjects\Actors\Enemies">
       <UniqueIdentifier>{291b6737-ef41-4cd9-b5a2-686d038d8104}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\Objects\ShapeObjects\Actors\GPEs">
+      <UniqueIdentifier>{e03e9e89-eca2-4cbe-a3d0-838180a2f2e9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\Objects\ShapeObjects\Actors\GPEs\Transporter">
+      <UniqueIdentifier>{f3dd4c45-1c21-4524-8cf3-d800777df8f0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\Objects\ShapeObjects\Actors\GPEs\Ladder">
+      <UniqueIdentifier>{516186ba-137c-464f-86d9-a77b3c16da99}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\Interfaces">
+      <UniqueIdentifier>{1a485416-1d04-4e0f-af9a-f8e3548186f7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\Interfaces\Interactable">
+      <UniqueIdentifier>{e2a7cdc1-5c36-4189-bd85-e86debe7a5e3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\Objects\ShapeObjects\Actors\Resource">
+      <UniqueIdentifier>{2ddf9660-6e58-47e4-b8ad-935d2c1671fe}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\Interfaces\Damagable">
+      <UniqueIdentifier>{5c18a832-361b-4a4a-a5f9-5f0e6e6d6210}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\Objects\ShapeObjects\Actors\GPEs\ArrowTrap">
+      <UniqueIdentifier>{c3f17586-40bc-4ee2-8f8a-b6bb8fe6c5c2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\Objects\ShapeObjects\Actors\GPEs\ArrowTrap\Arrow">
+      <UniqueIdentifier>{d5c75fe9-28e1-4fc9-8063-9010261523f1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\Objects\ShapeObjects\Actors\GPEs\FlameThrower">
+      <UniqueIdentifier>{a5101f8a-8f37-4aac-a320-08fed11ba83a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\Objects\ShapeObjects\Actors\GPEs\FlameThrower\Flame">
+      <UniqueIdentifier>{e09ee84b-0afe-4bd1-bd3b-0c5a4bf11f9d}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -285,14 +312,11 @@
     <ClCompile Include="Equipment.cpp">
       <Filter>Fichiers sources\UI\Widgets\ShapeWidgets\Storable\Items\Equipment</Filter>
     </ClCompile>
-    <ClCompile Include="InteractableActor.cpp">
-      <Filter>Fichiers sources\Objects\ShapeObjects\Actors\Interactable</Filter>
-    </ClCompile>
     <ClCompile Include="InteractComponent.cpp">
       <Filter>Fichiers sources\Components\Interact</Filter>
     </ClCompile>
     <ClCompile Include="Resource.cpp">
-      <Filter>Fichiers sources\Objects\ShapeObjects\Actors\Interactable\Resource</Filter>
+      <Filter>Fichiers sources\Objects\ShapeObjects\Actors\Resource</Filter>
     </ClCompile>
     <ClCompile Include="GatherComponent.cpp">
       <Filter>Fichiers sources\Components\Gather</Filter>
@@ -304,10 +328,28 @@
       <Filter>Fichiers sources\Objects\ShapeObjects\Actors\Enemies</Filter>
     </ClCompile>
     <ClCompile Include="Transporter.cpp">
-      <Filter>Fichiers sources</Filter>
+      <Filter>Fichiers sources\Objects\ShapeObjects\Actors\GPEs\Transporter</Filter>
     </ClCompile>
     <ClCompile Include="Ladder.cpp">
-      <Filter>Fichiers sources</Filter>
+      <Filter>Fichiers sources\Objects\ShapeObjects\Actors\GPEs\Ladder</Filter>
+    </ClCompile>
+    <ClCompile Include="IInteractable.cpp">
+      <Filter>Fichiers sources\Interfaces\Interactable</Filter>
+    </ClCompile>
+    <ClCompile Include="ArrowTrap.cpp">
+      <Filter>Fichiers sources\Objects\ShapeObjects\Actors\GPEs\ArrowTrap</Filter>
+    </ClCompile>
+    <ClCompile Include="Arrow.cpp">
+      <Filter>Fichiers sources\Objects\ShapeObjects\Actors\GPEs\ArrowTrap\Arrow</Filter>
+    </ClCompile>
+    <ClCompile Include="IDamagable.cpp">
+      <Filter>Fichiers sources\Interfaces\Damagable</Filter>
+    </ClCompile>
+    <ClCompile Include="FlameThrower.cpp">
+      <Filter>Fichiers sources\Objects\ShapeObjects\Actors\GPEs\FlameThrower</Filter>
+    </ClCompile>
+    <ClCompile Include="Flame.cpp">
+      <Filter>Fichiers sources\Objects\ShapeObjects\Actors\GPEs\FlameThrower\Flame</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -455,14 +497,11 @@
     <ClInclude Include="Equipment.h">
       <Filter>Fichiers sources\UI\Widgets\ShapeWidgets\Storable\Items\Equipment</Filter>
     </ClInclude>
-    <ClInclude Include="InteractableActor.h">
-      <Filter>Fichiers sources\Objects\ShapeObjects\Actors\Interactable</Filter>
-    </ClInclude>
     <ClInclude Include="InteractComponent.h">
       <Filter>Fichiers sources\Components\Interact</Filter>
     </ClInclude>
     <ClInclude Include="Resource.h">
-      <Filter>Fichiers sources\Objects\ShapeObjects\Actors\Interactable\Resource</Filter>
+      <Filter>Fichiers sources\Objects\ShapeObjects\Actors\Resource</Filter>
     </ClInclude>
     <ClInclude Include="GatherComponent.h">
       <Filter>Fichiers sources\Components\Gather</Filter>
@@ -477,10 +516,28 @@
       <Filter>Fichiers sources\Objects\ShapeObjects\Actors</Filter>
     </ClInclude>
     <ClInclude Include="Transporter.h">
-      <Filter>Fichiers d%27en-tête</Filter>
+      <Filter>Fichiers sources\Objects\ShapeObjects\Actors\GPEs\Transporter</Filter>
     </ClInclude>
     <ClInclude Include="Ladder.h">
-      <Filter>Fichiers d%27en-tête</Filter>
+      <Filter>Fichiers sources\Objects\ShapeObjects\Actors\GPEs\Ladder</Filter>
+    </ClInclude>
+    <ClInclude Include="IInteractable.h">
+      <Filter>Fichiers sources\Interfaces\Interactable</Filter>
+    </ClInclude>
+    <ClInclude Include="ArrowTrap.h">
+      <Filter>Fichiers sources\Objects\ShapeObjects\Actors\GPEs\ArrowTrap</Filter>
+    </ClInclude>
+    <ClInclude Include="IDamagable.h">
+      <Filter>Fichiers sources\Interfaces\Damagable</Filter>
+    </ClInclude>
+    <ClInclude Include="FlameThrower.h">
+      <Filter>Fichiers sources\Objects\ShapeObjects\Actors\GPEs\FlameThrower</Filter>
+    </ClInclude>
+    <ClInclude Include="Arrow.h">
+      <Filter>Fichiers sources\Objects\ShapeObjects\Actors\GPEs\ArrowTrap\Arrow</Filter>
+    </ClInclude>
+    <ClInclude Include="Flame.h">
+      <Filter>Fichiers sources\Objects\ShapeObjects\Actors\GPEs\FlameThrower\Flame</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

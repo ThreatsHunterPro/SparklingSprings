@@ -1,8 +1,9 @@
 #pragma once
 #include "Actor.h"
+#include "IDamagable.h"
 #include "Stat.h"
 
-class Enemy : public Actor
+class Enemy : public Actor, public IDamagable
 {
 	Vector2f barOffset;
 	Stat* health;

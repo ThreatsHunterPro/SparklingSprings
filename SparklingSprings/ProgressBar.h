@@ -22,7 +22,7 @@ public:
 	virtual void SetShapePosition(const Vector2f& _position) override
 	{
 		ShapeWidget::SetShapePosition(_position);
-		foreground->SetShapePosition(_position);
+		foreground->SetShapePosition(_position - Vector2f(GetDrawable()->getGlobalBounds().getSize().x / 2.0f, 0.0f));
 	}
 	void SetValue(const float _newValue)
 	{

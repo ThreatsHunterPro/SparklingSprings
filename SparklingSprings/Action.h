@@ -1,12 +1,6 @@
 #pragma once
 #include "IManagable.h"
-#include <SFML/Graphics.hpp>
-#include <functional>
-#include <vector>
-#include <string>
-
-using namespace std;
-using namespace sf;
+#include "Macro.h"
 
 typedef Event::EventType ActionType;
 

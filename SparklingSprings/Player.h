@@ -1,5 +1,7 @@
 #pragma once
 #include "Actor.h"
+#include "IDamagable.h"
+
 #include "PlayerStats.h"
 #include "Inventory.h"
 #include "CraftBook.h"
@@ -12,20 +14,20 @@
 
 using namespace std;
 
-class Player : public Actor
+class Player : public Actor, public IDamagable
 {
 	PlayerStats* stats;
 	Inventory* inventory;
 	CraftBook* craftBook;
 	SkillTree* skillTree;
 
-	ActionMap* overworldInputs;
-	ActionMap* donjonInputs;
-
 	PlayerMovementComponent* movement;
 	InteractComponent* interact;
 	GatherComponent* gather;
 	FightComponent* fight;
+
+	ActionMap* overworldInputs;
+	ActionMap* donjonInputs;
 
 	//TODO remove
 	Canvas* canvas;
@@ -53,5 +55,6 @@ private:
 	void SwapActionMap();
 
 public:
+	virtual void Update(const float _deltaTime) override;
 	void Init();
 };

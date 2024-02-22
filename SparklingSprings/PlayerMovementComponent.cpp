@@ -5,7 +5,6 @@
 #include "Ladder.h"
 
 #include "Macro.h"
-#include "Kismet.h"
 
 PlayerMovementComponent::PlayerMovementComponent(Actor* _owner) : Component(_owner)
 {
@@ -22,7 +21,7 @@ PlayerMovementComponent::PlayerMovementComponent(Actor* _owner) : Component(_own
 
 	// Ground
 	isOnGround = false;
-	checkGroundDistance = 95.0f;
+	checkGroundDistance = 40.0f;
 
 	canJumpAndDash = false;
 
@@ -30,7 +29,7 @@ PlayerMovementComponent::PlayerMovementComponent(Actor* _owner) : Component(_own
 	isJumping = false;
 	jumpForce = 0.1f;
 	jumpDuration = 0.5f;
-	gravity = 0.1f;
+	gravity = 0.15f;
 
 	// Dash
 	canDash = true;
@@ -42,16 +41,19 @@ PlayerMovementComponent::PlayerMovementComponent(Actor* _owner) : Component(_own
 	dashConso = 400.0f;
 
 	mana = dynamic_cast<Player*>(owner)->GetStats()->mana;
+
+	//TODO remove
+	hitPoint = new Actor("HitPoint", ShapeData(Vector2f(), Vector2f(10.0f, 10.0f)));
+	hitPoint->GetDrawable()->setFillColor(Color::Green);
 }
 
 
-bool PlayerMovementComponent::CheckGround()
+bool PlayerMovementComponent::CheckGround(HitInfo& _hitInfo, const Vector2f& _direction)
 {
-	HitInfo _hit;
-	const bool _hasHit = Raycast(owner->GetShapePosition(), Vector2f(0.0f, 1.0f),
-								 checkGroundDistance, _hit, { owner->GetDrawable() });
-
-	return _hasHit;
+	return Raycast(owner->GetShapePosition(), _direction, checkGroundDistance, _hitInfo, {
+		owner->GetDrawable(),
+		hitPoint->GetDrawable(),
+	});
 }
 
 void PlayerMovementComponent::Update(const float _deltaTime)
@@ -74,7 +76,12 @@ void PlayerMovementComponent::Update(const float _deltaTime)
 	if (canJumpAndDash)
 	{
 		// Si je suis en l'air et que je ne saute pas
-		if (!(isOnGround = CheckGround()) && !isJumping)
+		HitInfo _hitInfo;
+		isOnGround = CheckGround(_hitInfo, Vector2f(0.0f, 1.0f));
+		hitPoint->SetShapePosition(_hitInfo.position);
+		hitPoint->GetDrawable()->setFillColor(isOnGround ? Color::Blue : Color::Green);
+
+		if (!isOnGround && !isJumping)
 		{
 			// Application de la gravité
 			_offset = direction + Vector2f(0.0f, 1.0f);
@@ -113,6 +120,11 @@ void PlayerMovementComponent::Update(const float _deltaTime)
 		}
 	}
 
+	else
+	{
+		hitPoint->GetDrawable()->setFillColor(Color::White);
+	}
+
 	owner->GetDrawable()->move(_offset);
 }
 
@@ -142,13 +154,28 @@ void PlayerMovementComponent::TryClimbLadder(const float _directionY)
 	cout << _directionY << endl;
 	cout << owner->GetShapePosition().x << " " << owner->GetShapePosition().y << endl;
 
-	HitInfo _hitInfo;
-	const bool _hasHit = Raycast(owner->GetShapePosition(), Vector2f(0.0f, _directionY), 1.0f,
-								 _hitInfo, { owner->GetDrawable(), });
+	const vector<HitInfo>& _hitInfos = RaycastAll(owner->GetShapePosition(), Vector2f(0.0f, _directionY), 5.0f, {
+		owner->GetDrawable(),
+		hitPoint->GetDrawable(),
+	});
+	//const bool _hasHit = CheckGround(_hitInfo, Vector2f(0.0f, _directionY));
 
-	if (_hasHit && dynamic_cast<Ladder*>(_hitInfo.actor))
+	for (HitInfo _hitInfo : _hitInfos)
 	{
-		cout << "_directionY" << endl;
-		SetDirectionY(_directionY);
+		if (dynamic_cast<Ladder*>(_hitInfo.actor))
+		{
+			cout << _directionY << endl;
+			SetDirectionY(_directionY);
+		}
+
+		else
+		{
+			cout << "ca ce n'est pas une echelle !" << endl;
+		}
+	}
+
+	if (int(_hitInfos.size()) <= 0)
+	{
+		SetDirectionY(0.0f);
 	}
 }

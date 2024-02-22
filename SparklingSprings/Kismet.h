@@ -1,9 +1,7 @@
 #pragma once
-#include "Actor.h"
-#include <SFML/Graphics.hpp>
+#include "Macro.h"
 
-using namespace sf;
-using namespace std;
+class Actor;
 
 struct HitInfo
 {
@@ -17,3 +15,5 @@ bool Raycast(const Vector2f& _origin, const Vector2f& _direction, const float _m
 
 vector<HitInfo> RaycastAll(const Vector2f& _origin, const Vector2f& _direction, const float _maxDistance,
 						   const vector<Shape*>& _ignoredShapes, const float _precision = 0.01f);
+ 
+vector<Actor*> Boxcast(Shape* _shape, const vector<Actor*>& _actors);

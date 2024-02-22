@@ -2,6 +2,7 @@
 #include "Action.h"
 #include "MovementComponent.h"
 #include "Stat.h"
+#include "Kismet.h"
 
 class PlayerMovementComponent : public Component
 {
@@ -47,6 +48,9 @@ class PlayerMovementComponent : public Component
 
 	ChangingStat* mana;
 
+	//TODO remove
+	ShapeObject* hitPoint;
+
 public:
 	void SetDirectionX(const float _directionX)
 	{
@@ -81,7 +85,7 @@ public:
 	PlayerMovementComponent(Actor* _owner);
 
 private:
-	bool CheckGround();
+	bool CheckGround(HitInfo& _hitInfo, const Vector2f& _direction);
 
 public:
 	virtual void Update(const float _deltaTime) override;
